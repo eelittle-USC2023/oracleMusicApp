@@ -1,0 +1,6 @@
+{
+    "text": "What is the main chord of the verse?",
+    "answerChoices": ["Am", "C", "G", "F"],
+    "correctAnswer": "C",
+    "points": 2
+}

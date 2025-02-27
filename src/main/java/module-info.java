@@ -2,6 +2,7 @@ module com.musicapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires json.simple;
+    requires jfugue;
 
     opens com.musicapp to javafx.fxml;
     exports com.musicapp;

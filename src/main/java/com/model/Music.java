@@ -1,4 +1,4 @@
-package com.musicapp;
+package com.model;
 
 import org.jfugue.player.Player;
 

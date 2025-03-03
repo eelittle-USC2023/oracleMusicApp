@@ -1,5 +1,6 @@
 package com.model;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class SongList 
 {
@@ -15,10 +16,9 @@ public class SongList
         SongList temp = new SongList();
         return temp;
     }
-    public Song getSong()
+    public Song getSong(UUID id)
     {
-        Song temp = new Song();
-        return temp;
+        return new Song(id, null, null, null, null, null, null);
     }
     public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures)
     {
@@ -30,7 +30,7 @@ public class SongList
     }
     public boolean deleteSong(Song song)
     {
-
+        return true;
     }
     public void save()
     {

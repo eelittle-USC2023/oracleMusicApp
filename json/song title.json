@@ -1,8 +1,0 @@
-{
-    "title": "Song Title 1",
-    "artistName": "Artist 1",
-    "measures": [
-        {"timeSignatureTop": 4, "timeSignatureBottom": 4, "keySignature": "C", "chords": []},
-        {"timeSignatureTop": 3, "timeSignatureBottom": 4, "keySignature": "G", "chords": [] }
-    ]
-}

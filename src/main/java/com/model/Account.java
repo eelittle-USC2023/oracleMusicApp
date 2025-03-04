@@ -6,7 +6,7 @@ public class Account
     private String password;
     private String role;
 
-    public Account(String username, String password, Role role)
+    public Account(String username, String password, String role)
     {
 
     }

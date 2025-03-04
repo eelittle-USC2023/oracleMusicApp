@@ -17,7 +17,8 @@ public class SongList
     }
     public Song getSong()
     {
-        Song temp = new Song();
+        Instrument guitar = new Instrument();
+        Song temp = new Song("title", guitar);
         return temp;
     }
     public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures)
@@ -30,11 +31,11 @@ public class SongList
     }
     public boolean deleteSong(Song song)
     {
-
+        return true;
     }
     public void save()
     {
-        
+
     }
 
 }

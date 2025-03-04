@@ -39,7 +39,7 @@ public class OracleMusicAppFacade
     }
     public Account createAccount(String username, String password)
     {
-        Account temp = new Account();
+        Account temp = new Account(username, password, "role");
         return temp;
     }
     public boolean login(String username, String password)
@@ -61,14 +61,15 @@ public class OracleMusicAppFacade
     }
     public Song makeSong()
     {
-        Song temp = new Song();
+        Instrument guitar = new Instrument();
+        Song temp = new Song("title", guitar);
         return temp;
     }
     public void viewLesson()
     {
 
     }
-    public bool answerQuestion()
+    public boolean answerQuestion()
     {
         return true;
     }

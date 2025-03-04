@@ -8,6 +8,9 @@ public class DataConstants {
     protected static final String ACCOUNT_SAVED_SONGS = "savedSongs";
     protected static final String ACCOUNT_SAVED_LESSONS = "savedLessons";
     protected static final String ACCOUNT_ASSIGNMENTS = "assignments";
+    protected static final String ACCOUNT_ASSIGNMENT_TYPE = "type";
+    protected static final String ACCOUNT_ASSIGNMENT_LESSON = "lesson";
+    protected static final String ACCOUNT_ASSIGNMENT_SONG = "song";
     protected static final String ACCOUNT_ACHIEVEMENTS = "achievements";
     protected static final String ACCOUNT_SONGS_PLAYED = "songsPlayed";
     protected static final String ACCOUNT_ENROLLED_COURSES = "enrolledCourses";

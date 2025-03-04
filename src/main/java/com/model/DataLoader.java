@@ -21,17 +21,51 @@ public class DataLoader extends DataConstants {
                 String username = (String)accountJSON.get(ACCOUNT_USERNAME);
                 String password = (String)accountJSON.get(ACCOUNT_PASSWORD);
                 String role = (String)accountJSON.get(ACCOUNT_ROLE);
-                JSONArray savedSongsIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_SAVED_SONGS);
+                JSONArray savedSongIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_SAVED_SONGS);
                 ArrayList<Song> savedSongs = new ArrayList<Song>();
-                for (int j = 0; j < savedSongsIDsJSON.size(); i++) {
-                    savedSongs.add(SongList.getInstance().getSong(UUID.fromString((String)savedSongsIDsJSON.get(j))));
+                for (int j = 0; j < savedSongIDsJSON.size(); i++) {
+                    savedSongs.add(SongList.getInstance().getSong(UUID.fromString((String)savedSongIDsJSON.get(j))));
                 }
-                JSONArray savedLessonsIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_SAVED_LESSONS);
+                JSONArray savedLessonIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_SAVED_LESSONS);
                 ArrayList<Lesson> savedLessons = new ArrayList<Lesson>();
-                for (int j = 0; j < savedSongsIDsJSON.size(); i++) {
-                    savedLessons.add(LessonList.getInstance().getLesson(UUID.fromString((String)savedLessonsIDsJSON.get(j))));
+                for (int j = 0; j < savedLessonIDsJSON.size(); i++) {
+                    savedLessons.add(LessonList.getInstance().getLesson(UUID.fromString((String)savedLessonIDsJSON.get(j))));
                 }
-
+                JSONArray assignmentsJSON = (JSONArray)accountJSON.get(ACCOUNT_SAVED_LESSONS);
+                ArrayList<Assignment> assignments = new ArrayList<Assignment>();
+                for (int j = 0; j < assignmentsJSON.size(); i++) {
+                    JSONObject assignmentJSON = (JSONObject)assignmentsJSON.get(j);
+                    if(((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_TYPE)).equals("Song") ) {
+                        assignments.add(new SongAssignment((Song)assignmentJSON.get(ACCOUNT_ASSIGNMENT_SONG)));
+                    } else if(((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_TYPE)).equals("Lesson") ) {
+                        assignments.add(new LessonAssignment((Lesson)assignmentJSON.get(ACCOUNT_ASSIGNMENT_LESSON)));
+                    }
+                }
+                JSONArray achievementsJSON = (JSONArray)accountJSON.get(ACCOUNT_ACHIEVEMENTS);
+                ArrayList<Achievement> achievements = new ArrayList<Achievement>();
+                for (int j = 0; j < achievementsJSON.size(); j++) {
+                    achievements.add((Achievement)achievementsJSON.get(j));
+                }
+                JSONArray songPlayedIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_SONGS_PLAYED);
+                ArrayList<Song> songsPlayed = new ArrayList<Song>();
+                for (int j = 0; j < songPlayedIDsJSON.size(); j++) {
+                    songsPlayed.add(SongList.getInstance().getSong(UUID.fromString(((String)songPlayedIDsJSON.get(j)))));
+                }
+                JSONArray courseIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_COURSES);
+                ArrayList<Course> courses = new ArrayList<Course>();
+                for (int j = 0; j < courseIDsJSON.size(); j++) {
+                    courses.add(new Course(UUID.fromString(((String)courseIDsJSON.get(j)))));
+                }
+                JSONArray completedSongIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_COMPLETED_SONGS);
+                ArrayList<Song> completedSongs = new ArrayList<Song>();
+                for (int j = 0; j < completedSongIDsJSON.size(); i++) {
+                    completedSongs.add(SongList.getInstance().getSong(UUID.fromString((String)completedSongIDsJSON.get(j))));
+                }
+                JSONArray completedLessonIDsJSON = (JSONArray)accountJSON.get(ACCOUNT_COMPLETED_LESSONS);
+                ArrayList<Lesson> completedLessons = new ArrayList<Lesson>();
+                for (int j = 0; j < completedLessonIDsJSON.size(); i++) {
+                    completedLessons.add(LessonList.getInstance().getLesson(UUID.fromString((String)completedLessonIDsJSON.get(j))));
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

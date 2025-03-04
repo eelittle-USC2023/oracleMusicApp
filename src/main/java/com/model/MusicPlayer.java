@@ -26,12 +26,14 @@ public class MusicPlayer
     }
     public State getTabState()
     {
-        State temp = new State();
+        MusicPlayer player = new MusicPlayer();
+        State temp = new State(player, "title");
         return temp;
     }
     public State getChordState()
     {
-        State temp = new State();
+        MusicPlayer player = new MusicPlayer();
+        State temp = new State(player, "title");
         return temp; 
     }
     public void showSong(String songName, ArrayList<String> notes)

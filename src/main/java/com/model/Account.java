@@ -14,4 +14,7 @@ public class Account
     {
         return true;
     }
+    public String getUsername(){
+        return username;
+    }
 }

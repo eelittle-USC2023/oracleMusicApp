@@ -1,8 +1,9 @@
 package com.model; 
 import java.io.FileWriter;
 import java.io.IOException;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 
 
@@ -11,21 +12,25 @@ public class DataWriter{
 
     public static boolean savedAccounts(AccountList accountList){
         JSONArray accountArray = new JSONArray();
+
         for (Account account : accountList.getAccounts()){
-            JSONArray accountObject = new JSONObject();
+            JSONObject accountObject = new JSONObject();
             accountObject.put("Username", account.getUsername());
             accountObject.put("Password", account.getPassword());
             accountObject.put("Role", account.getRole().toString());
-            accountArray.put(accountObject);
+            accountArray.add(accountObject);
         }
         return saveToFile ("Account.json", accountArray);
     }
 public static boolean savedSongs (SongList songList){
-    for (Song song : songList.getSong()){;
+    JSONArray songArray = new JSONArray();
+
+    for (Song song : songList.getSongs()){;
+        JSONObject songObject = new JSONObject();
     songObject.put("title" , song.getTitle());
     songObject.put("artistName", song.getArtistName());
     songObject.put("genre", song.getGenre());
-    songArray.put(songObject);
+    songArray.add(songObject);
     }
     return saveToFile("songs.json", songArray);//Add songs json later..
 } 

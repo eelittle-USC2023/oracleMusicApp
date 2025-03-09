@@ -62,7 +62,7 @@ public class OracleMusicAppFacade
     public Song makeSong()
     {
         Instrument guitar = new Instrument();
-        Song temp = new Song("title", guitar);
+        Song temp = new Song("title", guitar, "", "", "");
         return temp;
     }
     public void viewLesson()

@@ -6,19 +6,18 @@ public class Measure
     private int timeSignatureTop;
     private int timeSignatureBottom;
     private String keySigniture;
-    private ArrayList<Note> notes;
+    private ArrayList<Note> measure;
 
-    public Measure(Note note, int timeSignatureTop, int timeSignatureBottom, String keySig)
+    public Measure(int tSP, int tSB, String kS)
     {
-
-    }
-    public void addNote()
-    {
-
+        this.timeSignatureTop = tSP;
+        this.timeSignatureBottom = tSB;
+        this.keySigniture = kS;
+        this.measure = new ArrayList();
     }
     public void addNote(Note note)
     {
-        
+        measure.add(note);
     }
 
 }

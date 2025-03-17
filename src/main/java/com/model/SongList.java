@@ -4,21 +4,31 @@ import java.util.ArrayList;
 public class SongList 
 {
     private ArrayList<Song> songs;
-    private SongList songList;
+    private static SongList instance;
 
     private SongList()
     {
+        songs = new ArrayList<>();
 
     }
     public static SongList getInstance()
     {
-        SongList temp = new SongList();
-        return temp;
+       if (instance == null){
+        instance = new SongList();
+       }
+       return instance;
     }
-    public Song getSong()
+    public ArrayList<Song> getSong()
     {
-        Song temp = new Song();
-        return temp;
+       return songs;
+    }
+    public Song getSong( String title){
+        for (Song song : songs){
+            if(song.getTitle().equalsIgnoreCase(title)){
+                return song;
+            }
+        }
+        return null;
     }
     public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures)
     {
@@ -30,6 +40,7 @@ public class SongList
     }
     public boolean deleteSong(Song song)
     {
+        return songs.remove(song);
 
     }
     public void save()

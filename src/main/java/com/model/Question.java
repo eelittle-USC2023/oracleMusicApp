@@ -22,9 +22,7 @@ public class Question
         this.studentAnswer = "";
 
     }
-   public String getQuestionText(){
-    return question;
-   }
+
    public ArrayList<String> getAnswerChoices(){
     return answerChoices;
    }
@@ -39,5 +37,8 @@ public class Question
    }
    public String getHint(){
     return hint;
+   }
+   public String getQuestionText(){
+    return question;
    }
 }

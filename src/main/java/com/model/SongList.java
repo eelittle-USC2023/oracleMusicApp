@@ -18,7 +18,7 @@ public class SongList
     public Song getSong()
     {
         Instrument guitar = new Instrument();
-        Song temp = new Song("title", guitar);
+        Song temp = new Song("title", guitar, "", "", "");
         return temp;
     }
     public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures)

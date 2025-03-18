@@ -9,9 +9,11 @@ public class Guitar
     private int BFret;
     private int HighEFret;
 
-    public Guitar()
+    public Guitar(int lE, int A, int D, int G, int B, int hE)
     {
-        
+        this.LowEFret = lE;
+        this.AFret = A;
+        this.
     }
 
 }

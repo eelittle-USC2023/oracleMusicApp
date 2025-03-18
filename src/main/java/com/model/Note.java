@@ -11,6 +11,10 @@ public class Note
     private int octave;
     private int lengthNum;
     private int lengthDenom;
+    private int position;
+    private int temp = 0;
+    private int noteNumber = 0;
+    private double duration;
 
     /**
      * Sets the name, octave, length numerator and length denominator to their respective values
@@ -19,7 +23,7 @@ public class Note
      * @param lN The Numerator for the length of the note
      * @param lD The Denominator for the length of the note
      */
-    public Note(String n, int o, int lN, int lD)
+    public Note(String n, int o, int lN, int lD, int pos)
     {
         this.name = n;
         this.octave = o;
@@ -32,7 +36,7 @@ public class Note
      */
     public String timeToJFugue()
     {
-        double duration = (lengthNum / lengthDenom);
+        duration = (lengthNum / lengthDenom);
         return "/"+duration;
     }
     /**
@@ -42,7 +46,6 @@ public class Note
      */
     public int noteToJFugue()
     {
-        int noteNumber = 0;
         char Name =  name.charAt(0);
         
         if(octave == 2)
@@ -175,5 +178,24 @@ public class Note
             noteNumber--;
         }
         return noteNumber;
+    }
+    /**
+     * Takes in a note and either adds it to the continuing chord or moves to the next note before returning an input which can be played in the music player
+     * @param N inputted note to translate to Jfugue input
+     * @return the string which can be inputted into the music player
+     */
+    public String toJFugueString(Note N)
+    {
+        String next;
+        if(position == temp)
+        {
+            next = "+";
+        }
+        else
+        {
+            next = " ";
+        }
+        temp = position;
+        return Integer.toString(noteNumber) + Double.toString(duration) + next;
     }
 }   

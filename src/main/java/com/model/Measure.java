@@ -1,6 +1,10 @@
 package com.model;
 import java.util.ArrayList;
 
+/**
+ * Establishes a measure of the song and allows the addition and removal of notes
+ * @author Ally Blackwell
+ */
 public class Measure 
 {
     private int timeSignatureTop;
@@ -19,5 +23,8 @@ public class Measure
     {
         measure.add(note);
     }
-
+    public void removeNote(Note note)
+    {
+        measure.remove(note);
+    }
 }

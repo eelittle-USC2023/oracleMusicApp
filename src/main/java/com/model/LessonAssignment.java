@@ -1,14 +1,15 @@
 package com.model;
+
 import java.util.ArrayList;
 
-public class LessonAssignment 
-{
-    private String difficultyLevel;
-    private ArrayList<Lesson> recommendLesson;
+public class LessonAssignment extends Assignment {
     private Lesson lesson;
-    
-    public void completeAssignment()
-    {
-        
+    private String difficultyLevel;
+    private ArrayList<Lesson> recommendedLesson; 
+
+    public LessonAssignment(Lesson lesson) {
+        this.lesson = lesson;
+        difficultyLevel = "";
+        recommendedLesson = new ArrayList<Lesson>();
     }
 }

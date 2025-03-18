@@ -39,7 +39,7 @@ public static boolean savedLessons (LessonList lessonList){
     for (Lesson lessons : lessonList.getLessons()){
         JSONObject lessonObject= new JSONObject();
 
-        lessonObject.put("title", Lesson.getTitle());
+        lessonObject.put("title", lessons.getTitle());
 
         //A way for lesson questions to convert to a Json
         JSONArray questionArray = new JSONArray();
@@ -47,7 +47,9 @@ public static boolean savedLessons (LessonList lessonList){
             questionArray.add(convertQuestionJSON(question));
         }
 lessonObject.put("questions", questionArray);
-lessonObject.put("text", new JSONArray(lesson.getText()));
+JSONArray textArray = new JSONArray();
+textArray.addAll(lessons.getText());
+lessonObject.put("text", textArray);
 lessonArray.add(lessonArray);
     }
     return saveToFile("lesson.json", lessonArray);

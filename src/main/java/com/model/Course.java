@@ -11,4 +11,8 @@ public class Course {
         this.id = id;
         students = new ArrayList<Student>();
     }
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
 }

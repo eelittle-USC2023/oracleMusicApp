@@ -1,8 +1,11 @@
 package com.model;
+
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Question 
 {
+    private UUID id;
     private String question;
     private String studentAnswer;
     private ArrayList<String> answerChoices;
@@ -10,6 +13,17 @@ public class Question
     private String correctAnswer;
     private String feedback;
     private String hint;
+
+    public Question(UUID id, String question, String studentAnswer, ArrayList<String> answerChoices, int points, String correctAnswer, String feedback, String hint) {
+        this.id = id;
+        this.question = question;
+        this.studentAnswer = studentAnswer;
+        this.answerChoices = answerChoices;
+        this.points = points;
+        this.correctAnswer = correctAnswer;
+        this.feedback = feedback;
+        this.hint = hint;
+    }
 
     public boolean isCorrect()
     {
@@ -34,5 +48,8 @@ public class Question
     public String getHint()
     {
         return "";
+    }
+    public UUID getID() {
+        return id;
     }
 }

@@ -19,6 +19,11 @@ public class AccountList{
     }
     
     public Account getAccount(String username) {
-        return new Account(username, username, "placeholder");
+        for (Account account : accounts) {
+            if (account.getUsername().equals(username)) {
+                return account;
+            }
+        }
+        return null;
     }
 }

@@ -68,7 +68,7 @@ public class OracleMusicAppFacade
     {
 
     }
-    public bool answerQuestion()
+    public boolean answerQuestion()
     {
         return true;
     }

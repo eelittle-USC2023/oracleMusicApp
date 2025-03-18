@@ -12,16 +12,15 @@ public class Student extends Account
     private ArrayList<Song> completedSongs;
     private ArrayList<Lesson> completedLessons;
 
-    public Student(String username, String password, String role, ArrayList<Song> savedSongs, ArrayList<Lesson> savedLessons, 
-                   ArrayList<Assignment> assignments, ArrayList<Achievement> achievements, ArrayList<Song> songsPlayed, ArrayList<Course> courses,
+    public Student(String username, String password,  ArrayList<Song> savedSongs, ArrayList<Lesson> savedLessons, 
+                   ArrayList<Assignment> assignments, ArrayList<Achievement> achievements, ArrayList<Song> songsPlayed,
                    ArrayList<Song> completedSongs, ArrayList<Lesson> completedLessons) {
-        super(username, password, role);
+        super(username, password);
         this.savedSongs = savedSongs;
         this.savedLessons = savedLessons;
         this.assignments = assignments;
         this.achievements = achievements;
         this.songsPlayed = songsPlayed;
-        this.courses = courses;
         this.completedSongs = completedSongs;
         this.completedLessons = completedLessons;
     }
@@ -33,5 +32,8 @@ public class Student extends Account
     public void declineInvite()
     {
         
+    }
+    public void addCourse(Course course) {
+        courses.add(course);
     }
 }

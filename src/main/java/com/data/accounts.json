@@ -1,50 +1,43 @@
 [
     {
         "username": "jake&finn",
-        "password": "",
+        "password": "sleepy",
         "role": "Student",
         "savedSongs": [
-            "Song A",
-            "Song B",
-            "Song C"
+            "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
         ],
         "savedLessons": [
-            "Lesson 1",
-            "Lesson 2"
+            "441d3ec4-0533-4513-ac8b-a9f8ab91321b"
         ],
         "assignments": [
             {
                 "type": "Lesson",
-                "lesson": "Lesson 1"
+                "lesson": "441d3ec4-0533-4513-ac8b-a9f8ab91321b"
             },
             {
                 "type": "Song",
-                "song": "Song B"
+                "song": "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
             }
         ],
         "achievements": [
-            "10SONGS"
+            "TENSONGS"
         ],
         "songsPlayed": [
-            "Song C"
-        ],
-        "enrolledCourses": [
-            "Guitar Roots 101"
+            "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
         ],
         "completedSongs": [
-            "Song A"
+            "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
         ],
         "completedLessons": [
-            "Lesson 1"
+            "441d3ec4-0533-4513-ac8b-a9f8ab91321b"
         ]
     },
     {
         "username": "asmith24",
-        "password": "",
+        "password": "password",
         "role": "Teacher",
         "courses": [
-            "Guitar Roots 101",
-            " Advanced Guitar Roots 303"
+            "2b233848-9c28-4299-a8a2-8df54bfb8f74"
         ]
     }
 ]

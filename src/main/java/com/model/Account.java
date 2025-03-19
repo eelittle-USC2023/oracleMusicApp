@@ -6,22 +6,24 @@ public class Account
     private String password;
     private String role;
 
-    public Account(String username, String password, String role)
-    {
+    public Account(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
+    public boolean checkLogin(String username, String password) {
+        return this.username.equals(username) && this.password.equals(password);
     }
-    public boolean checkLogin(String username, String password)
-    {
-        return true;
-    }
-    public String getUsername(){
+
+    public String getUsername() {
         return username;
     }
+
     public String getPassword() {
         return password;
     }
-    
-    public String role() {
-    return role;
+
+    public String getRole() {
+        return role;
     }
-}

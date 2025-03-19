@@ -3,37 +3,35 @@ import java.util.ArrayList;
 
 public class AccountList 
 {
-    private ArrayList<Song> songs;
-    private static SongList songList;
-
-    private AccountList()
-    {
+    private AccountList() {
 
     }
-    public static AccountList getInstance()
-    {
-        AccountList temp = new AccountList();
-        return temp;
+
+    public static AccountList getInstance() {
+        return accountList;
     }
-    public Account getAccount()
-    {
-        Account temp = new Account("username", "password", "role");
-        return temp;
+
+    public ArrayList<Account> getAccounts() {
+        return accounts;
     }
-    public boolean addAccount(String username, String password, String role)
-    {
+
+    public Account getAccount(String username) {
+        return null;
+    }
+
+    public boolean addAccount(Account account) {
         return true;
     }
-    public boolean editAccount(Account account)
-    {
+
+    public boolean editAccount(Account account) {
         return true;
     }
-    public boolean deleteAccount(Account account)
-    {
-        return true;
+
+    public boolean deleteAccount(Account account) {
+        return accounts.remove(account);
     }
-    public void save()
-    {
+
+    public void save() {
         
     }
 }

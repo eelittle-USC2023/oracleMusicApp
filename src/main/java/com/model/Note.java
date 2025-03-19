@@ -6,9 +6,11 @@ public class Note
     private int octave;
     private int lengthNum;
     private int lengthDenom;
+    
 
     public Note(char name, int octave, int lengthNum, int lengthDenom)
     {
         
     }
+  
 }

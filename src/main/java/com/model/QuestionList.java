@@ -1,5 +1,6 @@
 package com.model;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class QuestionList 
 {
@@ -18,9 +19,16 @@ public class QuestionList
       }
       return instance;
     }
-    public ArrayList<Question> getQuestion()
+    public Question getQuestion(UUID id)
     {
-        return questions;
+        /*
+        for (Question q : questions) {
+            if (q.getID() == id) {
+                return q;
+            }
+        }
+        */
+        return new Question(id, null, null, null, 0, null, null, null);
     }
     public boolean addQuestion(String question, String studentAnswer, int points, String correctAnswer, String feedback, String hint)
     {

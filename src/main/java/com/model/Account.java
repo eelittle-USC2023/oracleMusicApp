@@ -4,11 +4,11 @@ public class Account
 {
     private String username;
     private String password;
-    private String role;
 
-    public Account(String username, String password, String role)
+    public Account(String username, String password)
     {
-
+        this.username = username;
+        this.password = password;
     }
     public boolean checkLogin(String username, String password)
     {
@@ -19,11 +19,5 @@ public class Account
     }
     public String getPassword(){
         return password;
-    }
-    public String getRole(){
-        return role;
-    }
-    public String role() {
-    return role;
     }
 }

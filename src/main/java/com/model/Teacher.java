@@ -4,9 +4,9 @@ import java.util.ArrayList;
 public class Teacher extends Account {
     private ArrayList<Course> courses;
 
-    public Teacher(String Username, String password) {
-        super(Username, password, "teacher");
-        this.courses = new ArrayList<>();
+    public Teacher(String username, String password) {
+        super(username, password);
+        courses = new ArrayList<Course>();
     }
 
     public void createCourse (String courseName, String courseId) {
@@ -16,6 +16,9 @@ public class Teacher extends Account {
 
     public void disbandCourse(Course course){
         courses.remove(course);
+    }
+    public void addCourse(Course course) {
+        courses.add(course);
     }
 
     public ArrayList<Course> getCourses() {

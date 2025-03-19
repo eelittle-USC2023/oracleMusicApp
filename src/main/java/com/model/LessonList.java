@@ -1,5 +1,6 @@
 package com.model;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class LessonList 
 {
@@ -18,17 +19,14 @@ public class LessonList
       }
       return instance;
     }
-    public Lesson getLessons(String title)
-    {
-        for (Lesson lesson : lessons){
-            if (lesson.getTitle().equalsIgnoreCase(title)){
-                return lesson;
-            }
-        }
-     return null;
-    }
     public ArrayList<Lesson> getLessons(){
         return lessons;
+    }
+    public Lesson getLesson(UUID id)
+    {
+        ArrayList<Question> temp1 = new ArrayList<Question>();
+        ArrayList<String> temp2 = new ArrayList<String>();
+        return new Lesson(id, "title", temp1 , temp2);
     }
     public boolean addLesson(String title, String studentAnswer, int points, String correctAnswer, String feedback, String hint)
     {

@@ -9,22 +9,26 @@ public class Measure
 {
     private int timeSignatureTop;
     private int timeSignatureBottom;
-    private String keySigniture;
-    private ArrayList<Note> measure;
+    private String keySignature;
+    private ArrayList<Note> notes;
 
-    public Measure(int tSP, int tSB, String kS)
+    public Measure(int timeSignatureTop, int timeSignatureBottom, String keySig, ArrayList<Note> notes)
     {
-        this.timeSignatureTop = tSP;
-        this.timeSignatureBottom = tSB;
-        this.keySigniture = kS;
-        this.measure = new ArrayList();
+        this.timeSignatureBottom = timeSignatureBottom;
+        this.timeSignatureTop = timeSignatureTop;
+        this.keySignature = keySig;
+        this.notes = notes;
+    }
+    public void addNote()
+    {
+
     }
     public void addNote(Note note)
     {
-        measure.add(note);
+        notes.add(note);
     }
     public void removeNote(Note note)
     {
-        measure.remove(note);
+        notes.remove(note);
     }
 }

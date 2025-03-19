@@ -39,7 +39,7 @@ public class OracleMusicAppFacade
     }
     public Account createAccount(String username, String password)
     {
-        Account temp = new Account(username, password, "role");
+        Account temp = new Account(username, password);
         return temp;
     }
     public boolean login(String username, String password)

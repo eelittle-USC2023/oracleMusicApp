@@ -10,7 +10,7 @@ public class Assignment{
         this.description = description;
         this.completed = false;
     }
-    public void markedCompleted(){
+    public void markCompleted(){
         this.completed = true;
     }
     public boolean isCompleted(){
@@ -19,12 +19,12 @@ public class Assignment{
     public String getTitle(){
         return title;
     }
-public String getDescription(){
+    public String getDescription(){
     return description;
-}
+    }
 
-@Override
-public  String toString(){
-    return title + description + "Completed:" + completed;
-}
+    @Override
+    public  String toString(){
+        return title + description + "Completed:" + completed;
+    }
 }

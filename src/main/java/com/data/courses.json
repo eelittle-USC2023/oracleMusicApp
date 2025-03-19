@@ -1,0 +1,20 @@
+[
+    {
+        "courseName": "Guitar Roots 101",
+        "id": "2b233848-9c28-4299-a8a2-8df54bfb8f74",
+        "students": [
+            "jake&finn"
+        ],
+        "assignments": [
+            {
+                "type": "Lesson",
+                "lesson": "441d3ec4-0533-4513-ac8b-a9f8ab91321b"
+            },
+            {
+                "type": "Song",
+                "song": "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
+            }
+        ],
+        "teacher": "asmith24"
+    }
+]

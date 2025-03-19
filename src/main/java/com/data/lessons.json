@@ -1,7 +1,8 @@
 [
    {
+    "id": "441d3ec4-0533-4513-ac8b-a9f8ab91321b",
     "title": "Intro into playing Chords",
-    "questionId":[1, 2, 3],
+    "questions":["0c2fb525-e494-416f-b0cf-5f3633adbe46"],
     "text":["To play a chord, you sound multiple notes together."]
    }
 ]

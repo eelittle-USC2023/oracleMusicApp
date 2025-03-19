@@ -24,10 +24,30 @@ public class Lesson
         this.questions = questions;
         this.text = text;
     }
+    public Lesson(UUID id, String title, ArrayList<Question> questions, ArrayList<String> text)
+    {
+        this.id = id;
+        this.title = title;
+        this.questions = questions;
+        this.text = text;
+    }
     public void getPercentQuestionsCorrect()
     {
         
     }
+    @Override
+    public String toString() {
+        String ret = id + title;
+        for (String s : text) {
+            ret = ret + s;
+        }
+        for (Question q : questions) {
+            ret = ret + q;
+        }
+        return ret;
+    }
+}
+
     public String getTitle(){
         return title;
     }

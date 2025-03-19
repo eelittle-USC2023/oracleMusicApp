@@ -1,16 +1,33 @@
 package com.model;
 import java.util.ArrayList;
 
-public class Teacher 
-{
+public class Teacher extends Account {
     private ArrayList<Course> courses;
 
-    public void CreateCourse(Course course)
-    {
-
+    public Teacher(String Username, String password) {
+        super(Username, password, "teacher");
+        this.courses = new ArrayList<>();
     }
-    public void disbandCourse(Course course)
-    {
-        
+
+    public void createCourse (String courseName, String courseId) {
+        Course newCourse = new Course(courseName, courseId, this);
+        courses.add(newCourse);
+    }
+
+    public void disbandCourse(Course course){
+        courses.remove(course);
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public String getTeacherID(){
+        return getUsername();
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher:" + getUsername() + "(Courses:" + courses.size() + ")";
     }
 }

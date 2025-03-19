@@ -8,9 +8,9 @@ public class Student extends Account
     private ArrayList<Assignment> assignments;
     private ArrayList<Achievement> achievements;
     private ArrayList<Song> songsPlayed;
-    private ArrayList<Course> courses;
     private ArrayList<Song> completedSongs;
     private ArrayList<Lesson> completedLessons;
+    private ArrayList<Course> courses;
 
     public Student(String username, String password,  ArrayList<Song> savedSongs, ArrayList<Lesson> savedLessons, 
                    ArrayList<Assignment> assignments, ArrayList<Achievement> achievements, ArrayList<Song> songsPlayed,
@@ -24,14 +24,21 @@ public class Student extends Account
         this.courses = new ArrayList<Course>();
         this.completedSongs = completedSongs;
         this.completedLessons = completedLessons;
+        this.courses = new ArrayList<Course>();
     }
 
-    public void acceptInvite()
-    {
-
+    public void addCourse(Course course) {
+        courses.add(course);
     }
-    public void declineInvite()
-    {
+
+    public ArrayList<Course> getCourses(){
+        return courses;
+    }
+
+    public void acceptInvite(Course course) {
+        
+    }
+    public void declineInvite(Course course) {
         
     }
     public void addCourse(Course course) {

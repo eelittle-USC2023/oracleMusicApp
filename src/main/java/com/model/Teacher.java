@@ -1,5 +1,7 @@
 package com.model;
+
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Teacher extends Account {
     private ArrayList<Course> courses;
@@ -9,12 +11,13 @@ public class Teacher extends Account {
         courses = new ArrayList<Course>();
     }
 
-    public void createCourse (String courseName, String courseId) {
-        Course newCourse = new Course(courseName, courseId, this);
+    public Course createCourse(String courseName) {
+        Course newCourse = new Course(courseName, UUID.randomUUID(), this);
         courses.add(newCourse);
+        return newCourse;
     }
 
-    public void disbandCourse(Course course){
+    public void disbandCourse(Course course) {
         courses.remove(course);
     }
     public void addCourse(Course course) {
@@ -25,12 +28,12 @@ public class Teacher extends Account {
         return courses;
     }
 
-    public String getTeacherID(){
+    public String getTeacherID() {
         return getUsername();
     }
 
     @Override
     public String toString() {
-        return "Teacher:" + getUsername() + "(Courses:" + courses.size() + ")";
+        return "Teacher: " + getUsername() + " (Courses: " + courses.size() + ")";
     }
 }

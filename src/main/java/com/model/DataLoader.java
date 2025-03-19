@@ -79,11 +79,30 @@ public class DataLoader extends DataConstants {
             JSONArray coursesJSON = (JSONArray)new JSONParser().parse(reader);
             for (int i = 0; i < coursesJSON.size(); i++) {
                 JSONObject courseJSON = (JSONObject) coursesJSON.get(i);
-                Course course = new Course(UUID.fromString((String)courseJSON.get(COURSE_ID)));
+                String title = (String) courseJSON.get(COURSE_NAME);
+                UUID id = UUID.fromString((String)courseJSON.get(COURSE_ID));
                 JSONArray studentsJSON = (JSONArray)courseJSON.get(COURSE_STUDENTS);
+                ArrayList<Student> students = new ArrayList<Student>();
+                JSONArray assignmentsJSON = (JSONArray)courseJSON.get(COURSE_ASSIGNMENTS);
+                ArrayList<Assignment> assignments = new ArrayList<Assignment>();
+                for (int j = 0; j < assignmentsJSON.size(); j++) {
+                    JSONObject assignmentJSON = (JSONObject)assignmentsJSON.get(j);
+                    if(((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_TYPE)).equals("Song") ) {
+                        assignments.add(new SongAssignment(SongList.getInstance().getSong(UUID.fromString((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_SONG_ID)))));
+                    } else if(((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_TYPE)).equals("Lesson")) {
+                        assignments.add(new LessonAssignment(LessonList.getInstance().getLesson(UUID.fromString((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_LESSON_ID)))));
+                    }
+                }
+                Teacher teacher = null;
+                for (Account a : accounts) {
+                    if(a.getUsername().equals((String)courseJSON.get(COURSE_TEACHER))) {
+                        teacher = (Teacher)a;
+                    }
+                }
+                Course course = new Course(title, id, students, assignments, teacher);
                 for (int j = 0; j < studentsJSON.size(); j++) {
                     for (Account a : accounts) {
-                        if (a.getUsername() == (String)studentsJSON.get(j)) {
+                        if (a.getUsername().equals((String)studentsJSON.get(j))) {
                             course.addStudent((Student)a);
                             ((Student)a).addCourse(course);
                         }
@@ -109,7 +128,7 @@ public class DataLoader extends DataConstants {
                 String artistName = (String)songJSON.get(SONG_ARTIST_NAME);
                 String difficulty = (String)songJSON.get(SONG_DIFFICULTY);
                 String genre = (String)songJSON.get(SONG_GENRE);
-                Instrument instrumentString = instrumentFromString((String)songJSON.get(SONG_INSTRUMENT));
+                Instrument instrument = instrumentFromString((String)songJSON.get(SONG_INSTRUMENT));
                 ArrayList<Measure> measures = new ArrayList<Measure>();
                 JSONArray measuresJSON = (JSONArray)songJSON.get(SONG_MEASURES);
                 for (int j = 0; j < measuresJSON.size(); j++) {
@@ -123,15 +142,14 @@ public class DataLoader extends DataConstants {
                         JSONObject noteJSON = (JSONObject)notesJSON.get(k);
                         String noteName = (String)noteJSON.get(NOTE_NAME);
                         int octave = ((Long)noteJSON.get(NOTE_OCTAVE)).intValue();
-                        int lengthNumerator = ((Long)noteJSON.get(NOTE_LENGTH_NUMERATOR)).intValue();
-                        int lengthDenominator = ((Long)noteJSON.get(NOTE_LENGTH_DENOMINATOR)).intValue();
-                        notes.add(new Note(noteName, octave, lengthNumerator, lengthDenominator));
+                        double length = ((Long)noteJSON.get(NOTE_LENGTH)).intValue();
+                        double position = ((Long)noteJSON.get(NOTE_POSITION)).intValue();
+                        notes.add(new Note(noteName, octave, length, position));
                     }
                     measures.add(new Measure(timeSignatureTop, timeSignatureBottom, keySignature, notes));
                 }
-                songs.add(new Song(id, title, artistName, difficulty, genre, instrumentString, measures));
+                songs.add(new Song(id, title, artistName, difficulty, genre, instrument, measures));
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -169,7 +187,6 @@ public class DataLoader extends DataConstants {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return lessons;
     }
     public static ArrayList<Question> getQuestions() {
@@ -193,7 +210,6 @@ public class DataLoader extends DataConstants {
                 String hint = (String)questionJSON.get(QUESTION_HINT);
                 questions.add(new Question(id, question, studentAnswer, answerChoices, points, correctAnswer, feedback, hint));
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

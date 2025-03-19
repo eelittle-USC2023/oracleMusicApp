@@ -17,8 +17,14 @@ public class DataConstants {
     protected static final String ACCOUNT_COMPLETED_LESSONS = "completedLessons";
 
     protected static final String COURSE_FILE_NAME = "src/main/java/com/data/courses.json";
+    protected static final String COURSE_NAME = "courseName";
     protected static final String COURSE_ID = "id";
     protected static final String COURSE_STUDENTS = "students";
+    protected static final String COURSE_ASSIGNMENTS = "assignments";
+    protected static final String COURSE_ASSIGNMENT_TYPE = "type";
+    protected static final String COURSE_LESSON_ID = "lesson";
+    protected static final String COURSE_SONG_ID = "song";
+    protected static final String COURSE_TEACHER = "teacher";
 
     protected static final String LESSON_FILE_NAME = "src/main/java/com/data/lessons.json";
     protected static final String LESSON_ID = "id";
@@ -52,8 +58,6 @@ public class DataConstants {
 
     protected static final String NOTE_NAME = "name";
     protected static final String NOTE_OCTAVE = "octave";
-    protected static final String NOTE_LENGTH_NUMERATOR = "lengthNumerator";
-    protected static final String NOTE_LENGTH_DENOMINATOR = "lengthDenominator";
-
-
+    protected static final String NOTE_LENGTH = "length";
+    protected static final String NOTE_POSITION = "position";
 }

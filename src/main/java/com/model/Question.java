@@ -52,4 +52,15 @@ public class Question
     public UUID getID() {
         return id;
     }
+    @Override
+    public String toString() {
+        String ret = id + question + studentAnswer;
+        if (answerChoices != null) {
+            for (String s : answerChoices) {
+                ret = ret + s;
+            }
+        }
+        ret = ret + points + correctAnswer + feedback + hint;
+        return ret;
+    }
 }

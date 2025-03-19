@@ -24,4 +24,15 @@ public class Lesson
     {
         
     }
+    @Override
+    public String toString() {
+        String ret = id + title;
+        for (String s : text) {
+            ret = ret + s;
+        }
+        for (Question q : questions) {
+            ret = ret + q;
+        }
+        return ret;
+    }
 }

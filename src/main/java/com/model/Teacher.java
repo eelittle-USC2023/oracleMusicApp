@@ -7,6 +7,11 @@ public class Teacher extends Account
 
     public Teacher(String username, String password) {
         super(username, password);
+        courses = new ArrayList<Course>();
+    }
+
+    public void addCourse(Course course) {
+        courses.add(course);
     }
 
     public void CreateCourse(Course course)
@@ -16,5 +21,9 @@ public class Teacher extends Account
     public void disbandCourse(Course course)
     {
         
+    }
+    @Override
+    public String toString() {
+        return super.getUsername();
     }
 }

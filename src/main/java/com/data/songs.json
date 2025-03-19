@@ -15,26 +15,26 @@
                     {
                         "name": "C",
                         "octave": 4,
-                        "lengthNumerator": 1,
-                        "lengthDenominator": 4
+                        "length": 1,
+                        "position": 0
                     },
                     {
                         "name": "C#",
                         "octave": 4,
-                        "lengthNumerator": 1,
-                        "lengthDenominator": 4
+                        "length": 1,
+                        "position": 1
                     },
                     {
                         "name": "D",
                         "octave": 4,
-                        "lengthNumerator": 1,
-                        "lengthDenominator": 4
+                        "length": 1,
+                        "position": 2
                     },
                     {
                         "name": "D#",
                         "octave": 4,
-                        "lengthNumerator": 1,
-                        "lengthDenominator": 4
+                        "length": 1,
+                        "position": 3
                     }
                 ]
             },
@@ -46,20 +46,148 @@
                     {
                         "name": "D",
                         "octave": 4,
-                        "lengthNumerator": 1,
-                        "lengthDenominator": 4
+                        "length": 1,
+                        "position": 0
                     },
                     {
                         "name": "C#",
                         "octave": 4,
-                        "lengthNumerator": 1,
-                        "lengthDenominator": 4
+                        "length": 1,
+                        "position": 1
                     },
                     {
                         "name": "C",
                         "octave": 4,
-                        "lengthNumerator": 1,
-                        "lengthDenominator": 4
+                        "length": 1,
+                        "position": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
+        "title": "Smoke on the Water",
+        "artistName": "Deep Purple",
+        "difficulty": "Medium",
+        "genre": "Rock",
+        "instrument": "Guitar",
+        "measures": [
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "G",
+                "notes": [
+                    {
+                        "name": "G",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "G",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "D",
+                "notes": [
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "A",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "G",
+                "notes": [
+                    {
+                        "name": "G",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "G",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 3,
+                "timeSignatureBottom": 4,
+                "keySignature": "A",
+                "notes": [
+                    {
+                        "name": "A",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "A",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "E",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
                     }
                 ]
             }

@@ -21,6 +21,7 @@ public class Student extends Account
         this.assignments = assignments;
         this.achievements = achievements;
         this.songsPlayed = songsPlayed;
+        this.courses = new ArrayList<Course>();
         this.completedSongs = completedSongs;
         this.completedLessons = completedLessons;
     }
@@ -35,5 +36,15 @@ public class Student extends Account
     }
     public void addCourse(Course course) {
         courses.add(course);
+    }
+    @Override
+    public String toString() {
+        String ret = super.getUsername();
+        if (courses != null) {
+            for (Course c : courses) {
+                ret = ret + c;
+            }
+        }
+        return ret;
     }
 }

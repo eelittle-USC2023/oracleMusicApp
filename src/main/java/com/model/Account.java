@@ -19,6 +19,7 @@ public class Account
     public String getUsername() {
         return username;
     }
+<<<<<<< HEAD
 
     public String getPassword() {
         return password;
@@ -27,3 +28,15 @@ public class Account
     public String getRole() {
         return role;
     }
+=======
+    public String getPassword(){
+        return password;
+    }
+    public String getRole(){
+        return role;
+    }
+    public String role() {
+    return role;
+    }
+}
+>>>>>>> 101a54ae6f8407bfdb3d122eafb061ced23efb8a

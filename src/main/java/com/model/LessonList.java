@@ -4,23 +4,31 @@ import java.util.ArrayList;
 public class LessonList 
 {
     private ArrayList<Lesson> lessons;
-    private static LessonList lessonList;
+    private static LessonList instance;
 
     private LessonList()
     {
+        lessons = new ArrayList<>();
 
     }
     public static LessonList getInstance()
     {
-        LessonList temp = new LessonList();
-        return temp;
+      if (instance==null){
+        instance = new LessonList();
+      }
+      return instance;
     }
-    public Lesson getLesson()
+    public Lesson getLessons(String title)
     {
-        ArrayList<Question> temp1 = new ArrayList();
-        ArrayList<String> temp2 = new ArrayList();
-        Lesson temp = new Lesson("title", temp1 , temp2);
-        return temp;
+        for (Lesson lesson : lessons){
+            if (lesson.getTitle().equalsIgnoreCase(title)){
+                return lesson;
+            }
+        }
+     return null;
+    }
+    public ArrayList<Lesson> getLessons(){
+        return lessons;
     }
     public boolean addLesson(String title, String studentAnswer, int points, String correctAnswer, String feedback, String hint)
     {

@@ -19,7 +19,7 @@ public class Assignment{
     public String getTitle(){
         return title;
     }
-public String getDescroption(){
+public String getDescription(){
     return description;
 }
 

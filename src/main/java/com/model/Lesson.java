@@ -24,13 +24,6 @@ public class Lesson
         this.questions = questions;
         this.text = text;
     }
-    public Lesson(UUID id, String title, ArrayList<Question> questions, ArrayList<String> text)
-    {
-        this.id = id;
-        this.title = title;
-        this.questions = questions;
-        this.text = text;
-    }
     public void getPercentQuestionsCorrect()
     {
         

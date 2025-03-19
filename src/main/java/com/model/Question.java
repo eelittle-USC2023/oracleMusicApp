@@ -68,14 +68,6 @@ public class Question
     {
 
     }
-    public String getFeedback()
-    {
-        return "";
-    }
-    public String getHint()
-    {
-        return "";
-    }
     public UUID getID() {
         return id;
     }

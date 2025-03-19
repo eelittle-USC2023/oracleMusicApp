@@ -46,7 +46,7 @@ public class Course {
         return students;
     }
     public ArrayList<Assignment> getAssignments(){
-        return assignment;
+        return assignments;
     }
     @Override
     public String toString(){

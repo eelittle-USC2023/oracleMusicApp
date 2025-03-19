@@ -1,7 +1,7 @@
 [
    {
     "title": "Intro into playing Chords",
-    "questionId":[1, 2, 3],
+    "Id":[1, 2, 3],
     "text":["To play a chord, you sound multiple notes together."]
    }
 ]

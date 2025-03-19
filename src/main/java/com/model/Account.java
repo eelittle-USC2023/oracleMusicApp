@@ -17,10 +17,12 @@ public class Account
     public String getUsername(){
         return username;
     }
-    public String getPassword() {
+    public String getPassword(){
         return password;
     }
-    
+    public String getRole(){
+        return role;
+    }
     public String role() {
     return role;
     }

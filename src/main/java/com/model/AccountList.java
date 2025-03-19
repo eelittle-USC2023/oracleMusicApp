@@ -1,39 +1,31 @@
 package com.model;
 import java.util.ArrayList;
 
-public class AccountList 
-{
-    private ArrayList<Song> songs;
-    private static SongList songList;
+public class AccountList {
+private ArrayList<Account> accounts;
 
-    private AccountList()
-    {
-
+public AccountList(){
+    this.accounts = new ArrayList<>();
+}
+public void addAccount(Account account){
+     accounts.add(account);
+}
+public void removeAccount(Account account){
+    accounts.remove(account);
+}
+public Account accountByUsername(String username){
+    for (Account account : accounts){
+        if (account.getUsername().equals(username)){
+            return account;
+        }
     }
-    public static AccountList getInstance()
-    {
-        AccountList temp = new AccountList();
-        return temp;
-    }
-    public Account getAccount()
-    {
-        Account temp = new Account("username", "password", "role");
-        return temp;
-    }
-    public boolean addAccount(String username, String password, String role)
-    {
-        return true;
-    }
-    public boolean editAccount(Account account)
-    {
-        return true;
-    }
-    public boolean deleteAccount(Account account)
-    {
-        return true;
-    }
-    public void save()
-    {
-        
-    }
+    return null;
+}
+public ArrayList<Account> getAccounts(){
+    return accounts;
+}
+@Override
+public String toString(){
+    return "active Accounts:" + accounts.size();
+}
 }

@@ -1,50 +1,49 @@
 package com.model;
-import java.util.ArrayList;
 
-/**
- * Organizes an array of measures and establishes the song's title, artist, difficulty, genre, and instrument
- * @author Ally Blackwell
- */
-public class Song 
-{
+import java.util.ArrayList;
+import java.util.UUID;
+
+public class Song {
+    private UUID uuid;
     private String title;
     private String artistName;
     private String difficulty;
     private String genre;
     private Instrument instrument;
-    public ArrayList<Measure> song;
+    private ArrayList<Measure> measures;
 
-    /**
-     * Defines the current instance of song's title, instrument, author, difficulty, genre, and establishes an array list of measures which hold the notes
-     * @param t the title of the current song
-     * @param i the instrument of the current song
-     * @param aN the name of the artist of the current song
-     * @param d the difficulty of the current song
-     * @param g the genre of the current song
-     */
-    public Song(String t, Instrument i, String aN, String d, String g)
-    {
-        this.title = t;
-        this.instrument = i;
-        this.artistName = aN;
-        this.difficulty = d;
-        this.genre = g;
-        this.song = new ArrayList<Measure>();
+    public Song(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures) {
+        this.title = title;
+        this.artistName = artistName;
+        this.difficulty = difficulty;
+        this.genre = genre;
+        this.instrument = instrument;
+        this.measures = measures;
     }
-    /**
-     * Adds a measure to the current song
-     * @param m an inputted measure of the song to be added
-     */
-    public void addMeasure(Measure m)
-    {
-        song.add(m);
+    public Song(UUID uuid, String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures) {
+        this.uuid = uuid;
+        this.title = title;
+        this.artistName = artistName;
+        this.difficulty = difficulty;
+        this.genre = genre;
+        this.instrument = instrument;
+        this.measures = measures;
     }
-    /**
-     * Remove a measure to the current song
-     * @param m an inputted measure to be removed
-     */
-    public void removeMeasure(Measure m)
-    {
-        song.remove(m);
+    public String getTitle(){
+        return title;
+    }
+    public String getArtistName(){
+        return artistName;
+    }
+    public String getDifficulty(){
+        return difficulty;
+    }
+    public String getGenre(){
+        return genre;
+    }
+    
+@Override
+    public String toString() {
+        return title;
     }
 }

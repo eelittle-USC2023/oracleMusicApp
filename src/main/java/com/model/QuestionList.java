@@ -4,21 +4,23 @@ import java.util.ArrayList;
 public class QuestionList 
 {
     private ArrayList<Question> questions;
-    private static QuestionList questionList;
+    private static QuestionList instance;
 
     private QuestionList()
     {
+        questions = new ArrayList<>();
 
     }
     public static QuestionList getInstance()
     {
-        QuestionList temp = new QuestionList();
-        return temp;
+      if(instance == null){
+        instance = new QuestionList(); 
+      }
+      return instance;
     }
-    public Question getQuestion()
+    public ArrayList<Question> getQuestion()
     {
-        Question temp = new Question();
-        return temp;
+        return questions;
     }
     public boolean addQuestion(String question, String studentAnswer, int points, String correctAnswer, String feedback, String hint)
     {
@@ -36,4 +38,6 @@ public class QuestionList
     {
         
     }
+    
+
 }

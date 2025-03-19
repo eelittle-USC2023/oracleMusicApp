@@ -1,0 +1,68 @@
+[
+    {
+        "id": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
+        "title": "Song Title 1",
+        "artistName": "Artist 1",
+        "difficulty": "Easy",
+        "genre": "None",
+        "instrument": "Guitar",
+        "measures": [
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "C",
+                "notes": [
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "lengthNumerator": 1,
+                        "lengthDenominator": 4
+                    },
+                    {
+                        "name": "C#",
+                        "octave": 4,
+                        "lengthNumerator": 1,
+                        "lengthDenominator": 4
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "lengthNumerator": 1,
+                        "lengthDenominator": 4
+                    },
+                    {
+                        "name": "D#",
+                        "octave": 4,
+                        "lengthNumerator": 1,
+                        "lengthDenominator": 4
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 3,
+                "timeSignatureBottom": 4,
+                "keySignature": "G",
+                "notes": [
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "lengthNumerator": 1,
+                        "lengthDenominator": 4
+                    },
+                    {
+                        "name": "C#",
+                        "octave": 4,
+                        "lengthNumerator": 1,
+                        "lengthDenominator": 4
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "lengthNumerator": 1,
+                        "lengthDenominator": 4
+                    }
+                ]
+            }
+        ]
+    }
+]

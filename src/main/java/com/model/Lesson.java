@@ -12,6 +12,9 @@ public class Lesson
 
     public Lesson(String title, ArrayList<Question> questions, ArrayList<String> text)
     {
+        this.title = title;
+        this.questions = questions;
+        this.text = text;
 
     }
     public Lesson(UUID id, String title, ArrayList<Question> questions, ArrayList<String> text)
@@ -24,5 +27,14 @@ public class Lesson
     public void getPercentQuestionsCorrect()
     {
         
+    }
+    public String getTitle(){
+        return title;
+    }
+    public ArrayList<Question> getQuestions(){
+        return questions;
+    }
+    public ArrayList<String> getText(){
+        return text;
     }
 }

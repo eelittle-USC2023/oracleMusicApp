@@ -12,7 +12,7 @@ public class Song
     private String difficulty;
     private String genre;
     private Instrument instrument;
-    private ArrayList<Measure> song;
+    public ArrayList<Measure> song;
 
     /**
      * Defines the current instance of song's title, instrument, author, difficulty, genre, and establishes an array list of measures which hold the notes

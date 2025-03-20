@@ -1,26 +1,23 @@
 package com.model;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class QuestionList 
-{
+public class QuestionList {
     private ArrayList<Question> questions;
     private static QuestionList instance;
 
-    private QuestionList()
-    {
+    private QuestionList() {
         questions = new ArrayList<>();
 
     }
-    public static QuestionList getInstance()
-    {
+    public static QuestionList getInstance() {
       if(instance == null){
         instance = new QuestionList(); 
       }
       return instance;
     }
-    public Question getQuestion(UUID id)
-    {
+    public Question getQuestion(UUID id) {
         /*
         for (Question q : questions) {
             if (q.getID() == id) {
@@ -30,20 +27,20 @@ public class QuestionList
         */
         return new Question(id, null, null, null, 0, null, null, null);
     }
-    public boolean addQuestion(String question, String studentAnswer, int points, String correctAnswer, String feedback, String hint)
-    {
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+    public boolean addQuestion(String question, String studentAnswer, int points, String correctAnswer, String feedback, String hint) {
+        Question newQuestion = new Question(question, studentAnswer, points, correctAnswer, feedback, hint);
+        return questions.add(newQuestion);
+    }
+    public boolean editQuestion(Question question) {
         return true;
     }
-    public boolean editQuestion(Question question)
-    {
+    public boolean deleteQuestion(Question question) {
         return true;
     }
-    public boolean deleteQuestion(Question question)
-    {
-        return true;
-    }
-    public void save()
-    {
+    public void save() {
         
     }
     

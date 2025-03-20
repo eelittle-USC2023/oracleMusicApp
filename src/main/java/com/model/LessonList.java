@@ -10,7 +10,6 @@ public class LessonList
     private LessonList()
     {
         lessons = new ArrayList<>();
-
     }
     public static LessonList getInstance()
     {

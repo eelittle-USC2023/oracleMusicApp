@@ -36,8 +36,8 @@ public class Course {
     public String getCourseName(){
         return courseName;
     }
-    public String getCourseID(){
-        return courseID;
+    public UUID getCourseID(){
+        return id;
     }
     public Teacher getTeacher(){
         return teacher;
@@ -50,6 +50,6 @@ public class Course {
     }
     @Override
     public String toString(){
-        return "Course:" + courseName + " (ID:" + courseID + ")";
+        return "Course:" + courseName + " (ID:" + id + ")";
     }
 }

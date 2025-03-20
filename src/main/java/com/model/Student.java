@@ -41,13 +41,10 @@ public class Student extends Account
     public void declineInvite(Course course) {
         
     }
-    public void addCourse(Course course) {
-        courses.add(course);
-    }
     @Override
     public String toString() {
         String ret = super.getUsername();
-        if (courses != null) {
+        if (courses != null && !courses.isEmpty()) {
             for (Course c : courses) {
                 ret = ret + c;
             }

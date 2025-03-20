@@ -1,6 +1,6 @@
 package com.model;
 
-public class Guitar 
+public class Guitar extends Instrument
 {
     private int LowEFret;
     private int AFret;
@@ -13,7 +13,21 @@ public class Guitar
     {
         this.LowEFret = lE;
         this.AFret = A;
-        this.
+        this.DFret = D;
+        this.GFret = G;
+        this.BFret = B;
+        this.HighEFret = hE;
+    }
+    public Guitar () {
+        LowEFret = -1;
+        AFret = -1;
+        DFret = -1;
+        GFret = -1;
+        BFret = -1;
+        HighEFret = -1;
+    }
+    public String toJFugueString() {
+        return "I[Guitar] ";
     }
 
 }

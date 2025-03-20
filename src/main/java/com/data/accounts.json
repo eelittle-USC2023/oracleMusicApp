@@ -12,11 +12,22 @@
         "assignments": [
             {
                 "type": "Lesson",
-                "lesson": "441d3ec4-0533-4513-ac8b-a9f8ab91321b"
+                "title": "LessonAssignment",
+                "description": "This is a lesson assignment",
+                "complete": false,
+                "lesson": "441d3ec4-0533-4513-ac8b-a9f8ab91321b",
+                "difficultyLevel": "Easy",
+                "recommendedLesson": []
+
             },
             {
                 "type": "Song",
-                "song": "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
+                "title": "SongAssignment",
+                "description": "This is a song assignment",
+                "complete": false,
+                "song": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
+                "difficultyLevel": "Easy",
+                "recommendedSong": []
             }
         ],
         "achievements": [

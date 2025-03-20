@@ -8,13 +8,7 @@ public class MusicPlayer {
     private State chordState;
     private State state;
     private Song song;
-    private static String guitar = "I[Guitar] ";
-    private static String timeSignature = "3/4 ";
-    private static String happyBirthday = "Ge. Gs | Aq Gq Cq | Bh Ge. Gs | Aq Gq Dq | Ch Ge. Gs | Gq Eq Cq | Bq Gq Fe. Fs | Eq Cq Dq | Ch";
-    private static String test = "Cmajh 72q | Aq Gq Eq | Gh. | Dh Rh | Ch C72q | Aq Gq Eq | Gh. | Gh. |";
-    private static String smoke = "54q+33q+48q+43q+31q | 47q+43q+38q+33q+28q+37q+41q+45q | ";
-    private static String smokeex = "Gmajh Bbmajh Cmajh"; 
-    private static String Smoke = "G4q Bb4q C5q. | G4i Ri Bb4i Ri Db5i C5h";
+    private static String timeSignature = "4/4 ";
 
     public MusicPlayer()
     {
@@ -52,13 +46,24 @@ public class MusicPlayer {
     {
         
     }
-    public static void main(String[] args) {
-        try {
-            Music.play(guitar + timeSignature + smoke);
+    public void playSong(Song s)
+    {
+
+        String line = s.toJFugueString();
+        System.out.print(line);
+        try
+        {
+            Music.play(s.getInstrument().toJFugueString() + timeSignature + line);
         }
-        catch (Exception e){
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
+    }
+    public static void main(String[] args) {
+        ArrayList<Song> songs = DataLoader.getSongs();
+        MusicPlayer player = new MusicPlayer();
+        player.playSong(songs.get(1));
     }
     /*
      * Lowest Note: E -2nd Octave
@@ -163,4 +168,4 @@ public class MusicPlayer {
      * Fret 11: D sharp -39
      * Fret 12: E -40
      */
-}
+

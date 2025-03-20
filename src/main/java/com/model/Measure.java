@@ -11,17 +11,15 @@ public class Measure
     private int timeSignatureBottom;
     private String keySignature;
     private ArrayList<Note> notes;
+    private double temp;
 
-    public Measure(int timeSignatureTop, int timeSignatureBottom, String keySig, ArrayList<Note> notes)
+
+    public Measure(int timeSignatureTop, int timeSignatureBottom, String keySig, ArrayList<Note> note)
     {
         this.timeSignatureBottom = timeSignatureBottom;
         this.timeSignatureTop = timeSignatureTop;
         this.keySignature = keySig;
-        this.notes = notes;
-    }
-    public void addNote()
-    {
-
+        this.notes = note;
     }
     public void addNote(Note note)
     {
@@ -30,5 +28,31 @@ public class Measure
     public void removeNote(Note note)
     {
         notes.remove(note);
+    }
+    public ArrayList<Note> getNotes()
+    {
+        return notes;
+    }
+    public String toJFugueString()
+    {
+        String jFugueInput = " ";
+        int noteNumber;
+        for(int i = 0; i < notes.size(); i++)
+        {
+            noteNumber = notes.get(i).noteToJFugue();
+            String next = " ";
+            if(i+1 < notes.size()) 
+            {
+                if (notes.get(i).getPosition() == notes.get(i+1).getPosition())
+                {
+                    next = "+";
+                }
+            }
+            temp = notes.get(i).getPosition();
+            String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
+            jFugueInput = jFugueInput + input;
+        }
+        System.out.println(jFugueInput);
+        return jFugueInput;
     }
 }

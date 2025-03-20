@@ -9,7 +9,13 @@ public class DataConstants {
     protected static final String ACCOUNT_SAVED_LESSONS = "savedLessons";
     protected static final String ACCOUNT_ASSIGNMENTS = "assignments";
     protected static final String ACCOUNT_ASSIGNMENT_TYPE = "type";
+    protected static final String ACCOUNT_ASSIGNMENT_TITLE = "title";
+    protected static final String ACCOUNT_ASSIGNMENT_DESCRIPTION = "description";
+    protected static final String ACCOUNT_ASSIGNMENT_COMPLETE = "complete";
     protected static final String ACCOUNT_ASSIGNMENT_LESSON_ID = "lesson";
+    protected static final String ACCOUNT_ASSIGNMENT_DIFFICULTY_LEVEL = "difficultyLevel";
+    protected static final String ACCOUNT_ASSIGNMENT_RECOMMENDED_LESSONS = "recommendedLessons";
+    protected static final String ACCOUNT_ASSIGNMENT_RECOMMENDED_SONGS = "recommendedSongs";
     protected static final String ACCOUNT_ASSIGNMENT_SONG_ID = "song";
     protected static final String ACCOUNT_ACHIEVEMENTS = "achievements";
     protected static final String ACCOUNT_SONGS_PLAYED = "songsPlayed";

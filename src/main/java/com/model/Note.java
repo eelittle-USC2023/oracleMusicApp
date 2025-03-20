@@ -11,54 +11,37 @@ public class Note
     private int octave;
     private double length;
     private double position;
-
-    public Note(String name, int octave, double length, double position)
-    {
-        this.name = name;
-        this.octave = octave;
-        this.length = length;
-        this.position = position;
-    }
-    private int lengthNum;
-    private int lengthDenom;
-    private int position;
-    private int temp = 0;
     private int noteNumber = 0;
-    private double duration;
 
     /**
      * Sets the name, octave, length numerator and length denominator to their respective values
      * @param n Name of the Note
      * @param o Octave of the Note
-     * @param lN The Numerator for the length of the note
-     * @param lD The Denominator for the length of the note
+     * @param l
+     * @param pos
      */
-    public Note(String n, int o, int lN, int lD, int pos)
+    public Note(String n, int o, double l, double pos)
     {
         this.name = n;
         this.octave = o;
-        this.lengthNum = lN;
-        this.lengthDenom = lD;
+        this.length = l;
+        this.position = pos;
     }
-    /**
-     * Divides the numerator by the denominator and returns the note length in JFugue format
-     * @return the JFugue format of the note length to be added after the note number
-     */
-    public String timeToJFugue()
-    {
-        duration = (lengthNum / lengthDenom);
-        return "/"+duration;
-    }
-    /**
+
+        /**
      * Takes the note name and returns the number that JFugue uses to play that note
      * Adds one to that number if the note is sharp and subtracts one if the note is flat
      * @return the JFugue number for the note
      */
     public int noteToJFugue()
     {
-        char Name =  name.charAt(0);
+        char Name =  this.getName().charAt(0);
+        char type = 'n';
+        if (name.length() != 1) {
+            type = this.getName().charAt(1);
+        }
         
-        if(octave == 2)
+        if(this.getOctave() == 2)
         {
             if(Character.toLowerCase(Name) == 'e') // LE0
             {
@@ -85,7 +68,7 @@ public class Note
                 noteNumber = -1;
             }
         }
-        else if(octave == 3)
+        else if(this.getOctave() == 3)
         {
             if(Character.toLowerCase(Name) == 'c') //LE8,A3
             {
@@ -120,7 +103,7 @@ public class Note
                 noteNumber = -1;
             }
         }
-        else if(octave == 4)
+        else if(this.getOctave() == 4)
         {
             if(Character.toLowerCase(Name) == 'c') //D10,G5,B1
             {
@@ -155,7 +138,7 @@ public class Note
                 noteNumber = -1;
             }
         }
-        else if(octave == 5)
+        else if(this.getOctave() == 5)
         {
             if(Character.toLowerCase(Name) == 'c')//HE8
             {
@@ -179,33 +162,30 @@ public class Note
             noteNumber = -2;
         }
 
-        if(name.charAt(1) == '#')
+        if(type == '#')
         {
             noteNumber++;
         }
-        else if(name.charAt(1) == 'b')
+        else if(type == 'b')
         {
             noteNumber--;
         }
         return noteNumber;
     }
-    /**
-     * Takes in a note and either adds it to the continuing chord or moves to the next note before returning an input which can be played in the music player
-     * @param N inputted note to translate to Jfugue input
-     * @return the string which can be inputted into the music player
-     */
-    public String toJFugueString(Note N)
+    public String getName()
     {
-        String next;
-        if(position == temp)
-        {
-            next = "+";
-        }
-        else
-        {
-            next = " ";
-        }
-        temp = position;
-        return Integer.toString(noteNumber) + Double.toString(duration) + next;
+        return name;
+    }
+    public int getOctave()
+    {
+        return octave;
+    }
+    public double getLength()
+    {
+        return length;
+    }
+    public double getPosition()
+    {
+        return position;
     }
 }   

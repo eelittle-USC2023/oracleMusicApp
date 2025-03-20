@@ -12,7 +12,7 @@ public class Teacher extends Account {
     }
 
     public Course createCourse(String courseName) {
-        Course newCourse = new Course(courseName, UUID.randomUUID(), this);
+        Course newCourse = new Course(courseName, UUID.randomUUID(), new ArrayList<Student>(), new ArrayList<Assignment>(), this);
         courses.add(newCourse);
         return newCourse;
     }
@@ -28,8 +28,8 @@ public class Teacher extends Account {
         return courses;
     }
 
-    public String getTeacherID() {
-        return getUsername();
+    public String getUsername() {
+        return super.getUsername();
     }
 
     @Override

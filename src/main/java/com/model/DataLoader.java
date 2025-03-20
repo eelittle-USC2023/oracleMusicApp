@@ -87,10 +87,27 @@ public class DataLoader extends DataConstants {
                 ArrayList<Assignment> assignments = new ArrayList<Assignment>();
                 for (int j = 0; j < assignmentsJSON.size(); j++) {
                     JSONObject assignmentJSON = (JSONObject)assignmentsJSON.get(j);
+                    String assignmentTitle = (String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_TITLE);
+                    String description = (String) assignmentJSON.get(ACCOUNT_ASSIGNMENT_DESCRIPTION);
+                    boolean complete = (boolean) assignmentJSON.get(ACCOUNT_ASSIGNMENT_COMPLETE);
                     if(((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_TYPE)).equals("Song") ) {
-                        assignments.add(new SongAssignment(SongList.getInstance().getSong(UUID.fromString((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_SONG_ID)))));
+                        Song song = songFromUUIDString((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_SONG_ID));
+                        String difficultyLevel = (String) assignmentJSON.get(ACCOUNT_ASSIGNMENT_DIFFICULTY_LEVEL);
+                        JSONArray recommendedSongsJSON = (JSONArray)assignmentJSON.get(ACCOUNT_ASSIGNMENT_RECOMMENDED_LESSONS);
+                        ArrayList<Song> recommendedSongs = new ArrayList<Song>();
+                        for (int k = 0; k < recommendedSongsJSON.size(); k++) {
+                            recommendedSongs.add(songFromUUIDString((String)recommendedSongsJSON.get(k)));
+                        }
+                        assignments.add(new SongAssignment(assignmentTitle, description, complete, song, difficultyLevel, recommendedSongs ));
                     } else if(((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_TYPE)).equals("Lesson")) {
-                        assignments.add(new LessonAssignment(LessonList.getInstance().getLesson(UUID.fromString((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_LESSON_ID)))));
+                        Lesson lesson = lessonFromUUIDString((String)assignmentJSON.get(ACCOUNT_ASSIGNMENT_LESSON_ID));
+                        String difficultyLevel = (String) assignmentJSON.get(ACCOUNT_ASSIGNMENT_DIFFICULTY_LEVEL);
+                        JSONArray recommendedLessonsJSON = (JSONArray) assignmentJSON.get(ACCOUNT_ASSIGNMENT_RECOMMENDED_LESSONS);
+                        ArrayList<Lesson> recommendedLessons = new ArrayList<Lesson>();
+                        for (int k = 0; k < recommendedLessonsJSON.size(); k++) {
+                            recommendedLessons.add(lessonFromUUIDString((String)recommendedLessonsJSON.get(i)));
+                        }
+                        assignments.add(new LessonAssignment(assignmentTitle, description, complete, lesson, difficultyLevel, recommendedLessons));
                     }
                 }
                 Teacher teacher = null;
@@ -113,6 +130,12 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
         return accounts;
+    }
+    private static Song songFromUUIDString(String id) {
+        return SongList.getInstance().getSong(UUID.fromString(id));
+    }
+    private static Lesson lessonFromUUIDString(String id) {
+        return LessonList.getInstance().getLesson(UUID.fromString(id));
     }
 
     public static ArrayList<Song> getSongs() {

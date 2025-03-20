@@ -15,12 +15,14 @@ public class OracleMusicAppFacade
 
     private OracleMusicAppFacade()
     {
-
+        
     }
     public static OracleMusicAppFacade getInstance()
     {
-        OracleMusicAppFacade temp = new OracleMusicAppFacade();
-        return temp;
+        if (facade == null) {
+           facade = new OracleMusicAppFacade();
+        }
+        return facade;
     }
     public ArrayList<Account> getAccounts()
     {

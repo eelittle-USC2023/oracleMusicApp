@@ -1,20 +1,25 @@
 package com.model;
 
-public class Assignment{
+public abstract class Assignment{
     private String title;
     private String description;
-    private boolean completed;
+    private boolean complete;
 
     public Assignment(String title, String description){
         this.title = title;
         this.description = description;
-        this.completed = false;
+        this.complete = false;
     }
-    public void markCompleted(){
-        this.completed = true;
+    public Assignment(String title, String description, boolean complete) {
+        this.title = title;
+        this.description = description;
+        this.complete = complete;
     }
-    public boolean isCompleted(){
-        return completed;
+    public void markComplete(){
+        this.complete = true;
+    }
+    public boolean isComplete(){
+        return complete;
     }
     public String getTitle(){
         return title;
@@ -25,6 +30,6 @@ public class Assignment{
 
     @Override
     public  String toString(){
-        return title + description + "Completed:" + completed;
+        return title + description + "Completed:" + complete;
     }
 }

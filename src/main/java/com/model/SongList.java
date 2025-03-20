@@ -7,22 +7,22 @@ public class SongList
     private ArrayList<Song> songs;
     private static SongList instance;
 
-    private SongList()
-    {
+    private SongList() {
         songs = new ArrayList<>();
 
     }
-    public static SongList getInstance()
-    {
+
+    public static SongList getInstance() {
        if (instance == null){
         instance = new SongList();
        }
        return instance;
     }
-    public ArrayList<Song> getSong()
-    {
+
+    public ArrayList<Song> getSong() {
        return songs;
     }
+
     public Song getSong( String title){
         for (Song song : songs){
             if(song.getTitle().equalsIgnoreCase(title)){
@@ -31,26 +31,35 @@ public class SongList
         }
         return null;
     }
-    public Song getSong(UUID id)
-    {
+
+    public Song getSong(UUID id) {
         return new Song(id, null, null, null, null, null, null);
     }
-    public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures)
-    {
+
+    public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures) {
         return true;
     }
-    public boolean editSong(Song song)
-    {
+
+    public boolean editSong(Song song) {
         return true;
     }
-    public boolean deleteSong(Song song)
-    {
+
+    public boolean deleteSong(Song song) {
         return songs.remove(song);
 
     }
-    public void save()
-    {
+    public void save() {
 
+    }
+
+    public ArrayList<Song> getSongsByUser(String username) {
+        ArrayList<Song> userSongs = new ArrayList<>();
+        for (Song song : songs) {
+            if (song.getArtistName() != null && song.getArtistName().equalsIgnoreCase(username)) {
+                userSongs.add(song);
+            }
+        }
+        return userSongs;
     }
 
 }

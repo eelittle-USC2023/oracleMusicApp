@@ -1,5 +1,11 @@
 package com.model;
 
 public enum Achievement {
-    TENSONGS();
+    WEEKSTREAK,
+    TENSONGS,
+    TWENTYSONGS,
+    FIFTYSONGS,
+    ROCKSTAR,
+    COUNTRYBUMPKIN,
+    IPLAYITALL
 }

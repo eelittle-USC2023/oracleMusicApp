@@ -29,6 +29,27 @@ public class Song {
         this.instrument = instrument;
         this.measures = measures;
     }
+
+    public String toJFugueString()
+    {
+        String jFugueInput = " ";
+        for(int i = 0; i < measures.size(); i++)
+        {
+            String input = measures.get(i).toJFugueString();
+            jFugueInput = jFugueInput + input;
+
+        }
+        return jFugueInput;
+    }
+
+    public UUID getID() {
+        return uuid;
+    }
+
+    public Instrument getInstrument() {
+        return instrument;
+    }
+
     public String getTitle(){
         return title;
     }
@@ -41,9 +62,20 @@ public class Song {
     public String getGenre(){
         return genre;
     }
-    
+    public void addMeasure(Measure M)
+    {
+        measures.add(M);
+    }
+    public void removeMeasure(Measure M)
+    {
+        measures.remove(M);
+    }    
 @Override
     public String toString() {
         return title;
+    }
+    public ArrayList<Measure> getSong()
+    {
+        return measures;
     }
 }

@@ -85,6 +85,18 @@
                         "position": 0
                     },
                     {
+                        "name": "B",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
                         "name": "G",
                         "octave": 3,
                         "length": 1,

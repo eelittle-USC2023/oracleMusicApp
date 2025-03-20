@@ -1,7 +1,5 @@
 package com.model;
 
-import java.security.Guard;
-
 public class TabState 
 {
     final String SONG_FILE_NAME = "temp";

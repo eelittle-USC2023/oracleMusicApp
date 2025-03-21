@@ -40,126 +40,29 @@ public class Note
         if (name.length() != 1) {
             type = this.getName().charAt(1);
         }
-        
-        if(this.getOctave() == 2)
+
+        var noteMap = new java.util.HashMap<String, Integer>() 
+        {{
+            put("2e", 28); put("2f", 29); put("2g", 31);
+            put("2a", 33); put("2b", 35);
+            
+            put("3c", 36); put("3d", 38); put("3e", 40);
+            put("3f", 41); put("3g", 43); put("3a", 45);
+            put("3b", 47);
+            
+            put("4c", 48); put("4d", 50); put("4e", 52);
+            put("4f", 53); put("4g", 55); put("4a", 57);
+            put("4b", 59);
+            
+            put("5c", 60); put("5d", 62); put("5e", 64);
+        }};
+
+        String map = this.getOctave() + String.valueOf(Character.toLowerCase(Name));
+        noteNumber = noteMap.getOrDefault(map, -1);
+
+        if(noteNumber == -1)
         {
-            if(Character.toLowerCase(Name) == 'e') // LE0
-            {
-                noteNumber = 28;
-            }
-            else if(Character.toLowerCase(Name) == 'f') //LE1
-            {
-                noteNumber = 29;
-            }
-            else if(Character.toLowerCase(Name) == 'g') //LE3
-            {
-                noteNumber = 31;
-            }
-            else if(Character.toLowerCase(Name) == 'a') //LE5,A0
-            {
-                noteNumber = 33;
-            }
-            else if(Character.toLowerCase(Name) == 'b') //LE7,A2
-            {
-                noteNumber = 35;
-            }
-            else
-            {
-                noteNumber = -1;
-            }
-        }
-        else if(this.getOctave() == 3)
-        {
-            if(Character.toLowerCase(Name) == 'c') //LE8,A3
-            {
-                noteNumber = 36;
-            }
-            else if(Character.toLowerCase(Name) == 'd') //LE10,A5,D0
-            {
-                noteNumber = 38;
-            }
-            else if(Character.toLowerCase(Name) == 'e') //LE12,A7,D2
-            {
-                noteNumber = 40;
-            }
-            else if(Character.toLowerCase(Name) == 'f') //A8,D3
-            {
-                noteNumber = 41;
-            }
-            else if(Character.toLowerCase(Name) == 'g') //A10,D5,G0
-            {
-                noteNumber = 43;
-            }
-            else if(Character.toLowerCase(Name) == 'a') //A12,D7,G2
-            {
-                noteNumber = 45;
-            }
-            else if(Character.toLowerCase(Name) == 'b') //D9,G4,B0
-            {
-                noteNumber = 47;
-            }
-            else
-            {
-                noteNumber = -1;
-            }
-        }
-        else if(this.getOctave() == 4)
-        {
-            if(Character.toLowerCase(Name) == 'c') //D10,G5,B1
-            {
-                noteNumber = 48;
-            }
-            else if(Character.toLowerCase(Name) == 'd') //D12,G7,B3
-            {
-                noteNumber = 50;
-            }
-            else if(Character.toLowerCase(Name) == 'e') //G9,B5,HE0
-            {
-                noteNumber = 52;
-            }
-            else if(Character.toLowerCase(Name) == 'f') //G10,B6,HE1
-            {
-                noteNumber = 53;
-            }
-            else if(Character.toLowerCase(Name) == 'g') //G12,B8,HE3
-            {
-                noteNumber = 55;
-            }
-            else if(Character.toLowerCase(Name) == 'a') //B10,HE5
-            {
-                noteNumber = 57;
-            }
-            else if(Character.toLowerCase(Name) == 'b') //B12,HE7
-            {
-                noteNumber = 59;
-            }  
-            else
-            {
-                noteNumber = -1;
-            }
-        }
-        else if(this.getOctave() == 5)
-        {
-            if(Character.toLowerCase(Name) == 'c')//HE8
-            {
-                noteNumber = 60;
-            }
-            else if(Character.toLowerCase(Name) == 'd') //HE10
-            {
-                noteNumber = 62;
-            }
-            else if(Character.toLowerCase(Name) == 'e') //HE12
-            {
-                noteNumber = 64;
-            }
-            else
-            {
-                noteNumber = -1;
-            }
-        }
-        else
-        {
-            noteNumber = -2;
+            return -1;
         }
 
         if(type == '#')

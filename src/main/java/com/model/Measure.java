@@ -11,7 +11,6 @@ public class Measure
     private int timeSignatureBottom;
     private String keySignature;
     private ArrayList<Note> notes;
-    private double temp;
 
 
     public Measure(int timeSignatureTop, int timeSignatureBottom, String keySig, ArrayList<Note> note)
@@ -48,7 +47,6 @@ public class Measure
                     next = "+";
                 }
             }
-            temp = notes.get(i).getPosition();
             String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
             jFugueInput = jFugueInput + input;
         }

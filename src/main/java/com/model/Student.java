@@ -11,6 +11,7 @@ public class Student extends Account
     private ArrayList<Song> completedSongs;
     private ArrayList<Lesson> completedLessons;
     private ArrayList<Course> courses;
+    private ArrayList<Course> coursesInvitedTo;
 
     public Student(String username, String password,  ArrayList<Song> savedSongs, ArrayList<Lesson> savedLessons, 
                    ArrayList<Assignment> assignments, ArrayList<Achievement> achievements, ArrayList<Song> songsPlayed,

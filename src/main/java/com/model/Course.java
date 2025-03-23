@@ -9,6 +9,7 @@ public class Course {
     private ArrayList<Student> students;
     private ArrayList<Assignment> assignments;
     private Teacher teacher;
+    private ArrayList<Student> invitedStudents;
 
     public Course(String courseName, UUID id, ArrayList<Student> students, ArrayList<Assignment> assignments, Teacher teacher) {
         this.courseName = courseName;

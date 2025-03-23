@@ -19,21 +19,17 @@ public class SongList
        return instance;
     }
 
-    public ArrayList<Song> getSong() {
+    public ArrayList<Song> getSongs() {
        return songs;
     }
 
-    public Song getSong( String title){
+    public Song getSong(UUID id){
         for (Song song : songs){
-            if(song.getTitle().equalsIgnoreCase(title)){
+            if(song.getID().equals(id)){
                 return song;
             }
         }
         return null;
-    }
-
-    public Song getSong(UUID id) {
-        return new Song(id, null, null, null, null, null, null);
     }
 
     public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures) {

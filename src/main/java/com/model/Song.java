@@ -11,6 +11,7 @@ public class Song {
     private String genre;
     private Instrument instrument;
     private ArrayList<Measure> measures;
+    private int tempo;
 
     public Song(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures) {
         this.title = title;

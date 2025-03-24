@@ -6,45 +6,52 @@ import java.util.ArrayList;
 public class MusicPlayer {
     private State tabState;
     private State chordState;
+    private State noteState;
     private State state;
     private Song song;
     private static String timeSignature = "4/4 ";
 
     public MusicPlayer()
     {
-
+        tabState = new TabState(this);
+        chordState = new ChordState(this);
+        noteState = new NoteState(this);
+        state = noteState;
     }
     public void pressTabButton()
     {
-
+        state.pressTabButton();
     }
     public void pressChordButton()
     {
-
+        state.pressChordButton();
+    }
+    public void pressNoteButton()
+    {
+        state.pressNoteButton();
     }
     public void setState(State state)
     {
-
+        this.state = state;
     }
     public State getTabState()
     {
-        MusicPlayer player = new MusicPlayer();
-        State temp = new State(player, "title");
-        return temp;
+        return tabState;
     }
     public State getChordState()
     {
-        MusicPlayer player = new MusicPlayer();
-        State temp = new State(player, "title");
-        return temp; 
+        return chordState;
     }
-    public void showSong(String songName, ArrayList<String> notes)
+    public State getNoteState()
     {
-
+        return noteState;
     }
-    public void acceptInstrumentInput()
+    public void showSong(ArrayList<String> display)
     {
-        
+        for(String line : display)
+        {
+            System.out.println(line);
+        }
     }
     public void playSong(Song s)
     {
@@ -59,6 +66,10 @@ public class MusicPlayer {
         {
             e.printStackTrace();
         }
+    }
+    public Song getSong()
+    {
+        return song;
     }
     public static void main(String[] args) {
         ArrayList<Song> songs = DataLoader.getSongs();

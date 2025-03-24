@@ -2,11 +2,11 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class ChordState extends State
+public class NoteState extends State
 {
     private static final ArrayList<String> chords = new ArrayList<String>();
     
-    public ChordState(MusicPlayer player)
+    public NoteState(MusicPlayer player)
     {
         super(player, chords);
     }
@@ -17,11 +17,11 @@ public class ChordState extends State
     }
     public void pressChordButton()
     {
-        System.out.println("Already in Chord Mode");
+        System.out.println("Entering Chord Mode");
+        player.setState(player.getChordState());
     }
     public void pressNoteButton()
     {
-        System.out.println("Entering Note Mode");
-        player.setState(player.getNoteState());
+        System.out.println("Already in Note State");
     }
 }

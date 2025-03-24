@@ -1,19 +1,26 @@
 package com.model;
 
-public class TabState 
+import java.util.ArrayList;
+public class TabState extends State
 {
-    final String SONG_FILE_NAME = "temp";
+    private static final ArrayList<String> tabs = new ArrayList<String>();
     
     public TabState(MusicPlayer player)
     {
-        Guitar guitar = new Guitar(0, 0, 0, 0, 0, 0);
+        super(player, tabs);
     }
     public void pressTabButton()
     {
-
+        System.out.println("Already In Tab Mode");
     }
     public void pressChordButton()
     {
-        
+        System.out.println("Entering Chord Mode");
+        player.setState(player.getChordState());
+    }
+    public void pressNoteButton()
+    {
+        System.out.println("Entering Note Mode");
+        player.setState(player.getNoteState());
     }
 }

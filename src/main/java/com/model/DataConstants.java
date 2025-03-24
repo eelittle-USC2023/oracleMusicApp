@@ -69,4 +69,8 @@ public class DataConstants {
     protected static final String NOTE_OCTAVE = "octave";
     protected static final String NOTE_LENGTH = "length";
     protected static final String NOTE_POSITION = "position";
+
+    protected static final String ASSIGNMENT_TITLE = "title";
+    protected static final String ASSIGNMENT_DESCRIPTION = "description";
+    protected static final String ASSIGNMENT_COMPLETE = " complete";
 }

@@ -82,7 +82,27 @@ public class DataWriter {
         questionObject.put(DataConstants.QUESTION_HINT, question.getHint());
         return questionObject;
     }
-    @SuppressWarnings("unchecked")
+    private static JSONObject convertMeasureJSON (Measure measure){
+    JSONObject measureObject = new JSONObject();
+    measureObject.put(DataConstants.MEASURE_TIME_SIGNATURE_TOP, measure.getTimeSignatureTop());
+    measureObject.put(DataConstants.MEASURE_TIME_SIGNATURE_BOTTOM, measure.getTimeSignatureBottom());
+    measureObject.put(DataConstants.MEASURE_KEY_SIGNATURE, measure.getKeySignature());
+
+    JSONArray noteArray = new JSONArray();
+    for (Note note : measure.getNotes()){
+        noteArray.add(convertNoteJSON(note));
+    }
+    measureObject.put(DataConstants.MEASURE_NOTES, noteArray);
+    return measureObject;
+    }
+    private static JSONObject convertNoteJSON(Note note){
+        JSONObject noteObject = new JSONObject();
+        noteObject.put(DataConstants.NOTE_NAME, note.getName());
+        noteObject.put(DataConstants.NOTE_OCTAVE, note.getOctave());
+        noteObject.put(DataConstants.NOTE_LENGTH, note.getLength());
+        noteObject.put(DataConstants.NOTE_POSITION, note.getPosition());
+        return noteObject;
+    }
 	public static boolean savedCourses(List<Course> courses){
         JSONArray courseArray = new JSONArray();
         for (Course course : courses){
@@ -98,16 +118,19 @@ public class DataWriter {
             JSONArray assignmentArray = new JSONArray();
             for (Assignment assignment : course.getAssignments()){
                 JSONObject assignmentObject = new JSONObject();
-                assignmentObject.put("title", assignment.getTitle());
-                assignmentObject.put("Descrittion", assignment.getDescription());
-                assignmentObject.put("complete",assignment.isComplete());
+                assignmentObject.put(DataConstants.ASSIGNMENT_TITLE, assignment.getTitle());
+                assignmentObject.put(DataConstants.ASSIGNMENT_DESCRIPTION, assignment.getDescription());
+                assignmentObject.put(DataConstants.ASSIGNMENT_COMPLETE,assignment.isComplete());
                  
                    if(assignment instanceof LessonAssignment){
-                    assignmentObject.put(DataConstants.COURSE_LESSON_ID, (LessonAssignment) assignment.getLessonID().toString());
-                }
-                else if (assignment instanceof SongAssignment){
-                    assignmentObject.put(DataConstants.COURSE_SONG_ID, (SongAssignment) assignment.getSongID().toString());
-                }
+                    LessonAssignment lessonAssignment = (LessonAssignment) assignment;
+                    assignmentObject.put(DataConstants.COURSE_LESSON_ID, lessonAssignment.getLessonID().toString());
+                   }
+                   else if (assignment instanceof SongAssignment){
+                    SongAssignment songAssignment = (SongAssignment) assignment;
+                    assignmentObject.put(DataConstants.COURSE_SONG_ID, songAssignment.getSongID().toString());
+                   }
+                  
                 assignmentArray.add(assignmentObject);
             }
             courseObject.put(DataConstants.COURSE_ASSIGNMENTS, assignmentArray);

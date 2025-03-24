@@ -8,5 +8,35 @@
         "correctAnswer": "B",
         "feedback": "Good choice",
         "hint": "Think about the placement of your fingers"
+    },
+    {
+        "id": "a3a41a55-d306-4f9f-bc14-ad1092c59dc3",
+        "question": "What note does the lowest string on the guitar play?",
+        "studentAnswer": "",
+        "answerChoices": ["A", "F" , "E", "C"],
+        "points": 1,
+        "correctAnswer": "E",
+        "feedback": "Well done! The pitch of this string is about 82.41 Hz.",
+        "hint": "It's not A or C."
+    },
+    {
+        "id": "1df132a3-c366-4383-ad5c-45f5199f8a9b",
+        "question": "What note does the highest string on the guitar play?",
+        "studentAnswer":"",
+        "answerChoices":["G", "E" , "B", "D"],
+        "points": 1,
+        "correctAnswer": "E",
+        "feedback": "Good choice! The highest string also plays E, but it's two octaves higher than the low E string.",
+        "hint": "It's not G or B."
+    }, 
+    {
+        "id": "53f43bb0-93b7-4adf-bd57-90b26901b4ff",
+        "question": "What note does the third lowest string on the guitar play?",
+        "studentAnswer":"",
+        "answerChoices":["F", "A" , "G", "D"],
+        "points": 1,
+        "correctAnswer": "D",
+        "feedback": "Great job! This D is the first D below middle C on a piano.",
+        "hint": "It's not G or A."
     }
 ]

@@ -4,7 +4,6 @@ public class Account
 {
     private String username;
     private String password;
-    private String role;
 
     public Account(String username, String password) {
         this.username = username;
@@ -20,8 +19,5 @@ public class Account
     }
     public String getPassword() {
         return password;
-    }
-    public String getRole(){
-        return role;
     }
 }

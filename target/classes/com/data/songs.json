@@ -6,6 +6,7 @@
         "difficulty": "Easy",
         "genre": "None",
         "instrument": "Guitar",
+        "tempo": 90,
         "measures": [
             {
                 "timeSignatureTop": 4,
@@ -66,12 +67,13 @@
         ]
     },
     {
-        "id": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
+        "id": "9b362387-2cb1-4f45-aad4-b3d672095c48",
         "title": "Smoke on the Water",
         "artistName": "Deep Purple",
         "difficulty": "Medium",
         "genre": "Rock",
         "instrument": "Guitar",
+        "tempo": 114,
         "measures": [
             {
                 "timeSignatureTop": 4,

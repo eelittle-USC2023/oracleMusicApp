@@ -152,6 +152,16 @@ public class Guitar extends Instrument
         fretboard.put("B", B);
         fretboard.put("High E", highE);
     }
+
+    /**
+     * toString method giving Guitar as a String.
+     * @return "Guitar", as that is the instrument being represented by this class.
+     * @author Ethan Little
+     */
+    @Override
+    public String toString() {
+        return "Guitar";
+    }
 }
 
 

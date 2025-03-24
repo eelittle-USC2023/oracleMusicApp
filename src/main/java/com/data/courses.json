@@ -14,7 +14,6 @@
                 "lesson": "441d3ec4-0533-4513-ac8b-a9f8ab91321b",
                 "difficultyLevel": "Easy",
                 "recommendedLessons": []
-
             },
             {
                 "type": "Song",
@@ -26,6 +25,9 @@
                 "recommendedSongs": []
             }
         ],
-        "teacher": "asmith24"
+        "teacher": "asmith24",
+        "invitedStudents": [
+            "mozartrella"
+        ]
     }
 ]

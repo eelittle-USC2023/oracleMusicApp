@@ -1,8 +1,25 @@
 [
-   {
-    "id": "441d3ec4-0533-4513-ac8b-a9f8ab91321b",
-    "title": "Intro into playing Chords",
-    "questions":["0c2fb525-e494-416f-b0cf-5f3633adbe46"],
-    "text":["To play a chord, you sound multiple notes together."]
-   }
+    {
+        "id": "441d3ec4-0533-4513-ac8b-a9f8ab91321b",
+        "title": "Introduction to Playing Chords",
+        "questions": [
+            "0c2fb525-e494-416f-b0cf-5f3633adbe46"
+        ],
+        "text": [
+            "To play a chord, you sound multiple notes together."
+        ]
+    },
+    {
+        "id": "060d46f6-dc31-4a8d-9da0-39e242923cea",
+        "title": "Introduction to Guitar",
+        "questions": [
+            "a3a41a55-d306-4f9f-bc14-ad1092c59dc3",
+            "1df132a3-c366-4383-ad5c-45f5199f8a9b",
+            "53f43bb0-93b7-4adf-bd57-90b26901b4ff"
+        ],
+        "text": [
+            "The standard guitar has 6 strings, with each string tuned to a specific note.",
+            "The standard tuning for a 6-string guitar is, from lowest string to highest, E, A, D, G, B, E."
+        ]
+    }
 ]

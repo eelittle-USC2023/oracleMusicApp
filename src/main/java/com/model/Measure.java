@@ -53,4 +53,23 @@ public class Measure
         System.out.println(jFugueInput);
         return jFugueInput;
     }
+
+    /**
+     * Gives the measure's characteristics in a String, text-based format. Does not use musical notation.
+     * @return String of the measure in the following format "Key: C, Time: 4/4, Notes: [...]"
+     * @author Ethan Little
+     */
+    @Override
+    public String toString() {
+        String ret = "Key: " + keySignature + " Time: " + timeSignatureTop + "/" + timeSignatureBottom + " Notes: [";
+        for (int i = 0; i < notes.size(); i++) {
+            if (i == notes.size() - 1) {
+                ret = ret + notes.get(i).toString() + "]";
+            }
+            else {
+            ret = ret + notes.get(i).toString()+ ", ";
+            }
+        }
+        return ret;
+    }
 }

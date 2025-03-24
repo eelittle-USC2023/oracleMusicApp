@@ -24,7 +24,7 @@ public class DataWriter {
     public static boolean savedSongs(SongList songList) {
         JSONArray songArray = new JSONArray();
 
-        for (Song song : songList.getSong()) {
+        for (Song song : songList.getSongs()) {
             ;
             JSONObject songObject = new JSONObject();
             songObject.put(DataConstants.SONG_ID, song.getID().toString());

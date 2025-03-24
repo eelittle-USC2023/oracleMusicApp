@@ -91,4 +91,14 @@ public class Note
     {
         return position;
     }
+
+    /**
+     * Gives note characteristics in a String format. Does not use musical notation.
+     * @return String of the note in the following format: "A3 Len: 1 Pos: 1"
+     * @author Ethan Little
+     */
+    @Override
+    public String toString() {
+        return name + octave + " Len: " + length + " Pos: " + position;
+    }
 }   

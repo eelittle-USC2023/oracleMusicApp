@@ -7,11 +7,19 @@ public class SongList
     private ArrayList<Song> songs;
     private static SongList instance;
 
+    /**
+     * Private constructor used when getInstance is called for the first time. Gets the songs from the DataLoader.
+     * @author Ethan Little
+     */
     private SongList() {
-        songs = new ArrayList<>();
-
+        songs = DataLoader.getSongs();
     }
-
+    /**
+     * GetInstance method to maintain Singleton design. 
+     * Constructs the instance of SongList if it does not already exist, then returns the instance.
+     * @return The current instance of SongList.
+     * @author Ethan Little
+     */
     public static SongList getInstance() {
        if (instance == null){
         instance = new SongList();
@@ -23,6 +31,12 @@ public class SongList
        return songs;
     }
 
+    /**
+     * Finds and returns the song with the id that matches the parameter.
+     * @param id ID of the song that is being searched for.
+     * @return The song with the ID that matches the param. If there is no song with a matching ID, returns null.
+     * @author Ethan Little
+     */
     public Song getSong(UUID id){
         for (Song song : songs){
             if(song.getID().equals(id)){

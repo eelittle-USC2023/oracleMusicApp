@@ -17,7 +17,7 @@
                 "complete": false,
                 "lesson": "441d3ec4-0533-4513-ac8b-a9f8ab91321b",
                 "difficultyLevel": "Easy",
-                "recommendedLesson": []
+                "recommendedLessons": []
 
             },
             {
@@ -27,11 +27,11 @@
                 "complete": false,
                 "song": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
                 "difficultyLevel": "Easy",
-                "recommendedSong": []
+                "recommendedSongs": []
             }
         ],
         "achievements": [
-            "TENSONGS"
+            "WEEKSTREAK"
         ],
         "songsPlayed": [
             "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
@@ -47,5 +47,19 @@
         "username": "asmith24",
         "password": "password",
         "role": "Teacher"
+    },
+    {
+        "username": "mozartrella",
+        "password": "ch33s3",
+        "role": "Student",
+        "savedSongs": ["9b362387-2cb1-4f45-aad4-b3d672095c48"],
+        "savedLessons": [],
+        "assignments": [],
+        "achievements": [
+            "ROCKSTAR"
+        ],
+        "songsPlayed": ["9b362387-2cb1-4f45-aad4-b3d672095c48"],
+        "completedSongs": [],
+        "completedLessons": []
     }
 ]

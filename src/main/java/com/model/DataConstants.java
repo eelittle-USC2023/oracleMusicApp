@@ -31,6 +31,8 @@ public class DataConstants {
     protected static final String COURSE_LESSON_ID = "lesson";
     protected static final String COURSE_SONG_ID = "song";
     protected static final String COURSE_TEACHER = "teacher";
+    protected static final String COURSE_INVITED_STUDENTS = "invitedStudents";
+
 
     protected static final String LESSON_FILE_NAME = "src/main/java/com/data/lessons.json";
     protected static final String LESSON_ID = "id";
@@ -55,6 +57,7 @@ public class DataConstants {
     protected static final String SONG_DIFFICULTY = "difficulty";
     protected static final String SONG_GENRE = "genre";
     protected static final String SONG_INSTRUMENT = "instrument";
+    protected static final String SONG_TEMPO = "tempo";
     protected static final String SONG_MEASURES = "measures";
 
     protected static final String MEASURE_TIME_SIGNATURE_TOP = "timeSignatureTop";

@@ -15,7 +15,11 @@ public class DataWriter {
             JSONObject accountObject = new JSONObject();
             accountObject.put(DataConstants.ACCOUNT_USERNAME, account.getUsername());
             accountObject.put(DataConstants.ACCOUNT_PASSWORD, account.getPassword());
-            accountObject.put(DataConstants.ACCOUNT_ROLE, account.getRole());
+            String role = "Student";
+            if (account instanceof Teacher) {
+                role = "Teacher";
+            } 
+            accountObject.put(DataConstants.ACCOUNT_ROLE, role);
             accountArray.add(accountObject);
         }
         return saveToFile(DataConstants.ACCOUNT_FILE_NAME, accountArray);

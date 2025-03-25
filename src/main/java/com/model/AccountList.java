@@ -34,16 +34,33 @@ public class AccountList{
         }
         return null;
     }
-    public void addAccount(Account account){
-        accounts.add(account);
+    public boolean addAccount(String username, String password, String role){
+        for (Account a : accounts) {
+            if(a.getUsername().equals(username)) {
+                return false;
+            }
+        }
+        Account newAccount;
+        if(role.equalsIgnoreCase("Student")){
+            newAccount = new Student (username, password);
+        } else {
+            newAccount = new Teacher (username, password);
+        }
+        accounts.add(newAccount);
+        DataWriter.savedAccounts(this);
+        return true;
    }
-   public void removeAccount(Account account){
+    public void removeAccount(Account account){
        accounts.remove(account);
-   }
+    }
    
-   public ArrayList<Account> getAccounts(){
+    public ArrayList<Account> getAccounts(){
        return accounts;
-   }
+    }
+    public void save() {
+        DataWriter.savedAccounts(accounts);
+    }
+
    @Override
    public String toString(){
        return "active Accounts:" + accounts.size();

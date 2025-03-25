@@ -41,6 +41,24 @@ public class Student extends Account
         this.coursesInvitedTo = new ArrayList<Course>();
     }
     /**
+     * Constructor to be used when a new Student is made, not being loaded in from JSON.
+     * @param username Username of the new Student.
+     * @param password Password of the new Student.
+     * @author Ethan Little
+     */
+    public Student (String username, String password) {
+        super(username, password);
+        savedSongs = new ArrayList<Song>();
+        savedLessons = new ArrayList<Lesson>();
+        assignments = new ArrayList<Assignment>();
+        achievements = new ArrayList<Achievement>();
+        songsPlayed = new ArrayList<Song>();
+        completedSongs = new ArrayList<Song>();
+        completedLessons = new ArrayList<Lesson>();
+        courses = new ArrayList<Course>();
+        coursesInvitedTo = new ArrayList<Course>();
+    }
+    /**
      * Adds the passed course to courses if it is valid to do so.
      * To be valid, the course must not already exist in the in the list of courses or list of coursesInvitedTo.
      * @param course The course to be added.

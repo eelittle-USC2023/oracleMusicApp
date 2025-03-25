@@ -71,5 +71,30 @@ public class SongList
         }
         return userSongs;
     }
+    /**
+     * Used to find any songs that match the search in the given field.
+     * @param field Gives which field the search is to use.
+     * @param search What the user is attempting to search using.
+     * @return Any songs that match the search in the given field. If none are found, returns an empty list.
+     * @author Ethan Little
+     */
+    public ArrayList<Song> searchSongs(String field, String search) {
+        ArrayList<Song> songsFound = new ArrayList<Song>();
+        if (field.equals("Artist")) {
+            for (Song s : songs) {
+                if (s.getArtistName().contains(field)) {
+                    songsFound.add(s);
+                }
+            }
+
+        } else if (field.equals("Title")) {
+            for (Song s : songs) {
+                if (s.getTitle().contains(field)) {
+                    songsFound.add(s);
+                }
+            }
+        }
+        return songsFound;
+    }
 
 }

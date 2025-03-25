@@ -6,16 +6,25 @@ import javax.security.auth.login.AccountException;
 public class OracleMusicAppFacade 
 {
     private Account currentAccount;
-    private AccountList accounts;
-    private SongList songs;
-    private LessonList lessons;
+    private AccountList accountList;
+    private SongList songList;
+    private LessonList lessonList;
+    private QuestionList questionList;
     private SongCreator songCreator;
     private MusicPlayer musicPlayer;
     private static OracleMusicAppFacade facade;
 
+    /**
+     * Private constructor called when getInstance is called for the first time.
+     * Sets up all the lists.
+     * @author Ethan Little
+     */
     private OracleMusicAppFacade()
     {
-        
+        questionList = QuestionList.getInstance();
+        lessonList = LessonList.getInstance();
+        songList = SongList.getInstance();
+        accountList = AccountList.getInstance();
     }
     public static OracleMusicAppFacade getInstance()
     {
@@ -39,18 +48,34 @@ public class OracleMusicAppFacade
         ArrayList<Lesson> temp = new ArrayList<Lesson>();
         return temp;
     }
-    public Account createAccount(String username, String password)
-    {
-        Account temp = new Account(username, password);
-        return temp;
+    public boolean createAccount(String username, String password, String role){
+        boolean successful = accountList.addAccount(username, password, role);
+
+        if (successful){
+            System.out.println("Your account has successfully been created!");
+            return true;
+        }else {
+            System.out.println("This username alreadys exists, please choose a different one.");
+            return false;
+        }
     }
     public boolean login(String username, String password)
     {
-        return true;
+        Account account = accountList.getAccount(username);
+        if (account != null && account.getPassword().equals(password)){
+            System.out.println("Your login was successful welcome ," + username);
+            return true;
+        }
+        System.out.println("Invalid username or password.");
+        return false;
     }
-    public void logout()
-    {
-
+    public void logout(){
+        if (currentAccount != null) {
+            System.out.println("You've logged out:" + currentAccount.getUsername());
+            currentAccount = null;
+        } else {
+            System.out.println("There is no user currently logged in.");
+        }
     }
     public ArrayList<Song> songSearch(String keyword)
     {
@@ -63,7 +88,7 @@ public class OracleMusicAppFacade
     }
     public Song makeSong()
     {
-        Instrument guitar = new Instrument();
+        Guitar guitar = new Guitar();
         Song temp = new Song("title", guitar, "", "", "");
         return temp;
     }
@@ -107,8 +132,10 @@ public class OracleMusicAppFacade
     {
 
     }
-    public void saveAll()
-    {
-
+    public void saveAll(){
+        DataWriter.savedAccounts(accountList);
+        DataWriter.savedSongs(songList);
+        DataWriter.savedLessons(lessonList);
+        System.out.println("All your changes are saved!");
     }
 }

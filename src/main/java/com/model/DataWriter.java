@@ -148,7 +148,7 @@ public class DataWriter {
         return saveToFile(DataConstants.COURSE_FILE_NAME, courseArray);
     }
 
-    // Will help wite JSONarray to a file
+    // Will help write JSONarray to a file
     private static boolean saveToFile(String fileName, JSONArray jsonArray) {
         try (FileWriter file = new FileWriter(fileName)) {
             file.write(jsonArray.toString());// Keeps things neat

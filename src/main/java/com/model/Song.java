@@ -13,15 +13,21 @@ public class Song {
     private int tempo;
     private ArrayList<Measure> measures;
 
-    public Song(String title, String artistName, String difficulty, String genre, Instrument instrument, int tempo, ArrayList<Measure> measures) {
+    /**
+     * Constructor used in the facade for when a user makes a new song.
+     * @param title Title passed by the user for their new song.
+     * @param artistName Artist for the song, in this case will be the username of the user who made the song.
+     * @author Ethan Little
+     */
+    public Song(String title, String artistName) {
         uuid = UUID.randomUUID();
         this.title = title;
         this.artistName = artistName;
-        this.difficulty = difficulty;
-        this.genre = genre;
-        this.instrument = instrument;
-        this.tempo = tempo;
-        this.measures = measures;
+        this.difficulty = "None";
+        this.genre = "None";
+        this.instrument = new Guitar();
+        this.tempo = 100;
+        this.measures = new ArrayList<Measure>();
     }
     /**
      * Song constructor for use in DataLoader. All data members are loaded in from the JSON file, so simply sets them.

@@ -6,8 +6,19 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/** 
+ * Handles Writing data to JSON files, which includes accounts, songs, lessons, questions, measures, and courses.
+ * Converts objects into the JSON format and saves them into their corresponding files
+ * @author James Lyles
+*/
+
 public class DataWriter {
 
+    /**
+     * Saves the list of accounts to a JSON file.
+     * @param accountList The list of accounts to be saved.
+     * @return true if successfilly saved and false otherwise.
+     */
     public static boolean savedAccounts(AccountList accountList) {
         JSONArray accountArray = new JSONArray();
 
@@ -15,11 +26,15 @@ public class DataWriter {
             JSONObject accountObject = new JSONObject();
             accountObject.put(DataConstants.ACCOUNT_USERNAME, account.getUsername());
             accountObject.put(DataConstants.ACCOUNT_PASSWORD, account.getPassword());
-            accountObject.put(DataConstants.ACCOUNT_ROLE, account.getRole());
             accountArray.add(accountObject);
         }
         return saveToFile(DataConstants.ACCOUNT_FILE_NAME, accountArray);
     }
+    /**
+     * Saves the list of songs to a JSON file
+     * @param songList the list of songs to be saved
+     * @return true if successfully saved and false otherwise
+     */
 
     public static boolean savedSongs(SongList songList) {
         JSONArray songArray = new JSONArray();
@@ -36,6 +51,11 @@ public class DataWriter {
         }
         return saveToFile(DataConstants.SONG_FILE_NAME, songArray);// Add songs json later..(Done)
     }
+    /**
+     * Saves the list of lesson to a JSON file
+     * @param lessonList The list of lessons to be saved
+     * @return true if successfully saved and false otherwise
+     */
 
     public static boolean savedLessons(LessonList lessonList) {
         JSONArray lessonArray = new JSONArray();
@@ -45,13 +65,15 @@ public class DataWriter {
             lessonObject.put(DataConstants.LESSON_TITLE, lessons.getTitle());
             lessonObject.put(DataConstants.LESSON_ID, lessons.getID().toString());
 
-            // A way for lesson questions to convert to a Json
+            // Converts Questions into JSON
             JSONArray questionArray = new JSONArray();
             for (Question question : lessons.getQuestions()) {
                 questionArray.add(convertQuestionJSON(question));
             }
 
             lessonObject.put(DataConstants.LESSON_QUESTIONS, questionArray);
+            
+            //Converts lesson text into JSON
             JSONArray textArray = new JSONArray();
             textArray.addAll(lessons.getText());
             lessonObject.put(DataConstants.LESSON_TEXT, textArray);
@@ -60,6 +82,11 @@ public class DataWriter {
         return saveToFile(DataConstants.LESSON_FILE_NAME, lessonArray);
     }
 
+    /**
+     * Saves the list of questions to be saved 
+     * @param questionList the list of question to be saved 
+     * @return true if succesfully saved and false otherwise 
+     */
     public static boolean savedQuestions(QuestionList questionList) {
         JSONArray questionArray = new JSONArray();
         for (Question question : questionList.getQuestions()) {
@@ -69,6 +96,11 @@ public class DataWriter {
     }
     
 
+/**
+ * Conver
+ * @param question
+ * @return
+ */
     private static JSONObject convertQuestionJSON(Question question) {
         JSONObject questionObject = new JSONObject();
         questionObject.put(DataConstants.QUESTION_QUESTION, question.getQuestionText());

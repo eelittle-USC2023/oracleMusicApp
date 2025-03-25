@@ -53,7 +53,6 @@ public class Measure
         System.out.println(jFugueInput);
         return jFugueInput;
     }
-<<<<<<< HEAD
 
     /**
      * Gives the measure's characteristics in a String, text-based format. Does not use musical notation.
@@ -72,7 +71,7 @@ public class Measure
             }
         }
         return ret;
-=======
+    }
     public int getTimeSignatureTop(){
         return timeSignatureTop;
     }
@@ -81,6 +80,5 @@ public class Measure
     }
     public String getKeySignature(){
         return keySignature;
->>>>>>> d1d1ed7 (Added DataConstants to the DataWriter and added getTimeSignatureTop,  getTimeSignatureBotto and getKeySignature to the measure class)
     }
 }

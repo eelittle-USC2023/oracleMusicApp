@@ -46,15 +46,17 @@ public class MusicPlayer {
     {
         return noteState;
     }
-    public void showSong(ArrayList<String> display)
+    public void showSong()
     {
-        for(String line : display)
+        for(String line : this.state.getDisplay())
         {
-            System.out.println(line);
+            System.out.print(line);
         }
     }
     public void playSong(Song s)
     {
+        pressTabButton();
+        showSong();
         String line = s.toJFugueString();
         try
         {

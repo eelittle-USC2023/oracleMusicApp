@@ -25,5 +25,11 @@
         "password": "pword",
         "role": "Student",
         "username": "ffredrickson"
+    },
+    {
+        "savedSongs": [],
+        "password": "GreatPassword123",
+        "role": "Student",
+        "username": "ffred"
     }
 ]

@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class DataWriter {
+public class DataWriter extends DataConstants {
 
     public static boolean savedAccounts(AccountList accountList) {
         JSONArray accountArray = new JSONArray();
@@ -32,7 +32,7 @@ public class DataWriter {
             
             }
 
-         return saveToFile("src/main/java/com/data/accounts_temp.json", accountArray);
+         return saveToFile(ACCOUNT_FILE_NAME, accountArray);
 
         }
 

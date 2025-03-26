@@ -540,14 +540,104 @@
                         "position": 0
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
                         "name": "A",
                         "octave": 4,
                         "length": 1,
                         "position": 1
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
                         "name": "E",
                         "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
                         "length": 1,
                         "position": 2
                     }

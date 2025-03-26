@@ -7,7 +7,7 @@ public class Driver {
     public static void main(String[] args) {
         //createAccountScenario();
         //playSongScenario();
-        makeSongScenario();
+        //makeSongScenario();
     }
     
     private static void createAccountScenario() {
@@ -32,27 +32,29 @@ public class Driver {
     } 
 
     private static void playSongScenario() {
-
+        OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+        facade.login("ffred", "Greatpassword123");
+        ArrayList<Song> searchResults = facade.songSearch("Artist", "Tom Petty");
     }
 
     private static void makeSongScenario() {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
         facade.login("ffredickson", "pword");
         System.out.println("Logged in as ffredrickson");
-        facade.makeSong("A Horse's Journey");
+        facade.createNewSong("A Horse's Journey");
         facade.addMeasure(4, 4, "Amajor");
-        facade.addNote("A", 2, 1.0, 0.0);
-        facade.addNote("C", 2, 1.0, 1.0);
-        facade.addNote("F", 2, 1.0, 2.0);
-        facade.addNote("C", 2, 1.0, 3.0);
+        facade.addNote(0, "A", 2, 1.0, 0.0);
+        facade.addNote(0, "C", 2, 1.0, 1.0);
+        facade.addNote(0, "F", 2, 1.0, 2.0);
+        facade.addNote(0, "C", 2, 1.0, 3.0);
         facade.addMeasure(4, 4, "Amajor");
-        facade.addNote("A", 2, 1.0, 0.0);
-        facade.addNote("C#", 2, 1.0, 0.0);
-        facade.addNote("F#", 2, 1.0, 0.0);
-        facade.addNote("A", 3, 1.0, 0.0);
+        facade.addNote(1, "A", 2, 1.0, 0.0);
+        facade.addNote(1, "C#", 2, 1.0, 0.0);
+        facade.addNote(1, "F#", 2, 1.0, 0.0);
+        facade.addNote(1, "A", 3, 1.0, 0.0);
         facade.logout();
         facade.login("ffred", "GreatPassword123");
         ArrayList<Song> searchResults = facade.songSearch("Title", "A Horse's Journey");
-        
+        facade.playSong(searchResults.get(0));
     }    
 }

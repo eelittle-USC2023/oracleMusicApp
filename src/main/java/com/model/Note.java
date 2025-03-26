@@ -17,8 +17,9 @@ public class Note
      * Sets the name, octave, length numerator and length denominator to their respective values.
      * @param n Name of the Note
      * @param o Octave of the Note
-     * @param l
-     * @param pos
+     * @param l Length of the Note
+     * @param pos Position of the note
+     * @author Ally Blackwell
      */
     public Note(String n, int o, double l, double pos)
     {
@@ -32,21 +33,22 @@ public class Note
      * Takes the note name and returns the number that JFugue uses to play that note
      * Adds one to that number if the note is sharp and subtracts one if the note is flat
      * @return the JFugue number for the note
+     * @author Ally Blackwell
      */
     public int noteToJFugue()
     {
-        String name = this.getName().toLowerCase();
+        String name = this.getName();
         char letter =  this.getName().charAt(0);
         char type = 'n';
 
         setJFugueBase(letter);
-        noteNumber = noteNumber + octave * 12;
+        int multiply = this.octave * 12;
+        noteNumber = noteNumber + multiply;
 
         if (name.length() > 1) 
         {
             type = this.getName().charAt(1);
         }
-
         if(type == '#')
         {
             noteNumber++;
@@ -57,36 +59,60 @@ public class Note
         }
         return noteNumber;
     }
+    /**
+     * Establishes the base number for each JFugue Note which can then be converted by multiplying the octave*12
+     * @param letter the letter for the note name
+     * @author Ally Blackwell
+     */
     public void setJFugueBase(char letter)
     {
         java.util.Map<Character, Integer> noteMap = new java.util.HashMap<>();
-        noteMap.put('c', 14);
-        noteMap.put('d', 15);
-        noteMap.put('e', 16);
-        noteMap.put('f', 17);
-        noteMap.put('g', 18);
-        noteMap.put('a', 19);
-        noteMap.put('b', 20);
+        noteMap.put('C', 0);
+        noteMap.put('D', 2);
+        noteMap.put('E', 4);
+        noteMap.put('F', 5);
+        noteMap.put('G', 7);
+        noteMap.put('A', 9);
+        noteMap.put('B', 11);
     
         noteNumber = noteMap.getOrDefault(letter, -1);
     }
+    /**
+     * Gets the Name of the Note
+     * @return note name
+     * @author Ally Blackwell
+     */
     public String getName()
     {
         return name;
     }
+    /**
+     * Gets the Octave of the Note
+     * @return note octave
+     * @author Ally Blackwell
+     */
     public int getOctave()
     {
         return octave;
     }
+    /**
+     * Gets the Length of the Note
+     * @return note length
+     * @author Ally Blackwell
+     */
     public double getLength()
     {
         return length;
     }
+    /**
+     * Gets the position of the note
+     * @return note position
+     * @author Ally Blackwell
+     */
     public double getPosition()
     {
         return position;
     }
-
     /**
      * Gives note characteristics in a String format. Does not use musical notation.
      * @return String of the note in the following format: "A3 Len: 1 Pos: 1"

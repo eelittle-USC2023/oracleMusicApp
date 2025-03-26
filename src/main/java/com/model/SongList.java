@@ -45,13 +45,20 @@ public class SongList
         }
         return null;
     }
-    
-    public boolean addSong(String title, String artistName) {
+    /**
+     * 
+     * @param title
+     * @param artistName
+     * @return
+     * @author Ethan Little
+     */
+    public Song addSong(String title, String artistName) {
         if (title == null || title.isEmpty()) {
-            return false;
+            return null;
         }
-        songs.add(new Song(title, artistName));
-        return true;
+        Song song = new Song(title, artistName);
+        songs.add(song);
+        return song;
     }
 
     public boolean editSong(Song song) {
@@ -99,6 +106,10 @@ public class SongList
             }
         }
         return songsFound;
+    }
+    public static void main(String[] args) {
+        SongList songList = SongList.getInstance();
+        ArrayList<Song> searchResults = songList.searchSongs("Title", "Smoke");
     }
 
 }

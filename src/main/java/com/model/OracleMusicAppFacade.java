@@ -8,7 +8,7 @@ public class OracleMusicAppFacade
     private SongList songList;
     private LessonList lessonList;
     private QuestionList questionList;
-    private SongCreator songCreator;
+    private Song selectedSong;
     private MusicPlayer musicPlayer;
     private static OracleMusicAppFacade facade;
 
@@ -38,6 +38,9 @@ public class OracleMusicAppFacade
     
     public boolean createAccount(String username, String password, String role){
         boolean successful = accountList.addAccount(username, password, role);
+        if(successful){
+            currentAccount = accountList.getAccount(username);
+        }
         return successful;
     }
     /**
@@ -49,6 +52,7 @@ public class OracleMusicAppFacade
      * @param username The username that is attempting to login.
      * @param password The password that the username is attempting to use.
      * @return boolean value determining whether or not the login was succesful.
+     * @author Ethan Little and James Lyles
      */
     public boolean login(String username, String password)
     {
@@ -76,18 +80,18 @@ public class OracleMusicAppFacade
     {
         return songList.searchSongs(field, search);
     }
-    public void playSong()
+    public void playSong(Song song)
     {
-
+        musicPlayer.playSong(song);
     }
-    public void makeSong(String title) {
-        SongCreator songcreator = new SongCreator(title, currentAccount.getUsername());
+    public void createNewSong(String title) {
+        selectedSong = songList.addSong(title, currentAccount.getUsername());
     }
     public void addMeasure(int timeSignatureTop, int timeSignatureBottom, String keySignature) {
-        songCreator.addMeasure(timeSignatureTop, timeSignatureBottom, keySignature);
+        selectedSong.addMeasure(timeSignatureTop, timeSignatureBottom, keySignature);
     }
-    public void addNote(String name, int octave, double length, double position) {
-        songCreator.addNoteToSelectedMeasure(name, octave, length, position);
+    public void addNote(int measureIndex, String name, int octave, double length, double position) {
+        selectedSong.addNoteToMeasure(measureIndex, name, octave, length, position);
     }
     //Everything below this point won't be implemented this sprint
     public void viewLesson()

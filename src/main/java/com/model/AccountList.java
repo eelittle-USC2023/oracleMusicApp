@@ -58,7 +58,7 @@ public class AccountList{
        return accounts;
     }
     public void save() {
-        DataWriter.savedAccounts(accounts);
+      DataWriter.savedAccounts(this);
     }
 
    @Override

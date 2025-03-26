@@ -61,5 +61,17 @@
         "songsPlayed": ["9b362387-2cb1-4f45-aad4-b3d672095c48"],
         "completedSongs": [],
         "completedLessons": []
+    },
+    {
+        "username": "ffredrickson",
+        "password": "pword",
+        "role": "Student",
+        "savedSongs": [],
+        "savedLessons": [],
+        "assignments": [],
+        "achievements": [],
+        "songsPlayed": [],
+        "completedSongs": [],
+        "completedLessons": []
     }
 ]

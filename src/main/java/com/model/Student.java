@@ -127,4 +127,7 @@ public class Student extends Account
         }
         return ret;
     }
+    public ArrayList<Song> getSavedSongs(){
+        return savedSongs;
+    }
 }

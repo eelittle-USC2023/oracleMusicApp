@@ -12,7 +12,14 @@ public class Measure
     private String keySignature;
     private ArrayList<Note> notes;
 
-
+    /**
+     * Sets the time signature fraction. key signiture, and notes to this instance of the measure
+     * @param timeSignatureTop the top of the fraction for time signature
+     * @param timeSignatureBottom the bottom of the fraction for time signature
+     * @param keySig the key signature
+     * @param notes the array list of notes which makes up the measure
+     * @author Ally Blackwell
+     */
     public Measure(int timeSignatureTop, int timeSignatureBottom, String keySig, ArrayList<Note> notes)
     {
         this.timeSignatureBottom = timeSignatureBottom;
@@ -20,18 +27,41 @@ public class Measure
         this.keySignature = keySig;
         this.notes = notes;
     }
+    /**
+     * Adds a note to the Array List which makes the measure
+     * @param name Note name
+     * @param octave Note Octave
+     * @param length Note Length
+     * @param position Note Position
+     * @author Ally Blackwell
+     */
     public void addNote(String name, int octave, double length, double position)
     {
         notes.add(new Note(name, octave, length, position));
     }
+    /**
+     * Removes note from the Array List which makes the measure
+     * @param note the note to be removed
+     * @author Ally Blackwell
+     */
     public void removeNote(Note note)
     {
         notes.remove(note);
     }
+    /**
+     * Gets the array of notes which make the measure
+     * @return the array of notes
+     */
     public ArrayList<Note> getNotes()
     {
         return notes;
     }
+    /**
+     * Takes the JFugue translated notes and creates a singular string which can be played on JFugue
+     * Places notes of the same position to be played together
+     * @return the JFugue input string
+     * @author Ally Blackwell
+     */
     public String toJFugueString()
     {
         if(notes.isEmpty())
@@ -76,12 +106,27 @@ public class Measure
         }
         return ret;
     }
+    /**
+     * Gets the top of the time signature fraction
+     * @return the top of the time signature
+     * @author Ethan Little
+     */
     public int getTimeSignatureTop(){
         return timeSignatureTop;
     }
+    /**
+     * Gets the bottom of the time signature fraction
+     * @return the bottom of the time signature
+     * @author Ethan Little
+     */
     public int getTimeSignatureBottom(){
         return timeSignatureBottom;
     }
+    /**
+     * Gets the key signature
+     * @return the key signature
+     * @author Ethan Little 
+     */
     public String getKeySignature(){
         return keySignature;
     }

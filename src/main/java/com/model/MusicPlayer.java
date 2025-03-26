@@ -10,8 +10,9 @@ public class MusicPlayer {
     protected Song song;
     private static String timeSignature = "4/4 ";
 
-    public MusicPlayer()
+    public MusicPlayer(Song song)
     {
+        this.song = song;
         tabState = new TabState(this);
         chordState = new ChordState(this);
         noteState = new NoteState(this);
@@ -74,8 +75,7 @@ public class MusicPlayer {
     }
     public static void main(String[] args) {
         ArrayList<Song> songs = DataLoader.getSongs();
-        MusicPlayer player = new MusicPlayer();
-        player.setSong(songs.get(1));
+        MusicPlayer player = new MusicPlayer(songs.get(1));
         player.playSong(songs.get(1));
     }
 }

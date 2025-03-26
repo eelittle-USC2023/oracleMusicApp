@@ -34,24 +34,28 @@ public class Measure
     }
     public String toJFugueString()
     {
-        String jFugueInput = " ";
+        if(notes.isEmpty())
+        {
+            return "";
+        }
+        StringBuilder jFugueInput = new StringBuilder(" ");
         int noteNumber;
         for(int i = 0; i < notes.size(); i++)
         {
             noteNumber = notes.get(i).noteToJFugue();
             String next = " ";
-            if(i+1 < notes.size()) 
+
+            if(i + 1 < notes.size()) 
             {
-                if (notes.get(i).getPosition() == notes.get(i+1).getPosition())
+                if (notes.get(i).getPosition() == notes.get(i + 1).getPosition())
                 {
                     next = "+";
                 }
             }
             String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
-            jFugueInput = jFugueInput + input;
+            jFugueInput.append(input);
         }
-        System.out.println(jFugueInput);
-        return jFugueInput;
+        return jFugueInput.toString();
     }
 
     /**

@@ -33,49 +33,24 @@ public class OracleMusicAppFacade
         }
         return facade;
     }
-    public ArrayList<Account> getAccounts()
-    {
-        ArrayList<Account> temp = new ArrayList<Account>();
-        return temp;
+    public Account getCurrentAccount() {
+        return currentAccount;
     }
-    public ArrayList<Song> getSongs()
-    {
-        ArrayList<Song> temp = new ArrayList<Song>();
-        return temp;
-    }
-    public ArrayList<Lesson> getLessons()
-    {
-        ArrayList<Lesson> temp = new ArrayList<Lesson>();
-        return temp;
-    }
+    
     public boolean createAccount(String username, String password, String role){
         boolean successful = accountList.addAccount(username, password, role);
-
-        if (successful){
-            System.out.println("Your account has successfully been created!");
-            return true;
-        }else {
-            System.out.println("This username alreadys exists, please choose a different one.");
-            return false;
-        }
+        return successful;
     }
     public boolean login(String username, String password)
     {
         Account account = accountList.getAccount(username);
-        if (account != null && account.getPassword().equals(password)){
-            System.out.println("Your login was successful welcome ," + username);
-            return true;
+        if (account == null) {
+            return false;
         }
-        System.out.println("Invalid username or password.");
-        return false;
+        return account.isCorrectPassword(password);
     }
     public void logout(){
-        if (currentAccount != null) {
-            System.out.println("You've logged out:" + currentAccount.getUsername());
-            currentAccount = null;
-        } else {
-            System.out.println("There is no user currently logged in.");
-        }
+        //Call all list save methods
     }
     public ArrayList<Song> songSearch(String keyword)
     {
@@ -86,12 +61,10 @@ public class OracleMusicAppFacade
     {
 
     }
-    public Song makeSong()
-    {
-        Guitar guitar = new Guitar();
-        Song temp = new Song("title", guitar, "", "", "");
-        return temp;
+    public void makeSong(String title) {
+
     }
+    //Everything below this point won't be implemented this sprint
     public void viewLesson()
     {
 
@@ -131,11 +104,5 @@ public class OracleMusicAppFacade
     public void assignStudentSong(Song song)
     {
 
-    }
-    public void saveAll(){
-        DataWriter.savedAccounts(accountList);
-        DataWriter.savedSongs(songList);
-        DataWriter.savedLessons(lessonList);
-        System.out.println("All your changes are saved!");
     }
 }

@@ -24,11 +24,24 @@ public class DataWriter {
 
         for (Account account : accountList.getAccounts()) {
             JSONObject accountObject = new JSONObject();
-            accountObject.put(DataConstants.ACCOUNT_USERNAME, account.getUsername());
+            if(account instanceof Student){
+           accountObject.put(DataConstants.ACCOUNT_USERNAME, account.getUsername());
             accountObject.put(DataConstants.ACCOUNT_PASSWORD, account.getPassword());
+            accountObject.put(DataConstants.ACCOUNT_ROLE, "Student");
             accountArray.add(accountObject);
+            JSONArray savedSongsArray = new JSONArray();
+            for(Song song : ((Student)account).getSavedSongs()){
+                savedSongsArray.add(song.getID().toString());
+            }
+            }
+            String role = "Student";
+            if (account instanceof Teacher) {
+                role = "Teacher";
+            } 
+            /*accountObject.put("")//Method for saved into the Accounts json only for students */ 
+
         }
-        return saveToFile(DataConstants.ACCOUNT_FILE_NAME, accountArray);
+        return saveToFile("src/main/java/com/data/accounts_temp.json", accountArray);
     }
     /**
      * Saves the list of songs to a JSON file
@@ -49,7 +62,7 @@ public class DataWriter {
             songObject.put(DataConstants.SONG_GENRE, song.getGenre());
             songArray.add(songObject);
         }
-        return saveToFile(DataConstants.SONG_FILE_NAME, songArray);// Add songs json later..(Done)
+        return saveToFile("src/main/java/com/data/songs_temp.json", songArray);// Add songs json later..(Done)
     }
     /**
      * Saves the list of lesson to a JSON file
@@ -71,7 +84,7 @@ public class DataWriter {
                 questionArray.add(convertQuestionJSON(question));
             }
 
-            lessonObject.put(DataConstants.LESSON_QUESTIONS, questionArray);
+            lessonObject.put("src/main/java/com/data/lessons_temp.json", questionArray);
             
             //Converts lesson text into JSON
             JSONArray textArray = new JSONArray();
@@ -92,14 +105,14 @@ public class DataWriter {
         for (Question question : questionList.getQuestions()) {
             questionArray.add(convertQuestionJSON(question));
         }
-        return saveToFile(DataConstants.QUESTION_FILE_NAME, questionArray);
+        return saveToFile("src/main/java/com/data/questions_temp.json", questionArray);
     }
     
 
 /**
- * Conver
- * @param question
- * @return
+ * Converts a question object into JSON
+ * @param question the question to be converted
+ * @return JSONObject thats representing the question
  */
     private static JSONObject convertQuestionJSON(Question question) {
         JSONObject questionObject = new JSONObject();
@@ -114,12 +127,19 @@ public class DataWriter {
         questionObject.put(DataConstants.QUESTION_HINT, question.getHint());
         return questionObject;
     }
+
+    /**
+     * Converts measure object into JSON
+     * @param measure the measure to be converted 
+     * @return JSONObject thats representing the measure
+     */
     private static JSONObject convertMeasureJSON (Measure measure){
     JSONObject measureObject = new JSONObject();
     measureObject.put(DataConstants.MEASURE_TIME_SIGNATURE_TOP, measure.getTimeSignatureTop());
     measureObject.put(DataConstants.MEASURE_TIME_SIGNATURE_BOTTOM, measure.getTimeSignatureBottom());
     measureObject.put(DataConstants.MEASURE_KEY_SIGNATURE, measure.getKeySignature());
 
+    //Converts notes inside the measure
     JSONArray noteArray = new JSONArray();
     for (Note note : measure.getNotes()){
         noteArray.add(convertNoteJSON(note));
@@ -127,6 +147,12 @@ public class DataWriter {
     measureObject.put(DataConstants.MEASURE_NOTES, noteArray);
     return measureObject;
     }
+
+    /**
+     * Converts a note object into JSON
+     * @param note The not to be converted 
+     * @return JSONObject thats representing the note
+     */
     private static JSONObject convertNoteJSON(Note note){
         JSONObject noteObject = new JSONObject();
         noteObject.put(DataConstants.NOTE_NAME, note.getName());
@@ -135,18 +161,27 @@ public class DataWriter {
         noteObject.put(DataConstants.NOTE_POSITION, note.getPosition());
         return noteObject;
     }
+
+    /**
+     * Saves the list of courses to a JSON file
+     * @param courses The list of course to be saved 
+     * @return true if successfully saved and false otherwise
+     */
 	public static boolean savedCourses(List<Course> courses){
         JSONArray courseArray = new JSONArray();
         for (Course course : courses){
             JSONObject courseObject = new JSONObject();
             courseObject.put(DataConstants.COURSE_NAME, course.getCourseName());
             courseObject.put(DataConstants.COURSE_ID, course.getCourseID().toString());
+
+            //Converts Students to JSON
             JSONArray studentArray = new JSONArray();
             for (Student student : course.getStudents()){
                 studentArray.add(student.getUsername());
             }
             courseObject.put(DataConstants.COURSE_STUDENTS, studentArray);
 
+            //Converts assignments to JSON
             JSONArray assignmentArray = new JSONArray();
             for (Assignment assignment : course.getAssignments()){
                 JSONObject assignmentObject = new JSONObject();
@@ -176,7 +211,12 @@ public class DataWriter {
         return saveToFile(DataConstants.COURSE_FILE_NAME, courseArray);
     }
 
-    // Will help wite JSONarray to a file
+    /**
+     * Writes a JSONArray to a file
+     * @param fileName The name of the file to write to
+     * @param jsonArray The JSONArray containing the data to be written
+     * @return true if successfully saved and false otherwise
+     */
     private static boolean saveToFile(String fileName, JSONArray jsonArray) {
         try (FileWriter file = new FileWriter(fileName)) {
             file.write(jsonArray.toString());// Keeps things neat

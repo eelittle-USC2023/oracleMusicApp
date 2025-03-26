@@ -1,0 +1,27 @@
+[
+    {
+        "password": "sleepy",
+        "role": "Student",
+        "username": "jake&finn"
+    },
+    {
+        "password": "ch33s3",
+        "role": "Student",
+        "username": "mozartrella"
+    },
+    {
+        "password": "PPassword",
+        "role": "Student",
+        "username": "jake&finn,"
+    },
+    {
+        "password": "ffredpassword",
+        "role": "Student",
+        "username": "ffred"
+    },
+    {
+        "password": "password123",
+        "role": "Student",
+        "username": "TestUser1"
+    }
+]

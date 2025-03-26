@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Student extends Account
 {
-    private ArrayList<Song> savedSongs;
+    private ArrayList<Song> savedSongs;//Needs to saved into the Accounts json only for students 
     private ArrayList<Lesson> savedLessons;
     private ArrayList<Assignment> assignments;
     private ArrayList<Achievement> achievements;
@@ -39,6 +39,24 @@ public class Student extends Account
         this.completedSongs = completedSongs;
         this.completedLessons = completedLessons;
         this.coursesInvitedTo = new ArrayList<Course>();
+    }
+    /**
+     * Constructor to be used when a new Student is made, not being loaded in from JSON.
+     * @param username Username of the new Student.
+     * @param password Password of the new Student.
+     * @author Ethan Little
+     */
+    public Student (String username, String password) {
+        super(username, password);
+        savedSongs = new ArrayList<Song>();
+        savedLessons = new ArrayList<Lesson>();
+        assignments = new ArrayList<Assignment>();
+        achievements = new ArrayList<Achievement>();
+        songsPlayed = new ArrayList<Song>();
+        completedSongs = new ArrayList<Song>();
+        completedLessons = new ArrayList<Lesson>();
+        courses = new ArrayList<Course>();
+        coursesInvitedTo = new ArrayList<Course>();
     }
     /**
      * Adds the passed course to courses if it is valid to do so.
@@ -108,5 +126,8 @@ public class Student extends Account
             }
         }
         return ret;
+    }
+    public ArrayList<Song>getSavedSongs(){
+        return savedSongs;
     }
 }

@@ -12,9 +12,9 @@ public abstract class State
         this.player = p;
         this.display = d;
     }
-    public void play()
+    public ArrayList<String> getDisplay()
     {
-        player.showSong(display);
+        return display;
     }
     public abstract void pressTabButton();
     public abstract void pressChordButton();

@@ -6,8 +6,8 @@ public class Driver {
     
     public static void main(String[] args) {
         //createAccountScenario();
-        playSongScenario();
-        //makeSongScenario();
+        //playSongScenario();
+        makeSongScenario();
     }
     /**
      * Scenario where Fred Fredrickson attempts to make an account, but it fails because the username is taken.
@@ -66,10 +66,8 @@ public class Driver {
         facade.addNote(1, "F#", 2, 1.0, 0.0);
         facade.addNote(1, "A", 3, 1.0, 0.0);
         facade.logout();
-        /*
         facade.login("ffred", "GreatPassword123");
         ArrayList<Song> searchResults = facade.songSearch("Title", "A Horse's Journey");
-        facade.playSong(searchResults.get(0));
-        */
+        //facade.playSong(searchResults.get(0));
     }    
 }

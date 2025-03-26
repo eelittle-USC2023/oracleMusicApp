@@ -5,27 +5,16 @@ import java.util.ArrayList;
 public abstract class State 
 {
     protected MusicPlayer player;
-    private ArrayList<String> tabs;
-    private ArrayList<String> chords;
-    private ArrayList<String> notes;
-    protected Song song;
+    protected ArrayList<String> display;
 
-    public State(MusicPlayer p, Song s)
+    public State(MusicPlayer p, ArrayList<String> d)
     {
         this.player = p;
-        this.song = s;
+        this.display = d;
     }
-    public void notesToTabs()
+    public ArrayList<String> getDisplay()
     {
-        player.showSong(tabs);
-    }
-    public void notesToChords()
-    {
-        player.showSong(chords);
-    }
-    public void notesToNotes()
-    {
-        player.showSong(notes);
+        return display;
     }
     public abstract void pressTabButton();
     public abstract void pressChordButton();

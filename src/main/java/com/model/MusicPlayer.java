@@ -1,6 +1,5 @@
 package com.model;
 
-import java.lang.Thread;
 import java.util.ArrayList;
 
 public class MusicPlayer {
@@ -8,7 +7,7 @@ public class MusicPlayer {
     private State chordState;
     private State noteState;
     private State state;
-    private Song song;
+    protected Song song;
     private static String timeSignature = "4/4 ";
 
     public MusicPlayer()
@@ -55,9 +54,7 @@ public class MusicPlayer {
     }
     public void playSong(Song s)
     {
-
         String line = s.toJFugueString();
-        System.out.print(line);
         try
         {
             Music.play(s.getInstrument().toJFugueString() + timeSignature + line);
@@ -71,9 +68,14 @@ public class MusicPlayer {
     {
         return song;
     }
+    public void setSong(Song s)
+    {
+        this.song = s;
+    }
     public static void main(String[] args) {
         ArrayList<Song> songs = DataLoader.getSongs();
         MusicPlayer player = new MusicPlayer();
+        player.setSong(songs.get(1));
         player.playSong(songs.get(1));
     }
 }

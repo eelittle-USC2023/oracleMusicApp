@@ -11,7 +11,15 @@ public class Song {
     private String genre;
     private Instrument instrument;
     private int tempo;
+    private Guitar guitar;
     private ArrayList<Measure> measures;
+    private ArrayList<String> LowE;
+    private ArrayList<String> A;
+    private ArrayList<String> D;
+    private ArrayList<String> G;
+    private ArrayList<String> B;
+    private ArrayList<String> HighE;
+    private ArrayList<ArrayList<String>> tabs;
 
     /**
      * Constructor used in the facade for when a user makes a new song.
@@ -28,6 +36,12 @@ public class Song {
         this.instrument = new Guitar();
         this.tempo = 100;
         this.measures = new ArrayList<Measure>();
+        this.LowE = new ArrayList<>();
+        this.A = new ArrayList<>();
+        this.D = new ArrayList<>();
+        this.G = new ArrayList<>();
+        this.B = new ArrayList<>();
+        this.HighE = new ArrayList<>();
     }
     /**
      * Song constructor for use in DataLoader. All data members are loaded in from the JSON file, so simply sets them.
@@ -102,7 +116,11 @@ public class Song {
     public void removeMeasure(Measure M)
     {
         measures.remove(M);
-    }
+    }  
+    public ArrayList<Measure> getMeasures()
+    {
+        return measures;
+    }  
     
     /**
      * Gives song in a String, text-based format. Does not use musical notation.
@@ -120,5 +138,109 @@ public class Song {
     public ArrayList<Measure> getSong()
     {
         return measures;
+    }
+
+    public ArrayList<ArrayList<String>> toTab()
+    {
+        ArrayList<Measure> measures = this.getSong();
+
+        for(int i = 0; i < measures.size(); i++)
+        {
+            ArrayList<Note> notes = measures.get(i).getNotes();
+            for(int j = 0; j < notes.size(); j++)
+            {
+                int noteNumber = notes.get(j).noteToJFugue();
+                String string = stringRange(noteNumber);
+                switch(string)
+                {
+                    case "LowE": LowE.add(Integer.toString(getFret(noteNumber, string))); break;
+                    case "A": A.add(Integer.toString(getFret(noteNumber, string))); break;
+                    case "D": D.add(Integer.toString(getFret(noteNumber, string))); break;
+                    case "G": G.add(Integer.toString(getFret(noteNumber, string))); break;
+                    case "B": B.add(Integer.toString(getFret(noteNumber, string))); break;
+                    case "HighE": HighE.add(Integer.toString(getFret(noteNumber, string)));  break;
+                }
+                if(j+1 < notes.size() && notes.get(i).getPosition() != notes.get(i+1).getPosition()) 
+                {
+                    addAndResetFretboard();
+                }  
+            }
+        }
+        populateTabs();
+        return tabs;
+    }
+
+    private void populateTabs()
+    {
+        tabs = new ArrayList<ArrayList<String>>();
+        this.tabs.add(LowE);
+        this.tabs.add(A);
+        this.tabs.add(D);
+        this.tabs.add(G);
+        this.tabs.add(B);
+        this.tabs.add(HighE);
+    }
+
+    private void addAndResetFretboard()
+    {
+        this.LowE.add(Integer.toString(guitar.getLowE()));
+        this.A.add(Integer.toString(guitar.getA()));
+        this.D.add(Integer.toString(guitar.getD()));
+        this.G.add(Integer.toString(guitar.getG()));
+        this.B.add(Integer.toString(guitar.getB()));
+        this.HighE.add(Integer.toString(guitar.getHighE()));
+
+        guitar.setLowE(-1);
+        guitar.setA(-1);
+        guitar.setD(-1);
+        guitar.setG(-1);
+        guitar.setB(-1);
+        guitar.setHighE(-1);
+    }
+
+    private int getFret(int nN, String s)
+    {
+        int stringNumber;
+        switch (s) 
+        {
+            case "LowE": stringNumber = 28; break;
+            case "A": stringNumber = 33; break;
+            case "D": stringNumber = 38; break;
+            case "G": stringNumber = 43; break;
+            case "B": stringNumber = 47; break;
+            case "HighE": stringNumber = 52; break;
+            default:
+                stringNumber = -1;
+        }
+        return nN - stringNumber;
+    }
+
+    private String stringRange(int nN)
+    {
+        if(nN > 27 && nN < 41 && guitar.getLowE() == -1)
+        {
+            return "LowE";
+        }
+        if (nN > 34 && nN < 46 && guitar.getA() == -1)
+        {
+            return "A";
+        }
+        if (nN > 37 && nN < 51 && guitar.getD() == -1)
+        {
+            return "D";
+        }
+        if (nN > 42 && nN < 56 && guitar.getG() == -1)
+        {
+            return "G";
+        }
+        if (nN > 46 && nN < 60 && guitar.getB() == -1)
+        {
+            return "B";
+        }
+        if (nN > 51 && nN < 65 && guitar.getHighE() == -1)
+        {
+            return "HighE";
+        }
+        return null;
     }
 }

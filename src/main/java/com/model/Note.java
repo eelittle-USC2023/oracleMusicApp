@@ -35,34 +35,16 @@ public class Note
      */
     public int noteToJFugue()
     {
-        char Name =  this.getName().charAt(0);
+        String name = this.getName().toLowerCase();
+        char letter =  this.getName().charAt(0);
         char type = 'n';
-        if (name.length() != 1) {
-            type = this.getName().charAt(1);
-        }
 
-        var noteMap = new java.util.HashMap<String, Integer>() 
-        {{
-            put("2e", 28); put("2f", 29); put("2g", 31);
-            put("2a", 33); put("2b", 35);
-            
-            put("3c", 36); put("3d", 38); put("3e", 40);
-            put("3f", 41); put("3g", 43); put("3a", 45);
-            put("3b", 47);
-            
-            put("4c", 48); put("4d", 50); put("4e", 52);
-            put("4f", 53); put("4g", 55); put("4a", 57);
-            put("4b", 59);
-            
-            put("5c", 60); put("5d", 62); put("5e", 64);
-        }};
+        setJFugueBase(letter);
+        noteNumber = noteNumber + octave * 12;
 
-        String map = this.getOctave() + String.valueOf(Character.toLowerCase(Name));
-        noteNumber = noteMap.getOrDefault(map, -1);
-
-        if(noteNumber == -1)
+        if (name.length() > 1) 
         {
-            return -1;
+            type = this.getName().charAt(1);
         }
 
         if(type == '#')
@@ -74,6 +56,19 @@ public class Note
             noteNumber--;
         }
         return noteNumber;
+    }
+    public void setJFugueBase(char letter)
+    {
+        java.util.Map<Character, Integer> noteMap = new java.util.HashMap<>();
+        noteMap.put('c', 14);
+        noteMap.put('d', 15);
+        noteMap.put('e', 16);
+        noteMap.put('f', 17);
+        noteMap.put('g', 18);
+        noteMap.put('a', 19);
+        noteMap.put('b', 20);
+    
+        noteNumber = noteMap.getOrDefault(letter, -1);
     }
     public String getName()
     {

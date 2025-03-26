@@ -13,13 +13,15 @@ public class OracleMusicAppFacade
     private static OracleMusicAppFacade facade;
 
     /**
-     * Private constructor called when getInstance is called for the first time.
-     * Sets up all the lists.
+     * This is called when getInstance is called for the first time.
+     * Sets up all the lists, then makes sure the currentAccount and selectedSong are null 
+     * because no one has logged in or made a song.
      * @author Ethan Little
      */
     private OracleMusicAppFacade()
     {
         currentAccount = null;
+        selectedSong = null;
         questionList = QuestionList.getInstance();
         lessonList = LessonList.getInstance();
         songList = SongList.getInstance();
@@ -67,7 +69,8 @@ public class OracleMusicAppFacade
         return false;
     }
     public void logout(){
-        //Call all list save methods
+        accountList.save();
+        songList.save();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     }
     /**
      * Calls the songList searchSongs method.
@@ -82,8 +85,13 @@ public class OracleMusicAppFacade
     }
     public void playSong(Song song)
     {
+        MusicPlayer musicPlayer = new MusicPlayer(song);
+        musicPlayer.playSong(song);
         musicPlayer = new MusicPlayer(song);
         musicPlayer.playSong();
+    }
+    public void printTabsOfCurrentSong() {
+
     }
     public void createNewSong(String title) {
         selectedSong = songList.addSong(title, currentAccount.getUsername());

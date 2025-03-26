@@ -8,27 +8,25 @@ public class Student extends Account
     private ArrayList<Assignment> assignments;
     private ArrayList<Achievement> achievements;
     private ArrayList<Song> songsPlayed;
-    private ArrayList<Song> completedSongs;
     private ArrayList<Lesson> completedLessons;
     private ArrayList<Course> courses;
     private ArrayList<Course> coursesInvitedTo;
 
     /**
      * Method used in DataLoader to construct using JSON data.
-     * @param username
-     * @param password
-     * @param savedSongs
-     * @param savedLessons
-     * @param assignments
-     * @param achievements
-     * @param songsPlayed
-     * @param completedSongs
-     * @param completedLessons
+     * @param username The username of the student
+     * @param password The password of the student
+     * @param savedSongs The saved Songs of the student
+     * @param savedLessons The saved Lessons of the student
+     * @param assignments The assignments of the student
+     * @param achievements The achievements of the student
+     * @param songsPlayed The songsPlayed of the student
+     * @param completedLessons The completedLessons of the student
      * @author Ethan Little
      */
     public Student(String username, String password,  ArrayList<Song> savedSongs, ArrayList<Lesson> savedLessons, 
-                   ArrayList<Assignment> assignments, ArrayList<Achievement> achievements, ArrayList<Song> songsPlayed,
-                   ArrayList<Song> completedSongs, ArrayList<Lesson> completedLessons) {
+                ArrayList<Assignment> assignments, ArrayList<Achievement> achievements, ArrayList<Song> songsPlayed,
+                ArrayList<Lesson> completedLessons) {
         super(username, password);
         this.savedSongs = savedSongs;
         this.savedLessons = savedLessons;
@@ -36,7 +34,6 @@ public class Student extends Account
         this.achievements = achievements;
         this.songsPlayed = songsPlayed;
         this.courses = new ArrayList<Course>();
-        this.completedSongs = completedSongs;
         this.completedLessons = completedLessons;
         this.coursesInvitedTo = new ArrayList<Course>();
     }
@@ -53,7 +50,6 @@ public class Student extends Account
         assignments = new ArrayList<Assignment>();
         achievements = new ArrayList<Achievement>();
         songsPlayed = new ArrayList<Song>();
-        completedSongs = new ArrayList<Song>();
         completedLessons = new ArrayList<Lesson>();
         courses = new ArrayList<Course>();
         coursesInvitedTo = new ArrayList<Course>();

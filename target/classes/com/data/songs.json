@@ -99,7 +99,55 @@
                         "position": 0
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
                         "name": "G",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
                         "octave": 3,
                         "length": 1,
                         "position": 1
@@ -111,8 +159,68 @@
                         "position": 2
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
                         "name": "C",
                         "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
                         "length": 1,
                         "position": 3
                     }
@@ -130,8 +238,68 @@
                         "position": 0
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
                         "name": "D",
                         "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
                         "length": 1,
                         "position": 1
                     },
@@ -142,8 +310,68 @@
                         "position": 2
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
                         "name": "C",
                         "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
                         "length": 1,
                         "position": 3
                     }
@@ -161,7 +389,67 @@
                         "position": 0
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
                         "name": "G",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
                         "octave": 3,
                         "length": 1,
                         "position": 1
@@ -173,8 +461,68 @@
                         "position": 2
                     },
                     {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
                         "name": "C",
                         "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": 3,
                         "length": 1,
                         "position": 3
                     }

@@ -9,10 +9,14 @@ public class Driver {
         playSongScenario();
         //makeSongScenario();
     }
-    
+    /**
+     * Scenario where Fred Fredrickson attempts to make an account, but it fails because the username is taken.
+     * He then changes his username, and his attempt succeeds. Then, he logs out and logs back in successfully.
+     * @author Ethan Little and James Lyles
+     */
     private static void createAccountScenario() {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-        boolean accountCreated = facade.createAccount("ffredickson", "Password123", "Student");
+        boolean accountCreated = facade.createAccount("ffredrickson", "GreatPassword123", "Student");
         if (!accountCreated){
             System.out.println("Account creation failed, this username is already taken");
         }
@@ -21,7 +25,7 @@ public class Driver {
             System.out.println("Account was created successfully!");
         }
         facade.logout();
-        boolean loginSuccessful = facade.login("ffred", "Greatpassword123");
+        boolean loginSuccessful = facade.login("ffred", "GreatPassword123");
         if (loginSuccessful){
             System.out.println("Your login was successful!");
         }
@@ -31,16 +35,22 @@ public class Driver {
         facade.logout();
     } 
 
+    /**
+     * 
+     * @author Ethan Little
+     */
     private static void playSongScenario() {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-        facade.login("ffred", "Greatpassword123");
+        facade.login("ffred", "GreatPassword123");
         ArrayList<Song> searchResults = facade.songSearch("Artist", "Tom Petty");
-        facade.playSong(searchResults.get(0));
     }
-
+    /**
+     * 
+     * @author Ethan Little
+     */
     private static void makeSongScenario() {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-        facade.login("ffredickson", "pword");
+        facade.login("ffredrickson", "pword");
         System.out.println("Logged in as ffredrickson");
         facade.createNewSong("A Horse's Journey");
         facade.addMeasure(4, 4, "Amajor");
@@ -54,8 +64,10 @@ public class Driver {
         facade.addNote(1, "F#", 2, 1.0, 0.0);
         facade.addNote(1, "A", 3, 1.0, 0.0);
         facade.logout();
+        /*
         facade.login("ffred", "GreatPassword123");
         ArrayList<Song> searchResults = facade.songSearch("Title", "A Horse's Journey");
         facade.playSong(searchResults.get(0));
+        */
     }    
 }

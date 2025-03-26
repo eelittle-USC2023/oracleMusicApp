@@ -22,10 +22,12 @@ public class TabState extends State
     public TabState(MusicPlayer player)
     {
         super(player, new ArrayList<>());
+        /*
         this.tabs = new ArrayList<ArrayList<String>>();
         resetFretboard();
         toTab();
         this.display = createDisplay(tabs);
+        */
         
     }
     /**

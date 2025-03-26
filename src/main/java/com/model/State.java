@@ -6,6 +6,7 @@ public abstract class State
 {
     protected MusicPlayer player;
     protected ArrayList<String> display;
+    protected Guitar guitar = new Guitar();
 
     public State(MusicPlayer p, ArrayList<String> d)
     {

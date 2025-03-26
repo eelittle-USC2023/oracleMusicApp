@@ -10,12 +10,12 @@ public class Guitar extends Instrument
     private int HighEFret;
 
     public Guitar () {
-        LowEFret = -1;
-        AFret = -1;
-        DFret = -1;
-        GFret = -1;
-        BFret = -1;
-        HighEFret = -1;
+        this.LowEFret = -1;
+        this.AFret = -1;
+        this.DFret = -1;
+        this.GFret = -1;
+        this.BFret = -1;
+        this.HighEFret = -1;
     }
     public String toJFugueString() {
         return "I[Guitar] ";

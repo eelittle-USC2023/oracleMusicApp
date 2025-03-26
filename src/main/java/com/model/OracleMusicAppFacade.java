@@ -87,6 +87,8 @@ public class OracleMusicAppFacade
     {
         MusicPlayer musicPlayer = new MusicPlayer(song);
         musicPlayer.playSong(song);
+        musicPlayer = new MusicPlayer(song);
+        musicPlayer.playSong();
     }
     public void printTabsOfCurrentSong() {
 

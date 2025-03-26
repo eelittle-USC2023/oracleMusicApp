@@ -43,8 +43,6 @@ public class Driver {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
         facade.login("ffred", "GreatPassword123");
         ArrayList<Song> searchResults = facade.songSearch("Artist", "Tom Petty");
-        facade.playSong(searchResults.get(0));
-        facade.printTabsOfCurrentSong();
     }
     /**
      * 

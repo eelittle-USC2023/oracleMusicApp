@@ -22,7 +22,7 @@ public class DataWriter {
             accountObject.put(DataConstants.ACCOUNT_ROLE, role);
             accountArray.add(accountObject);
         }
-        return saveToFile(DataConstants.ACCOUNT_FILE_NAME, accountArray);
+        return saveToFile("src/main/java/com/data/accounts_temp.json", accountArray);
     }
 
     public static boolean savedSongs(SongList songList) {
@@ -38,7 +38,7 @@ public class DataWriter {
             songObject.put(DataConstants.SONG_GENRE, song.getGenre());
             songArray.add(songObject);
         }
-        return saveToFile(DataConstants.SONG_FILE_NAME, songArray);// Add songs json later..(Done)
+        return saveToFile("src/main/java/com/data/songs_temp.json", songArray);// Add songs json later..(Done)
     }
 
     public static boolean savedLessons(LessonList lessonList) {
@@ -61,7 +61,7 @@ public class DataWriter {
             lessonObject.put(DataConstants.LESSON_TEXT, textArray);
             lessonArray.add(lessonArray);
         }
-        return saveToFile(DataConstants.LESSON_FILE_NAME, lessonArray);
+        return saveToFile("src/main/java/com/data/lessons_temp.json", lessonArray);
     }
 
     public static boolean savedQuestions(QuestionList questionList) {
@@ -69,7 +69,7 @@ public class DataWriter {
         for (Question question : questionList.getQuestions()) {
             questionArray.add(convertQuestionJSON(question));
         }
-        return saveToFile(DataConstants.QUESTION_FILE_NAME, questionArray);
+        return saveToFile("src/main/java/com/data/questions_temp.json", questionArray);
     }
     
 
@@ -145,7 +145,7 @@ public class DataWriter {
              }
              courseArray.add(courseObject);
         }
-        return saveToFile(DataConstants.COURSE_FILE_NAME, courseArray);
+        return saveToFile("src/main/java/com/data/courses_temp.json", courseArray);
     }
 
     // Will help write JSONarray to a file

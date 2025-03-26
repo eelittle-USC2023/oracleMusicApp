@@ -71,7 +71,6 @@ public class Song {
     public Instrument getInstrument() {
         return instrument;
     }
-
     public String getTitle(){
         return title;
     }
@@ -84,14 +83,26 @@ public class Song {
     public String getGenre(){
         return genre;
     }
-    public void addMeasure(Measure M)
+    /**
+     * Returns the measure at the passed index.
+     * @param measureIndex
+     * @return the measure at the given index.
+     * @author Ethan Little
+     */
+    public Measure getMeasure(int measureIndex) {
+        return measures.get(measureIndex);
+    }
+    public void addNote(int measureIndex, String noteName, int octave, double length, double position) {
+        measures.get(measureIndex).addNote(noteName, octave, length, position);
+    }
+    public void addMeasure(int timeSignatureTop, int timeSignatureBottom, String keySignature)
     {
-        measures.add(M);
+        measures.add(new Measure(timeSignatureTop, timeSignatureBottom, keySignature, new ArrayList<Note>()));
     }
     public void removeMeasure(Measure M)
     {
         measures.remove(M);
-    }    
+    }
     
     /**
      * Gives song in a String, text-based format. Does not use musical notation.

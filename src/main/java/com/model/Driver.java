@@ -1,11 +1,13 @@
 package com.model;
 
+import java.util.ArrayList;
+
 public class Driver {
     
     public static void main(String[] args) {
         //createAccountScenario();
         //playSongScenario();
-        //makeSongScenario();
+        makeSongScenario();
     }
     
     private static void createAccountScenario() {
@@ -37,16 +39,20 @@ public class Driver {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
         facade.login("ffredickson", "pword");
         System.out.println("Logged in as ffredrickson");
-        facade.makeSong("A Horses Journey");
-        facade.addMeasure();
-        facade.addNote();
-        facade.addNote();
-        facade.addNote();
-        facade.addNote();
-        facade.addMeasure();
-        facade.addNote();
-        facade.addNote();
-        facade.addNote();
-        facade.addNote();
+        facade.makeSong("A Horse's Journey");
+        facade.addMeasure(4, 4, "Amajor");
+        facade.addNote("A", 2, 1.0, 0.0);
+        facade.addNote("C", 2, 1.0, 1.0);
+        facade.addNote("F", 2, 1.0, 2.0);
+        facade.addNote("C", 2, 1.0, 3.0);
+        facade.addMeasure(4, 4, "Amajor");
+        facade.addNote("A", 2, 1.0, 0.0);
+        facade.addNote("C#", 2, 1.0, 0.0);
+        facade.addNote("F#", 2, 1.0, 0.0);
+        facade.addNote("A", 3, 1.0, 0.0);
+        facade.logout();
+        facade.login("ffred", "GreatPassword123");
+        ArrayList<Song> searchResults = facade.songSearch("Title", "A Horse's Journey");
+        
     }    
 }

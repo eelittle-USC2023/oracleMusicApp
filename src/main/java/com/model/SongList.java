@@ -45,8 +45,12 @@ public class SongList
         }
         return null;
     }
-
-    public boolean addSong(String title, String artistName, String difficulty, String genre, Instrument instrument, ArrayList<Measure> measures) {
+    
+    public boolean addSong(String title, String artistName) {
+        if (title == null || title.isEmpty()) {
+            return false;
+        }
+        songs.add(new Song(title, artistName));
         return true;
     }
 

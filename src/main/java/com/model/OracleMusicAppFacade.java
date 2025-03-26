@@ -1,8 +1,6 @@
 package com.model;
 import java.util.ArrayList;
 
-import javax.security.auth.login.AccountException;
-
 public class OracleMusicAppFacade 
 {
     private Account currentAccount;
@@ -21,6 +19,7 @@ public class OracleMusicAppFacade
      */
     private OracleMusicAppFacade()
     {
+        currentAccount = null;
         questionList = QuestionList.getInstance();
         lessonList = LessonList.getInstance();
         songList = SongList.getInstance();
@@ -41,28 +40,54 @@ public class OracleMusicAppFacade
         boolean successful = accountList.addAccount(username, password, role);
         return successful;
     }
+    /**
+     * This method calls the getAccount method from the accountList. 
+     * If getAccount returns null, then the username is incorrect.
+     * Otherwise, the getAccount returns an account. Then, this method calls the isCorrectPassword method on that account.
+     * If that returns true, then the account becomes the current account and this method returns true. 
+     * Otherwise, the method returns false. 
+     * @param username The username that is attempting to login.
+     * @param password The password that the username is attempting to use.
+     * @return boolean value determining whether or not the login was succesful.
+     */
     public boolean login(String username, String password)
     {
         Account account = accountList.getAccount(username);
         if (account == null) {
             return false;
         }
-        return account.isCorrectPassword(password);
+        if (account.isCorrectPassword(password)) {
+            currentAccount = account;
+            return true;
+        }
+        return false;
     }
     public void logout(){
         //Call all list save methods
     }
-    public ArrayList<Song> songSearch(String keyword)
+    /**
+     * Calls the songList searchSongs method.
+     * @param field The field of the song being searched.
+     * @param search What in the field is being searched for.
+     * @return Songs matching the search.
+     * @author Ethan Little
+     */
+    public ArrayList<Song> songSearch(String field, String search)
     {
-        ArrayList<Song> temp = new ArrayList<Song>();
-        return temp;
+        return songList.searchSongs(field, search);
     }
     public void playSong()
     {
 
     }
     public void makeSong(String title) {
-
+        SongCreator songcreator = new SongCreator(title, currentAccount.getUsername());
+    }
+    public void addMeasure(int timeSignatureTop, int timeSignatureBottom, String keySignature) {
+        songCreator.addMeasure(timeSignatureTop, timeSignatureBottom, keySignature);
+    }
+    public void addNote(String name, int octave, double length, double position) {
+        songCreator.addNoteToSelectedMeasure(name, octave, length, position);
     }
     //Everything below this point won't be implemented this sprint
     public void viewLesson()

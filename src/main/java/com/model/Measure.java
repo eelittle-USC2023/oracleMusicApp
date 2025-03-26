@@ -13,16 +13,16 @@ public class Measure
     private ArrayList<Note> notes;
 
 
-    public Measure(int timeSignatureTop, int timeSignatureBottom, String keySig, ArrayList<Note> note)
+    public Measure(int timeSignatureTop, int timeSignatureBottom, String keySig, ArrayList<Note> notes)
     {
         this.timeSignatureBottom = timeSignatureBottom;
         this.timeSignatureTop = timeSignatureTop;
         this.keySignature = keySig;
-        this.notes = note;
+        this.notes = notes;
     }
-    public void addNote(Note note)
+    public void addNote(String name, int octave, double length, double position)
     {
-        notes.add(note);
+        notes.add(new Note(name, octave, length, position));
     }
     public void removeNote(Note note)
     {

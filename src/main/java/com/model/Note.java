@@ -14,7 +14,7 @@ public class Note
     private int noteNumber = 0;
 
     /**
-     * Sets the name, octave, length numerator and length denominator to their respective values
+     * Sets the name, octave, length numerator and length denominator to their respective values.
      * @param n Name of the Note
      * @param o Octave of the Note
      * @param l
@@ -28,7 +28,7 @@ public class Note
         this.position = pos;
     }
 
-        /**
+    /**
      * Takes the note name and returns the number that JFugue uses to play that note
      * Adds one to that number if the note is sharp and subtracts one if the note is flat
      * @return the JFugue number for the note

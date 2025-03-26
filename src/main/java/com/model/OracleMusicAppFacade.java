@@ -82,7 +82,8 @@ public class OracleMusicAppFacade
     }
     public void playSong(Song song)
     {
-        musicPlayer.playSong(song);
+        musicPlayer = new MusicPlayer(song);
+        musicPlayer.playSong();
     }
     public void createNewSong(String title) {
         selectedSong = songList.addSong(title, currentAccount.getUsername());

@@ -6,7 +6,7 @@ public class Driver {
     
     public static void main(String[] args) {
         //createAccountScenario();
-        //playSongScenario();
+        playSongScenario();
         //makeSongScenario();
     }
     
@@ -35,6 +35,7 @@ public class Driver {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
         facade.login("ffred", "Greatpassword123");
         ArrayList<Song> searchResults = facade.songSearch("Artist", "Tom Petty");
+        facade.playSong(searchResults.get(0));
     }
 
     private static void makeSongScenario() {

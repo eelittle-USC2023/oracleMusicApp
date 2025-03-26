@@ -1,6 +1,6 @@
 package com.model;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class MusicPlayer {
     private State tabState;
@@ -53,14 +53,14 @@ public class MusicPlayer {
             System.out.print(line);
         }
     }
-    public void playSong(Song s)
+    public void playSong()
     {
         pressTabButton();
         showSong();
-        String line = s.toJFugueString();
+        String line = song.toJFugueString();
         try
         {
-            Music.play(s.getInstrument().toJFugueString() + timeSignature + line);
+            Music.play(song.getInstrument().toJFugueString() + timeSignature + line);
         }
         catch (Exception e)
         {
@@ -75,10 +75,12 @@ public class MusicPlayer {
     {
         this.song = s;
     }
+    /** 
     public static void main(String[] args) {
         ArrayList<Song> songs = DataLoader.getSongs();
         MusicPlayer player = new MusicPlayer(songs.get(1));
         player.playSong(songs.get(1));
     }
+    */
 }
 

@@ -74,6 +74,7 @@ public class Note
         noteMap.put('G', 7);
         noteMap.put('A', 9);
         noteMap.put('B', 11);
+        noteMap.put('R', -2);
     
         noteNumber = noteMap.getOrDefault(letter, -1);
     }

@@ -75,15 +75,18 @@ public class Measure
             noteNumber = notes.get(i).noteToJFugue();
             String next = " ";
 
-            if(i + 1 < notes.size()) 
+            if(noteNumber != -2)
             {
-                if (notes.get(i).getPosition() == notes.get(i + 1).getPosition())
+                if(i + 1 < notes.size()) 
                 {
-                    next = "+";
+                    if (notes.get(i).getPosition() == notes.get(i + 1).getPosition())
+                    {
+                        next = "+";
+                    }
                 }
+                String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
+                jFugueInput.append(input);
             }
-            String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
-            jFugueInput.append(input);
         }
         return jFugueInput.toString();
     }

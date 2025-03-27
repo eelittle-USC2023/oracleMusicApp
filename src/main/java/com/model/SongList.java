@@ -70,7 +70,7 @@ public class SongList
 
     }
     public void save() {
-
+        DataWriter.savedSongs(this);
     }
 
     public ArrayList<Song> getSongsByUser(String username) {

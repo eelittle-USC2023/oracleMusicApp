@@ -29,10 +29,6 @@ public class Driver {
         if (loginSuccessful){
             System.out.println("Your login was successful!");
         }
-        else {
-            System.out.println("Login failed");
-        }
-        facade.logout();
     } 
 
     /**
@@ -42,10 +38,20 @@ public class Driver {
     private static void playSongScenario() {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
         facade.login("ffred", "GreatPassword123");
-        ArrayList<Song> searchResults = facade.songSearch("Artist", "Tom Petty");
+        ArrayList<Song> searchResults = facade.songSearch("Artist", "Deep Purple");
+        for (Song s : searchResults) {
+            System.out.println(s.getTitle() + " by " + s.getArtistName());
+        }
+        facade.setSelectedSong(searchResults.get(0));
+        //facade.displayNotes();
+        facade.displayTabs();
+        //facade.playSong();
+        
+
     }
     /**
-     * 
+     * Scenario where ffredrickson logs in, makes a new song, and then logs out. The song is saved to JSON as a result.
+     * ffred then logs in and searches for and plays the song.
      * @author Ethan Little
      */
     private static void makeSongScenario() {
@@ -54,18 +60,23 @@ public class Driver {
         System.out.println("Logged in as ffredrickson");
         facade.createNewSong("A Horse's Journey");
         facade.addMeasure(4, 4, "Amajor");
-        facade.addNote(0, "A", 2, 1.0, 0.0);
-        facade.addNote(0, "C", 2, 1.0, 1.0);
-        facade.addNote(0, "F", 2, 1.0, 2.0);
-        facade.addNote(0, "C", 2, 1.0, 3.0);
+        facade.addNote(0, "A", 3, 1.0, 0.0);
+        facade.addNote(0, "C", 4, 1.0, 1.0);
+        facade.addNote(0, "F", 4, 1.0, 2.0);
+        facade.addNote(0, "C", 4, 1.0, 3.0);
         facade.addMeasure(4, 4, "Amajor");
-        facade.addNote(1, "A", 2, 1.0, 0.0);
-        facade.addNote(1, "C#", 2, 1.0, 0.0);
-        facade.addNote(1, "F#", 2, 1.0, 0.0);
         facade.addNote(1, "A", 3, 1.0, 0.0);
+        facade.addNote(1, "C#", 4, 1.0, 1.0);
+        facade.addNote(1, "F#", 4, 1.0, 2.0);
+        facade.addNote(1, "A", 4, 1.0, 3.0);
         facade.logout();
+        System.out.println("Logged in as ffred");
         facade.login("ffred", "GreatPassword123");
         ArrayList<Song> searchResults = facade.songSearch("Title", "A Horse's Journey");
-        //facade.playSong(searchResults.get(0));
+        for (Song s : searchResults) {
+            System.out.println(s.getTitle() + " by " + s.getArtistName());
+        }
+        facade.setSelectedSong(searchResults.get(0));
+        facade.playSong();
     }    
 }

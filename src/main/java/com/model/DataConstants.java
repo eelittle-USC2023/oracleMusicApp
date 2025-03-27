@@ -21,7 +21,7 @@ public class DataConstants {
     protected static final String ACCOUNT_SONGS_PLAYED = "songsPlayed";
     protected static final String ACCOUNT_COMPLETED_SONGS = "completedSongs";
     protected static final String ACCOUNT_COMPLETED_LESSONS = "completedLessons";
-
+    //Courses not relevant this sprint
     protected static final String COURSE_FILE_NAME = "src/main/java/com/data/courses.json";
     protected static final String COURSE_NAME = "courseName";
     protected static final String COURSE_ID = "id";

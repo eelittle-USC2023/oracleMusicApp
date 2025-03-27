@@ -106,6 +106,9 @@ public class Student extends Account
     public ArrayList<Course> getCourses(){
         return courses;
     }
+    public void addSavedSong(Song song) {
+        savedSongs.add(song);
+    }
 
     public void acceptInvite(Course course) {
         

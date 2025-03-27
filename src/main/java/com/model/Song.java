@@ -68,6 +68,13 @@ public class Song {
         return jFugueInput.toString();
     }
     /**
+     * Returns the tempo in a JFugue format
+     * @return Tempo in jfugue format
+     */
+    public String tempoToJFugue() {
+        return "T"+tempo;
+    }
+    /**
      * Gets the UUID for the Song
      * @return the song's UUID
      * @author Ethan Little

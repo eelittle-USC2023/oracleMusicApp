@@ -1,7 +1,7 @@
 package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
-
+//Not relevant to this sprint
 public class SongAssignment extends Assignment
 {
     private Song song;

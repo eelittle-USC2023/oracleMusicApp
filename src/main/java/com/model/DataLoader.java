@@ -15,6 +15,11 @@ import org.json.simple.parser.JSONParser;
  * @author Ethan Little
  */
 public class DataLoader extends DataConstants {
+    /**
+     * Loads in the accounts from the JSON file.
+     * @return The loaded accounts.
+     * @author Ethan Little
+     */
     public static ArrayList<Account> getAccounts() {
         ArrayList<Account> accounts = new ArrayList<Account>();
         try {
@@ -42,6 +47,12 @@ public class DataLoader extends DataConstants {
         }
         return getCoursesForAccounts(accounts);
     }
+    /**
+     * Given a JSON array of song ids, gets the songs associated with those ids.
+     * @param songIDsJSON the song IDs
+     * @return ArrayList of the songs
+     * @author Ethan Little
+     */
     private static ArrayList<Song> getSongsFromIDsJSON(JSONArray songIDsJSON) {
         ArrayList<Song> songs = new ArrayList<Song>();
         if (songIDsJSON != null) {
@@ -51,6 +62,11 @@ public class DataLoader extends DataConstants {
         }
         return songs;
     }
+    /**
+     * Not relevant this sprint
+     * @param lessonIDsJSON
+     * @return
+     */
     private static ArrayList<Lesson> getLessonsFromIDsJSON(JSONArray lessonIDsJSON) {
         ArrayList<Lesson> lessons = new ArrayList<Lesson>();
         if (lessonIDsJSON != null) {
@@ -60,6 +76,11 @@ public class DataLoader extends DataConstants {
         }
         return lessons;
     }
+    /**
+     * not relevant this sprint
+     * @param achievementsJSON
+     * @return
+     */
     private static ArrayList<Achievement> achievementsFromJSON(JSONArray achievementsJSON) {
         ArrayList<Achievement> achievements = new ArrayList<Achievement>();
         if (achievementsJSON != null) {
@@ -69,7 +90,11 @@ public class DataLoader extends DataConstants {
         }
         return achievements;
     }
-
+    /**
+     * not relevant this sprint
+     * @param accounts
+     * @return
+     */
     private static ArrayList<Account> getCoursesForAccounts(ArrayList<Account> accounts) {
         try {
             FileReader reader = new FileReader(COURSE_FILE_NAME);
@@ -117,14 +142,26 @@ public class DataLoader extends DataConstants {
         }
         return accounts;
     }
-
+    /**
+     * From a string UUID, gets the song from the song List
+     * @param id the String ID.
+     * @return the song that the getSong method returns
+     * @author Ethan Little
+     */
     private static Song songFromUUIDString(String id) {
         return SongList.getInstance().getSong(UUID.fromString(id));
     }
+    /**
+     * Not relevant this sprint
+     * @param id
+     * @return
+     */
     private static Lesson lessonFromUUIDString(String id) {
         return LessonList.getInstance().getLesson(UUID.fromString(id));
     }
-
+    /** 
+     * Not relevant for this Sprint 
+     * */
     private static ArrayList<Assignment> assignmentsFromJSON(JSONArray assignmentsJSON) {
         if (assignmentsJSON == null) {
             return new ArrayList<Assignment>();
@@ -177,16 +214,21 @@ public class DataLoader extends DataConstants {
                 String difficulty = (String) songJSON.get(SONG_DIFFICULTY);
                 String genre = (String) songJSON.get(SONG_GENRE);
                 Instrument instrument = instrumentFromString((String) songJSON.get(SONG_INSTRUMENT));
-                int tempo = ((Long) songJSON.get(SONG_TEMPO)).intValue();
+                //int tempo = ((Long) songJSON.get(SONG_TEMPO)).intValue();
                 ArrayList<Measure> measures = measuresFromJSON((JSONArray) songJSON.get(SONG_MEASURES));
-                songs.add(new Song(id, title, artistName, difficulty, genre, instrument, tempo, measures));
+                songs.add(new Song(id, title, artistName, difficulty, genre, instrument, 120, measures));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return songs;
     }
-
+    /**
+     * Given a JSONArray of measure objects, creates an arrayList of Measures from the JSON, as long as the JSONArray is not null.
+     * @param measuresJSON The JSONArray of measures.
+     * @return The newly created ArrayList of measures.
+     * @author Ethan Little
+     */
     private static ArrayList<Measure> measuresFromJSON(JSONArray measuresJSON) {
         ArrayList<Measure> measures = new ArrayList<Measure>();
         if (measuresJSON != null) {
@@ -201,7 +243,12 @@ public class DataLoader extends DataConstants {
         }
         return measures;
     }
-
+    /**
+     * Given an JSONArray of notes, returns an arrayList of notes, as long as the JSON isn't null.
+     * @param notesJSON the JSONArray of notes
+     * @return ArrayList of notes
+     * @author Ethan Little
+     */
     private static ArrayList<Note> notesFromJSON(JSONArray notesJSON) {
         ArrayList<Note> notes = new ArrayList<Note>();
         if (notesJSON != null) {
@@ -209,14 +256,19 @@ public class DataLoader extends DataConstants {
                 JSONObject noteJSON = (JSONObject) notesJSON.get(k);
                 String noteName = (String) noteJSON.get(NOTE_NAME);
                 int octave = ((Long) noteJSON.get(NOTE_OCTAVE)).intValue();
-                double length = ((Long) noteJSON.get(NOTE_LENGTH)).intValue();
-                double position = ((Long) noteJSON.get(NOTE_POSITION)).intValue();
+                double length = (double) noteJSON.get(NOTE_LENGTH);
+                double position = (double) noteJSON.get(NOTE_POSITION);
                 notes.add(new Note(noteName, octave, length, position));
             }
         }
         return notes;
     }
-
+    /**
+     * Given a string from JSON, will find and return the instrument class associated with it.
+     * @param s String from JSON giving instrument class.
+     * @return A new instance of the appropriate instrument
+     * @author Ethan Little
+     */
     private static Instrument instrumentFromString(String s) {
         if (s.equals("Guitar")) {
             return new Guitar();
@@ -224,7 +276,10 @@ public class DataLoader extends DataConstants {
             return null;
         }
     }
-
+    /**
+     * Not relevant to this sprint
+     * @return
+     */
     public static ArrayList<Lesson> getLessons() {
         ArrayList<Lesson> lessons = new ArrayList<Lesson>();
         try {
@@ -243,7 +298,11 @@ public class DataLoader extends DataConstants {
         }
         return lessons;
     }
-
+    /**
+     * Not relevant to this sprint
+     * @param stringsJSON
+     * @return
+     */
     private static ArrayList<String> stringsFromJSON(JSONArray stringsJSON) {
         ArrayList<String> strings = new ArrayList<String>();
         if (stringsJSON != null) {
@@ -253,7 +312,11 @@ public class DataLoader extends DataConstants {
         }
         return strings;
     }
-
+    /**
+     * Not relevant to this sprint
+     * @param questionIDsJSON
+     * @return
+     */
     private static ArrayList<Question> getQuestionsFromIDsJSON(JSONArray questionIDsJSON) {
         ArrayList<Question> questions = new ArrayList<Question>();
         if (questionIDsJSON != null) {
@@ -263,11 +326,18 @@ public class DataLoader extends DataConstants {
         }
         return questions;
     }
-
+    /**
+     * Not relevant to this sprint
+     * @param id
+     * @return
+     */
     private static Question questionFromUUIDString(String id) {
         return QuestionList.getInstance().getQuestion(UUID.fromString(id));
     }
-
+    /**
+     * Not relevant to this sprint
+     * @return
+     */
     public static ArrayList<Question> getQuestions() {
         ArrayList<Question> questions = new ArrayList<Question>();
         try {

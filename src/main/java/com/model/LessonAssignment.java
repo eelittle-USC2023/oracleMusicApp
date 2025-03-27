@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
+//Not relevant to this sprint
 public class LessonAssignment extends Assignment {
     private Lesson lesson;
     private String difficultyLevel;

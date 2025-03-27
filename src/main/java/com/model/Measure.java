@@ -75,11 +75,11 @@ public class Measure
             noteNumber = notes.get(i).noteToJFugue();
             String next = " ";
 
-            if(noteNumber != -2)
+            if(noteNumber != -1)
             {
                 if(i + 1 < notes.size()) 
                 {
-                    if (notes.get(i).getPosition() == notes.get(i + 1).getPosition())
+                    if (notes.get(i).getPosition() == notes.get(i + 1).getPosition() && !notes.get(i+1).getName().equals("R"))
                     {
                         next = "+";
                     }

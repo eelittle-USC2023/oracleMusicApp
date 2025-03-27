@@ -43,7 +43,10 @@ public class Note
 
         setJFugueBase(letter);
         int multiply = this.octave * 12;
-        noteNumber = noteNumber + multiply;
+        if(noteNumber != -1)
+        {
+            noteNumber = noteNumber + multiply;
+        }
 
         if (name.length() > 1) 
         {
@@ -74,9 +77,9 @@ public class Note
         noteMap.put('G', 7);
         noteMap.put('A', 9);
         noteMap.put('B', 11);
-        noteMap.put('R', -2);
+        noteMap.put('R', -1);
     
-        noteNumber = noteMap.getOrDefault(letter, -1);
+        noteNumber = noteMap.getOrDefault(letter, -2);
     }
     /**
      * Gets the Name of the Note

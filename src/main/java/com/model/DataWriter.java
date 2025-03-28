@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
  * @author James Lyles
 */
 
-public class DataWriter {
+public class DataWriter extends DataConstants {
 
     /**
      * Saves the list of accounts to a JSON file.
@@ -23,37 +23,34 @@ public class DataWriter {
         JSONArray accountArray = new JSONArray();
 
         for (Account account : accountList.getAccounts()) {
-            JSONObject accountObject = new JSONObject();
-            if(account instanceof Student){
-           accountObject.put(DataConstants.ACCOUNT_USERNAME, account.getUsername());
-            accountObject.put(DataConstants.ACCOUNT_PASSWORD, account.getPassword());
-            accountObject.put(DataConstants.ACCOUNT_ROLE, "Student");
-            accountArray.add(accountObject);
-            JSONArray savedSongsArray = new JSONArray();
-            for(Song song : ((Student)account).getSavedSongs()){
-                savedSongsArray.add(song.getID().toString());
+                JSONObject accountObject = new JSONObject();
+                accountObject.put(DataConstants.ACCOUNT_USERNAME, account.getUsername());
+                accountObject.put(DataConstants.ACCOUNT_PASSWORD, account.getPassword());
+
+                String role = (account instanceof Teacher) ? "Teacher" : "Student";
+                accountObject.put(DataConstants.ACCOUNT_ROLE, role);
+
+                if (account instanceof Student) {
+                    JSONArray savedSongsArray = new JSONArray();
+                    for (Song song : ((Student) account).getSavedSongs()) {
+                        savedSongsArray.add(song.getID().toString());
+                    }
+                    accountObject.put(DataConstants.ACCOUNT_SAVED_SONGS, savedSongsArray);
+
+                }
+
+                accountArray.add(accountObject);
+            
             }
-            }
-            String role = "Student";
-            if (account instanceof Teacher) {
-                role = "Teacher";
-            } 
-            /*accountObject.put("")//Method for saved into the Accounts json only for students */ 
+
+         return saveToFile("src/main/java/com/data/accounts_temp.json", accountArray);
 
         }
-        return saveToFile("src/main/java/com/data/accounts_temp.json", accountArray);
-    }
-    /**
-     * Saves the list of songs to a JSON file
-     * @param songList the list of songs to be saved
-     * @return true if successfully saved and false otherwise
-     */
 
     public static boolean savedSongs(SongList songList) {
         JSONArray songArray = new JSONArray();
 
         for (Song song : songList.getSongs()) {
-            ;
             JSONObject songObject = new JSONObject();
             songObject.put(DataConstants.SONG_ID, song.getID().toString());
             songObject.put(DataConstants.SONG_TITLE, song.getTitle());
@@ -62,6 +59,7 @@ public class DataWriter {
             songObject.put(DataConstants.SONG_GENRE, song.getGenre());
             songArray.add(songObject);
         }
+
         return saveToFile("src/main/java/com/data/songs_temp.json", songArray);// Add songs json later..(Done)
     }
     /**
@@ -72,9 +70,9 @@ public class DataWriter {
 
     public static boolean savedLessons(LessonList lessonList) {
         JSONArray lessonArray = new JSONArray();
+
         for (Lesson lessons : lessonList.getLessons()) {
             JSONObject lessonObject = new JSONObject();
-
             lessonObject.put(DataConstants.LESSON_TITLE, lessons.getTitle());
             lessonObject.put(DataConstants.LESSON_ID, lessons.getID().toString());
 
@@ -84,15 +82,16 @@ public class DataWriter {
                 questionArray.add(convertQuestionJSON(question));
             }
 
-            lessonObject.put("src/main/java/com/data/lessons_temp.json", questionArray);
-            
-            //Converts lesson text into JSON
+            lessonObject.put(DataConstants.LESSON_QUESTIONS, questionArray);
+
             JSONArray textArray = new JSONArray();
             textArray.addAll(lessons.getText());
             lessonObject.put(DataConstants.LESSON_TEXT, textArray);
-            lessonArray.add(lessonArray);
+
+            lessonArray.add(lessonObject);
         }
-        return saveToFile(DataConstants.LESSON_FILE_NAME, lessonArray);
+
+        return saveToFile("src/main/java/com/data/lessons_temp.json", lessonArray);
     }
 
     /**
@@ -102,6 +101,7 @@ public class DataWriter {
      */
     public static boolean savedQuestions(QuestionList questionList) {
         JSONArray questionArray = new JSONArray();
+
         for (Question question : questionList.getQuestions()) {
             questionArray.add(convertQuestionJSON(question));
         }
@@ -117,6 +117,7 @@ public class DataWriter {
     private static JSONObject convertQuestionJSON(Question question) {
         JSONObject questionObject = new JSONObject();
         questionObject.put(DataConstants.QUESTION_QUESTION, question.getQuestionText());
+
         JSONArray choicesArray = new JSONArray();
         choicesArray.addAll(question.getAnswerChoices());
         questionObject.put(DataConstants.QUESTION_ANSWER_CHOICES, choicesArray);
@@ -125,6 +126,7 @@ public class DataWriter {
         questionObject.put(DataConstants.QUESTION_POINTS, question.getPoints());
         questionObject.put(DataConstants.QUESTION_FEEDBACK, question.getFeedback());
         questionObject.put(DataConstants.QUESTION_HINT, question.getHint());
+
         return questionObject;
     }
 
@@ -139,26 +141,22 @@ public class DataWriter {
     measureObject.put(DataConstants.MEASURE_TIME_SIGNATURE_BOTTOM, measure.getTimeSignatureBottom());
     measureObject.put(DataConstants.MEASURE_KEY_SIGNATURE, measure.getKeySignature());
 
-    //Converts notes inside the measure
-    JSONArray noteArray = new JSONArray();
-    for (Note note : measure.getNotes()){
-        noteArray.add(convertNoteJSON(note));
-    }
-    measureObject.put(DataConstants.MEASURE_NOTES, noteArray);
-    return measureObject;
-    }
+        JSONArray noteArray = new JSONArray();
+        for (Note note : measure.getNotes()) {
+            noteArray.add(convertNoteJSON(note));
+        }
 
-    /**
-     * Converts a note object into JSON
-     * @param note The not to be converted 
-     * @return JSONObject thats representing the note
-     */
+        measureObject.put(DataConstants.MEASURE_NOTES, noteArray);
+
+        return measureObject;
+    }
     private static JSONObject convertNoteJSON(Note note){
         JSONObject noteObject = new JSONObject();
         noteObject.put(DataConstants.NOTE_NAME, note.getName());
         noteObject.put(DataConstants.NOTE_OCTAVE, note.getOctave());
         noteObject.put(DataConstants.NOTE_LENGTH, note.getLength());
         noteObject.put(DataConstants.NOTE_POSITION, note.getPosition());
+
         return noteObject;
     }
 
@@ -169,46 +167,47 @@ public class DataWriter {
      */
 	public static boolean savedCourses(List<Course> courses){
         JSONArray courseArray = new JSONArray();
-        for (Course course : courses){
+        for (Course course : courses) {
             JSONObject courseObject = new JSONObject();
             courseObject.put(DataConstants.COURSE_NAME, course.getCourseName());
             courseObject.put(DataConstants.COURSE_ID, course.getCourseID().toString());
 
             //Converts Students to JSON
             JSONArray studentArray = new JSONArray();
-            for (Student student : course.getStudents()){
+            for (Student student : course.getStudents()) {
                 studentArray.add(student.getUsername());
             }
             courseObject.put(DataConstants.COURSE_STUDENTS, studentArray);
 
             //Converts assignments to JSON
             JSONArray assignmentArray = new JSONArray();
-            for (Assignment assignment : course.getAssignments()){
+            for (Assignment assignment : course.getAssignments()) {
                 JSONObject assignmentObject = new JSONObject();
                 assignmentObject.put(DataConstants.ASSIGNMENT_TITLE, assignment.getTitle());
                 assignmentObject.put(DataConstants.ASSIGNMENT_DESCRIPTION, assignment.getDescription());
-                assignmentObject.put(DataConstants.ASSIGNMENT_COMPLETE,assignment.isComplete());
-                 
-                   if(assignment instanceof LessonAssignment){
+                assignmentObject.put(DataConstants.ASSIGNMENT_COMPLETE, assignment.isComplete());
+
+                if (assignment instanceof LessonAssignment) {
                     LessonAssignment lessonAssignment = (LessonAssignment) assignment;
                     assignmentObject.put(DataConstants.COURSE_LESSON_ID, lessonAssignment.getLessonID().toString());
-                   }
-                   else if (assignment instanceof SongAssignment){
+                } else if (assignment instanceof SongAssignment) {
                     SongAssignment songAssignment = (SongAssignment) assignment;
                     assignmentObject.put(DataConstants.COURSE_SONG_ID, songAssignment.getSongID().toString());
-                   }
-                  
+                }
+
                 assignmentArray.add(assignmentObject);
             }
             courseObject.put(DataConstants.COURSE_ASSIGNMENTS, assignmentArray);
-             
-             //Helps convert the Teacher to JSON
-             if(course.getTeacher() != null){
+
+            // Helps convert the Teacher to JSON
+            if (course.getTeacher() != null) {
                 courseObject.put(DataConstants.COURSE_TEACHER, course.getTeacher().getUsername());
-             }
-             courseArray.add(courseObject);
+            }
+
+            courseArray.add(courseObject);
         }
-        return saveToFile(DataConstants.COURSE_FILE_NAME, courseArray);
+
+        return saveToFile("src/main/java/com/data/courses_temp.json", courseArray);
     }
 
     /**
@@ -225,5 +224,11 @@ public class DataWriter {
             e.printStackTrace();
             return false;
         }
+
+    }
+    
+    public static void main(String args[]) {
+        AccountList a = AccountList.getInstance();
+        DataWriter.savedAccounts(a);
     }
 }

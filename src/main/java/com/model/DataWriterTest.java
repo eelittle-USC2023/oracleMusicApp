@@ -1,7 +1,9 @@
 package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
-
+/**
+ * TO BE DELETED, THIS IS A TEMPORARY CLASS 
+ */
 public class DataWriterTest {
     public static void main (String [] args){
         testCreateAccount();
@@ -31,7 +33,7 @@ public class DataWriterTest {
         Instrument guitar = new Guitar();
         ArrayList<Measure> measures = new ArrayList<>();
         measures.add(new Measure(4,4,"C Major", new ArrayList<>()));
-        songList.addSong("Test Song", "Test Artist", "Easy", "Rock", guitar, measures);
+        songList.addSong("Test Song", "Test Artist");
         songList.save();
         System.out.println("Songs successfully saved");
         System.out.println("Saving songs...");

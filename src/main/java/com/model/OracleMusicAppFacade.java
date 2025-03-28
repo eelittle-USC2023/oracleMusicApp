@@ -1,8 +1,6 @@
 package com.model;
 import java.util.ArrayList;
 
-import javax.security.auth.login.AccountException;
-
 public class OracleMusicAppFacade 
 {
     private Account currentAccount;
@@ -10,7 +8,7 @@ public class OracleMusicAppFacade
     private SongList songList;
     private LessonList lessonList;
     private QuestionList questionList;
-    private SongCreator songCreator;
+    private Song selectedSong;
     private MusicPlayer musicPlayer;
     private static OracleMusicAppFacade facade;
 
@@ -21,6 +19,7 @@ public class OracleMusicAppFacade
      */
     private OracleMusicAppFacade()
     {
+        currentAccount = null;
         questionList = QuestionList.getInstance();
         lessonList = LessonList.getInstance();
         songList = SongList.getInstance();
@@ -33,65 +32,68 @@ public class OracleMusicAppFacade
         }
         return facade;
     }
-    public ArrayList<Account> getAccounts()
-    {
-        ArrayList<Account> temp = new ArrayList<Account>();
-        return temp;
+    public Account getCurrentAccount() {
+        return currentAccount;
     }
-    public ArrayList<Song> getSongs()
-    {
-        ArrayList<Song> temp = new ArrayList<Song>();
-        return temp;
-    }
-    public ArrayList<Lesson> getLessons()
-    {
-        ArrayList<Lesson> temp = new ArrayList<Lesson>();
-        return temp;
-    }
+    
     public boolean createAccount(String username, String password, String role){
         boolean successful = accountList.addAccount(username, password, role);
-
-        if (successful){
-            System.out.println("Your account has successfully been created!");
-            return true;
-        }else {
-            System.out.println("This username alreadys exists, please choose a different one.");
-            return false;
+        if(successful){
+            currentAccount = accountList.getAccount(username);
         }
+        return successful;
     }
+    /**
+     * This method calls the getAccount method from the accountList. 
+     * If getAccount returns null, then the username is incorrect.
+     * Otherwise, the getAccount returns an account. Then, this method calls the isCorrectPassword method on that account.
+     * If that returns true, then the account becomes the current account and this method returns true. 
+     * Otherwise, the method returns false. 
+     * @param username The username that is attempting to login.
+     * @param password The password that the username is attempting to use.
+     * @return boolean value determining whether or not the login was succesful.
+     * @author Ethan Little and James Lyles
+     */
     public boolean login(String username, String password)
     {
         Account account = accountList.getAccount(username);
-        if (account != null && account.getPassword().equals(password)){
-            System.out.println("Your login was successful welcome ," + username);
+        if (account == null) {
+            return false;
+        }
+        if (account.isCorrectPassword(password)) {
+            currentAccount = account;
             return true;
         }
-        System.out.println("Invalid username or password.");
         return false;
     }
     public void logout(){
-        if (currentAccount != null) {
-            System.out.println("You've logged out:" + currentAccount.getUsername());
-            currentAccount = null;
-        } else {
-            System.out.println("There is no user currently logged in.");
-        }
+        //Call all list save methods
     }
-    public ArrayList<Song> songSearch(String keyword)
+    /**
+     * Calls the songList searchSongs method.
+     * @param field The field of the song being searched.
+     * @param search What in the field is being searched for.
+     * @return Songs matching the search.
+     * @author Ethan Little
+     */
+    public ArrayList<Song> songSearch(String field, String search)
     {
-        ArrayList<Song> temp = new ArrayList<Song>();
-        return temp;
+        return songList.searchSongs(field, search);
     }
-    public void playSong()
+    public void playSong(Song song)
     {
-
+        musicPlayer.playSong(song);
     }
-    public Song makeSong()
-    {
-        Guitar guitar = new Guitar();
-        Song temp = new Song("title", guitar, "", "", "");
-        return temp;
+    public void createNewSong(String title) {
+        selectedSong = songList.addSong(title, currentAccount.getUsername());
     }
+    public void addMeasure(int timeSignatureTop, int timeSignatureBottom, String keySignature) {
+        selectedSong.addMeasure(timeSignatureTop, timeSignatureBottom, keySignature);
+    }
+    public void addNote(int measureIndex, String name, int octave, double length, double position) {
+        selectedSong.addNoteToMeasure(measureIndex, name, octave, length, position);
+    }
+    //Everything below this point won't be implemented this sprint
     public void viewLesson()
     {
 
@@ -131,12 +133,5 @@ public class OracleMusicAppFacade
     public void assignStudentSong(Song song)
     {
 
-    }
-    public void saveAll(){
-        AccountList.getInstance().save();
-        SongList.getInstance().save();
-        LessonList.getInstance().save();
-        QuestionList.getInstance().save();
-        System.out.println("All your changes are saved!");
     }
 }

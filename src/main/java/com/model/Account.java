@@ -9,8 +9,8 @@ public abstract class Account {
         this.password = password;
     }
 
-    public boolean checkLogin(String username, String password) {
-        return this.username.equals(username) && this.password.equals(password);
+    public boolean isCorrectPassword(String password) {
+        return this.password.equals(password);
     }
 
     public String getUsername() {

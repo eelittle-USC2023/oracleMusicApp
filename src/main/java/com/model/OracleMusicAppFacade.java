@@ -13,13 +13,16 @@ public class OracleMusicAppFacade
     private static OracleMusicAppFacade facade;
 
     /**
-     * Private constructor called when getInstance is called for the first time.
-     * Sets up all the lists.
+     * This is called when getInstance is called for the first time.
+     * Sets up all the lists, then makes sure the currentAccount and selectedSong are null 
+     * because no one has logged in or made a song.
      * @author Ethan Little
      */
     private OracleMusicAppFacade()
     {
         currentAccount = null;
+        selectedSong = null;
+        musicPlayer = null;
         questionList = QuestionList.getInstance();
         lessonList = LessonList.getInstance();
         songList = SongList.getInstance();
@@ -67,7 +70,8 @@ public class OracleMusicAppFacade
         return false;
     }
     public void logout(){
-        //Call all list save methods
+        accountList.save();
+        songList.save();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     }
     /**
      * Calls the songList searchSongs method.
@@ -80,12 +84,17 @@ public class OracleMusicAppFacade
     {
         return songList.searchSongs(field, search);
     }
-    public void playSong(Song song)
+    public void playSong()
     {
-        musicPlayer.playSong(song);
+        musicPlayer.setSong(selectedSong);
+        musicPlayer.playSong();
+    }
+    public void printTabsOfCurrentSong() {
+
     }
     public void createNewSong(String title) {
         selectedSong = songList.addSong(title, currentAccount.getUsername());
+        ((Student)currentAccount).addSavedSong(selectedSong);
     }
     public void addMeasure(int timeSignatureTop, int timeSignatureBottom, String keySignature) {
         selectedSong.addMeasure(timeSignatureTop, timeSignatureBottom, keySignature);
@@ -93,6 +102,33 @@ public class OracleMusicAppFacade
     public void addNote(int measureIndex, String name, int octave, double length, double position) {
         selectedSong.addNoteToMeasure(measureIndex, name, octave, length, position);
     }
+    public void displayNotes()
+    {
+        if (musicPlayer == null) {
+            musicPlayer = new MusicPlayer(selectedSong);
+        }
+        musicPlayer.pressNoteButton();
+        musicPlayer.showSong();
+    }
+    public void displayTabs()
+    {
+        if(musicPlayer == null)
+        {
+            musicPlayer = new MusicPlayer(selectedSong);
+        }
+        musicPlayer.pressTabButton();
+        musicPlayer.showSong();
+    }
+    public void setSelectedSong(Song s)
+    {
+        this.selectedSong = s;
+        if(musicPlayer == null)
+        {
+            musicPlayer = new MusicPlayer(selectedSong);
+        }
+        musicPlayer.setSong(selectedSong);
+    }
+    
     //Everything below this point won't be implemented this sprint
     public void viewLesson()
     {

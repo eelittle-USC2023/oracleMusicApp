@@ -1,5 +1,6 @@
 package com.model;
 
+//Not relevant to this sprint
 public abstract class Assignment{
     private String title;
     private String description;

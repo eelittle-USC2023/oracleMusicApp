@@ -14,7 +14,6 @@ public class TabState extends State
     private ArrayList<String> G;
     private ArrayList<String> B;
     private ArrayList<String> HighE;
-    private Guitar guitar;
     
     /**
      * Calls the super and creates a new arrayList as well as calling the tabs arraylist for the song and initializing create display
@@ -24,6 +23,7 @@ public class TabState extends State
     {
         super(player, new ArrayList<>());
         this.tabs = new ArrayList<ArrayList<String>>();
+        resetFretboard();
         toTab();
         this.display = createDisplay(tabs);
         
@@ -71,17 +71,15 @@ public class TabState extends State
             {
                 if(t.get(i).get(j).equals("-1"))
                 {
-                    displayString.append("-"); 
+                    displayString.append("- "); 
                 }
                 else
                 {
-                    displayString.append(t.get(i).get(j));
+                    displayString.append(t.get(i).get(j) + " ");
                 }
-                if(j < t.get(i).size() - 1)
-                {
-                    displayString.append(" ");
-                }
+                displayString.append(" ");
             }
+            displayString.append('\n');
             displayTemplate.add(displayString.toString());
         }
         return displayTemplate;
@@ -104,23 +102,35 @@ public class TabState extends State
         for(int i = 0; i < measures.size(); i++)
         {
             ArrayList<Note> notes = measures.get(i).getNotes();
+            int string = 0;
             for(int j = 0; j < notes.size(); j++)
             {
                 int noteNumber = notes.get(j).noteToJFugue();
-                String string = stringRange(noteNumber);
+                String fret = "-1";
+                if (noteNumber != -1)
+                {
+                    fret = Integer.toString(getFret(noteNumber, string));
+                }
+                else
+                {
+                    fret = "- ";
+                }
                 switch(string)
                 {
-                    case "LowE": LowE.add(Integer.toString(getFret(noteNumber, string))); break;
-                    case "A": A.add(Integer.toString(getFret(noteNumber, string))); break;
-                    case "D": D.add(Integer.toString(getFret(noteNumber, string))); break;
-                    case "G": G.add(Integer.toString(getFret(noteNumber, string))); break;
-                    case "B": B.add(Integer.toString(getFret(noteNumber, string))); break;
-                    case "HighE": HighE.add(Integer.toString(getFret(noteNumber, string)));  break;
+                    case 0: LowE.add(fret); break;
+                    case 1: A.add(fret); break;
+                    case 2: D.add(fret); break;
+                    case 3: G.add(fret); break;
+                    case 4: B.add(fret); break;
+                    case 5: HighE.add(fret);  break;
                 }
-                if(j+1 < notes.size() && notes.get(j).getPosition() != notes.get(j+1).getPosition()) 
+                string ++; 
+                if(string == 6) 
                 {
-                    addAndResetFretboard();
-                }  
+                    addFretboard();
+                    resetFretboard();
+                    string = 0;
+                } 
             }
         }
         populateTabs();
@@ -142,10 +152,10 @@ public class TabState extends State
         this.tabs.add(HighE);
     }
     /**
-     * Add the current fret to each string and then reset the guitar for the next note
+     * Add the current fret to each string
      * @author Ally Blackwell
      */
-    private void addAndResetFretboard()
+    private void addFretboard()
     {
         this.LowE.add(Integer.toString(guitar.getLowE()));
         this.A.add(Integer.toString(guitar.getA()));
@@ -153,7 +163,13 @@ public class TabState extends State
         this.G.add(Integer.toString(guitar.getG()));
         this.B.add(Integer.toString(guitar.getB()));
         this.HighE.add(Integer.toString(guitar.getHighE()));
-
+    }
+    /**
+     * Reset fretboard for next note
+     * @author Ally Blackwell
+     */
+    private void resetFretboard()
+    {
         guitar.setLowE(-1);
         guitar.setA(-1);
         guitar.setD(-1);
@@ -168,54 +184,20 @@ public class TabState extends State
      * @return the note number subtracted by the string number which gives the fret
      * @author Ally Blackwell
      */
-    private int getFret(int nN, String s)
+    private int getFret(int nN, int s)
     {
         int stringNumber;
         switch (s) 
         {
-            case "LowE": stringNumber = 28; break;
-            case "A": stringNumber = 33; break;
-            case "D": stringNumber = 38; break;
-            case "G": stringNumber = 43; break;
-            case "B": stringNumber = 47; break;
-            case "HighE": stringNumber = 52; break;
+            case 0: stringNumber = 28; break;
+            case 1: stringNumber = 33; break;
+            case 2: stringNumber = 38; break;
+            case 3: stringNumber = 43; break;
+            case 4: stringNumber = 47; break;
+            case 5: stringNumber = 52; break;
             default:
                 stringNumber = -1;
         }
-        return nN - stringNumber;
-    }
-    /**
-     * Determines what note the string is on based on its JFugue number
-     * @param nN note number
-     * @return the string the note is played on
-     * @author Ally Blackwell
-     */
-    private String stringRange(int nN)
-    {
-        if(nN > 27 && nN < 41 && guitar.getLowE() == -1)
-        {
-            return "LowE";
-        }
-        if (nN > 34 && nN < 46 && guitar.getA() == -1)
-        {
-            return "A";
-        }
-        if (nN > 37 && nN < 51 && guitar.getD() == -1)
-        {
-            return "D";
-        }
-        if (nN > 42 && nN < 56 && guitar.getG() == -1)
-        {
-            return "G";
-        }
-        if (nN > 46 && nN < 60 && guitar.getB() == -1)
-        {
-            return "B";
-        }
-        if (nN > 51 && nN < 65 && guitar.getHighE() == -1)
-        {
-            return "HighE";
-        }
-        return "error";
+        return nN - stringNumber - 12;
     }
 }

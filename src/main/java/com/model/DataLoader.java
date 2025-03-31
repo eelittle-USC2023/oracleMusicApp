@@ -10,9 +10,16 @@ import org.json.simple.parser.JSONParser;
 
 /**
  * This class contains all methods to load data from JSON files.
+ * The order in which things should always be loaded is first Songs, then Questions, then Lessons, and finally Accounts.
+ * This is because Lessons contain Questions, so the Questions must be loaded into the QuestionList before
  * @author Ethan Little
  */
 public class DataLoader extends DataConstants {
+    /**
+     * Loads in the accounts from the JSON file.
+     * @return The loaded accounts.
+     * @author Ethan Little
+     */
     public static ArrayList<Account> getAccounts() {
         ArrayList<Account> accounts = new ArrayList<Account>();
         try {
@@ -24,52 +31,13 @@ public class DataLoader extends DataConstants {
                 String password = (String) accountJSON.get(ACCOUNT_PASSWORD);
                 String role = (String) accountJSON.get(ACCOUNT_ROLE);
                 if (role.equals("Student")) {
-                    JSONArray savedSongIDsJSON = (JSONArray) accountJSON.get(ACCOUNT_SAVED_SONGS);
-                    ArrayList<Song> savedSongs = new ArrayList<Song>();
-                    if (savedSongIDsJSON != null) {
-                        for (int j = 0; j < savedSongIDsJSON.size(); j++) {
-                            savedSongs.add(songFromUUIDString((String) savedSongIDsJSON.get(j)));
-                        }
-                    }
-                    JSONArray savedLessonIDsJSON = (JSONArray) accountJSON.get(ACCOUNT_SAVED_LESSONS);
-                    ArrayList<Lesson> savedLessons = new ArrayList<Lesson>();
-                    if (savedSongIDsJSON != null) {
-                        for (int j = 0; j < savedLessonIDsJSON.size(); j++) {
-                            savedLessons.add(lessonFromUUIDString((String) savedLessonIDsJSON.get(j)));
-                        }
-                    }
-                    JSONArray assignmentsJSON = (JSONArray) accountJSON.get(ACCOUNT_ASSIGNMENTS);
-                    ArrayList<Assignment> assignments = assignmentsFromJSON(assignmentsJSON);
-                    JSONArray achievementsJSON = (JSONArray) accountJSON.get(ACCOUNT_ACHIEVEMENTS);
-                    ArrayList<Achievement> achievements = new ArrayList<Achievement>();
-                    if (achievementsJSON != null) {
-                        for (int j = 0; j < achievementsJSON.size(); j++) {
-                            achievements.add(Achievement.valueOf((String) achievementsJSON.get(j)));
-                        }
-                    }
-                    JSONArray songPlayedIDsJSON = (JSONArray) accountJSON.get(ACCOUNT_SONGS_PLAYED);
-                    ArrayList<Song> songsPlayed = new ArrayList<Song>();
-                    if (songPlayedIDsJSON != null) {
-                        for (int j = 0; j < songPlayedIDsJSON.size(); j++) {
-                            songsPlayed.add(songFromUUIDString((String) songPlayedIDsJSON.get(j)));
-                        }
-                    }
-                    JSONArray completedSongIDsJSON = (JSONArray) accountJSON.get(ACCOUNT_COMPLETED_SONGS);
-                    ArrayList<Song> completedSongs = new ArrayList<Song>();
-                    if (completedSongIDsJSON != null) {
-                        for (int j = 0; j < completedSongIDsJSON.size(); j++) {
-                            completedSongs.add(songFromUUIDString((String) completedSongIDsJSON.get(j)));
-                        }
-                    }
-                    JSONArray completedLessonIDsJSON = (JSONArray) accountJSON.get(ACCOUNT_COMPLETED_LESSONS);
-                    ArrayList<Lesson> completedLessons = new ArrayList<Lesson>();
-                    if (completedLessonIDsJSON != null) {
-                        for (int j = 0; j < completedLessonIDsJSON.size(); j++) {
-                            completedLessons.add(lessonFromUUIDString((String) completedLessonIDsJSON.get(j)));
-                        }
-                    }
-                    accounts.add(new Student(username, password, savedSongs, savedLessons, assignments, achievements,
-                            songsPlayed, completedSongs, completedLessons));
+                    ArrayList<Song> savedSongs = getSongsFromIDsJSON((JSONArray) accountJSON.get(ACCOUNT_SAVED_SONGS));
+                    ArrayList<Lesson> savedLessons = getLessonsFromIDsJSON((JSONArray) accountJSON.get(ACCOUNT_SAVED_LESSONS));
+                    ArrayList<Assignment> assignments = assignmentsFromJSON((JSONArray) accountJSON.get(ACCOUNT_ASSIGNMENTS));
+                    ArrayList<Achievement> achievements = achievementsFromJSON((JSONArray) accountJSON.get(ACCOUNT_ACHIEVEMENTS));
+                    ArrayList<Song> songsPlayed = getSongsFromIDsJSON((JSONArray) accountJSON.get(ACCOUNT_SONGS_PLAYED));
+                    ArrayList<Lesson> completedLessons = getLessonsFromIDsJSON((JSONArray) accountJSON.get(ACCOUNT_COMPLETED_LESSONS));
+                    accounts.add(new Student(username, password, savedSongs, savedLessons, assignments, achievements, songsPlayed, completedLessons));
                 } else if (role.equals("Teacher")) {
                     accounts.add(new Teacher(username, password));
                 }
@@ -79,7 +47,54 @@ public class DataLoader extends DataConstants {
         }
         return getCoursesForAccounts(accounts);
     }
-
+    /**
+     * Given a JSON array of song ids, gets the songs associated with those ids.
+     * @param songIDsJSON the song IDs
+     * @return ArrayList of the songs
+     * @author Ethan Little
+     */
+    private static ArrayList<Song> getSongsFromIDsJSON(JSONArray songIDsJSON) {
+        ArrayList<Song> songs = new ArrayList<Song>();
+        if (songIDsJSON != null) {
+            for (int j = 0; j < songIDsJSON.size(); j++) {
+                songs.add(songFromUUIDString((String) songIDsJSON.get(j)));
+            }
+        }
+        return songs;
+    }
+    /**
+     * Not relevant this sprint
+     * @param lessonIDsJSON
+     * @return
+     */
+    private static ArrayList<Lesson> getLessonsFromIDsJSON(JSONArray lessonIDsJSON) {
+        ArrayList<Lesson> lessons = new ArrayList<Lesson>();
+        if (lessonIDsJSON != null) {
+            for (int j = 0; j < lessonIDsJSON.size(); j++) {
+                lessons.add(lessonFromUUIDString((String) lessonIDsJSON.get(j)));
+            }
+        }
+        return lessons;
+    }
+    /**
+     * not relevant this sprint
+     * @param achievementsJSON
+     * @return
+     */
+    private static ArrayList<Achievement> achievementsFromJSON(JSONArray achievementsJSON) {
+        ArrayList<Achievement> achievements = new ArrayList<Achievement>();
+        if (achievementsJSON != null) {
+            for (int j = 0; j < achievementsJSON.size(); j++) {
+                achievements.add(Achievement.valueOf((String) achievementsJSON.get(j)));
+            }
+        }
+        return achievements;
+    }
+    /**
+     * not relevant this sprint
+     * @param accounts
+     * @return
+     */
     private static ArrayList<Account> getCoursesForAccounts(ArrayList<Account> accounts) {
         try {
             FileReader reader = new FileReader(COURSE_FILE_NAME);
@@ -97,8 +112,7 @@ public class DataLoader extends DataConstants {
                         }
                     }
                 }
-                JSONArray assignmentsJSON = (JSONArray) courseJSON.get(COURSE_ASSIGNMENTS);
-                ArrayList<Assignment> assignments = assignmentsFromJSON(assignmentsJSON);
+                ArrayList<Assignment> assignments = assignmentsFromJSON((JSONArray) courseJSON.get(COURSE_ASSIGNMENTS));
                 Teacher teacher = null;
                 for (Account a : accounts) {
                     if (a.getUsername().equals((String) courseJSON.get(COURSE_TEACHER))) {
@@ -128,19 +142,28 @@ public class DataLoader extends DataConstants {
         }
         return accounts;
     }
-
+    /**
+     * From a string UUID, gets the song from the song List
+     * @param id the String ID.
+     * @return the song that the getSong method returns
+     * @author Ethan Little
+     */
     private static Song songFromUUIDString(String id) {
         return SongList.getInstance().getSong(UUID.fromString(id));
     }
+    /**
+     * Not relevant this sprint
+     * @param id
+     * @return
+     */
     private static Lesson lessonFromUUIDString(String id) {
         return LessonList.getInstance().getLesson(UUID.fromString(id));
     }
-    private static Question questionFromUUIDString(String id) {
-        return QuestionList.getInstance().getQuestion(UUID.fromString(id));
-    }
-
+    /** 
+     * Not relevant for this Sprint 
+     * */
     private static ArrayList<Assignment> assignmentsFromJSON(JSONArray assignmentsJSON) {
-        if(assignmentsJSON == null) {
+        if (assignmentsJSON == null) {
             return new ArrayList<Assignment>();
         }
         ArrayList<Assignment> assignments = new ArrayList<Assignment>();
@@ -154,12 +177,13 @@ public class DataLoader extends DataConstants {
                 String difficultyLevel = (String) assignmentJSON.get(ACCOUNT_ASSIGNMENT_DIFFICULTY_LEVEL);
                 JSONArray recommendedSongsJSON = (JSONArray) assignmentJSON.get(ACCOUNT_ASSIGNMENT_RECOMMENDED_LESSONS);
                 ArrayList<Song> recommendedSongs = new ArrayList<Song>();
-                if(recommendedSongsJSON != null) {
+                if (recommendedSongsJSON != null) {
                     for (int k = 0; k < recommendedSongsJSON.size(); k++) {
                         recommendedSongs.add(songFromUUIDString((String) recommendedSongsJSON.get(k)));
                     }
                 }
-                assignments.add(new SongAssignment(assignmentTitle, description, complete, song, difficultyLevel, recommendedSongs));
+                assignments.add(new SongAssignment(assignmentTitle, description, complete, song, difficultyLevel,
+                        recommendedSongs));
             } else if (((String) assignmentJSON.get(ACCOUNT_ASSIGNMENT_TYPE)).equals("Lesson")) {
                 Lesson lesson = lessonFromUUIDString((String) assignmentJSON.get(ACCOUNT_ASSIGNMENT_LESSON_ID));
                 String difficultyLevel = (String) assignmentJSON.get(ACCOUNT_ASSIGNMENT_DIFFICULTY_LEVEL);
@@ -182,7 +206,6 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(SONG_FILE_NAME);
             JSONArray songsJSON = (JSONArray) new JSONParser().parse(reader);
-
             for (int i = 0; i < songsJSON.size(); i++) {
                 JSONObject songJSON = (JSONObject) songsJSON.get(i);
                 UUID id = UUID.fromString((String) songJSON.get(SONG_ID));
@@ -191,34 +214,61 @@ public class DataLoader extends DataConstants {
                 String difficulty = (String) songJSON.get(SONG_DIFFICULTY);
                 String genre = (String) songJSON.get(SONG_GENRE);
                 Instrument instrument = instrumentFromString((String) songJSON.get(SONG_INSTRUMENT));
-                int tempo = ((Long) songJSON.get(SONG_TEMPO)).intValue();
-                ArrayList<Measure> measures = new ArrayList<Measure>();
-                JSONArray measuresJSON = (JSONArray) songJSON.get(SONG_MEASURES);
-                for (int j = 0; j < measuresJSON.size(); j++) {
-                    JSONObject measureJSON = (JSONObject) measuresJSON.get(j);
-                    int timeSignatureTop = ((Long) measureJSON.get(MEASURE_TIME_SIGNATURE_TOP)).intValue();
-                    int timeSignatureBottom = ((Long) measureJSON.get(MEASURE_TIME_SIGNATURE_BOTTOM)).intValue();
-                    String keySignature = (String) measureJSON.get(MEASURE_KEY_SIGNATURE);
-                    ArrayList<Note> notes = new ArrayList<Note>();
-                    JSONArray notesJSON = (JSONArray) measureJSON.get(MEASURE_NOTES);
-                    for (int k = 0; k < notesJSON.size(); k++) {
-                        JSONObject noteJSON = (JSONObject) notesJSON.get(k);
-                        String noteName = (String) noteJSON.get(NOTE_NAME);
-                        int octave = ((Long) noteJSON.get(NOTE_OCTAVE)).intValue();
-                        double length = ((Long) noteJSON.get(NOTE_LENGTH)).intValue();
-                        double position = ((Long) noteJSON.get(NOTE_POSITION)).intValue();
-                        notes.add(new Note(noteName, octave, length, position));
-                    }
-                    measures.add(new Measure(timeSignatureTop, timeSignatureBottom, keySignature, notes));
-                }
-                songs.add(new Song(id, title, artistName, difficulty, genre, instrument, tempo, measures));
+                //int tempo = ((Long) songJSON.get(SONG_TEMPO)).intValue();
+                ArrayList<Measure> measures = measuresFromJSON((JSONArray) songJSON.get(SONG_MEASURES));
+                songs.add(new Song(id, title, artistName, difficulty, genre, instrument, 120, measures));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return songs;
     }
-
+    /**
+     * Given a JSONArray of measure objects, creates an arrayList of Measures from the JSON, as long as the JSONArray is not null.
+     * @param measuresJSON The JSONArray of measures.
+     * @return The newly created ArrayList of measures.
+     * @author Ethan Little
+     */
+    private static ArrayList<Measure> measuresFromJSON(JSONArray measuresJSON) {
+        ArrayList<Measure> measures = new ArrayList<Measure>();
+        if (measuresJSON != null) {
+            for (int j = 0; j < measuresJSON.size(); j++) {
+                JSONObject measureJSON = (JSONObject) measuresJSON.get(j);
+                int timeSignatureTop = ((Long) measureJSON.get(MEASURE_TIME_SIGNATURE_TOP)).intValue();
+                int timeSignatureBottom = ((Long) measureJSON.get(MEASURE_TIME_SIGNATURE_BOTTOM)).intValue();
+                String keySignature = (String) measureJSON.get(MEASURE_KEY_SIGNATURE);
+                ArrayList<Note> notes = notesFromJSON((JSONArray) measureJSON.get(MEASURE_NOTES));
+                measures.add(new Measure(timeSignatureTop, timeSignatureBottom, keySignature, notes));
+            }
+        }
+        return measures;
+    }
+    /**
+     * Given an JSONArray of notes, returns an arrayList of notes, as long as the JSON isn't null.
+     * @param notesJSON the JSONArray of notes
+     * @return ArrayList of notes
+     * @author Ethan Little
+     */
+    private static ArrayList<Note> notesFromJSON(JSONArray notesJSON) {
+        ArrayList<Note> notes = new ArrayList<Note>();
+        if (notesJSON != null) {
+            for (int k = 0; k < notesJSON.size(); k++) {
+                JSONObject noteJSON = (JSONObject) notesJSON.get(k);
+                String noteName = (String) noteJSON.get(NOTE_NAME);
+                int octave = ((Long) noteJSON.get(NOTE_OCTAVE)).intValue();
+                double length = (double) noteJSON.get(NOTE_LENGTH);
+                double position = (double) noteJSON.get(NOTE_POSITION);
+                notes.add(new Note(noteName, octave, length, position));
+            }
+        }
+        return notes;
+    }
+    /**
+     * Given a string from JSON, will find and return the instrument class associated with it.
+     * @param s String from JSON giving instrument class.
+     * @return A new instance of the appropriate instrument
+     * @author Ethan Little
+     */
     private static Instrument instrumentFromString(String s) {
         if (s.equals("Guitar")) {
             return new Guitar();
@@ -226,7 +276,10 @@ public class DataLoader extends DataConstants {
             return null;
         }
     }
-
+    /**
+     * Not relevant to this sprint
+     * @return
+     */
     public static ArrayList<Lesson> getLessons() {
         ArrayList<Lesson> lessons = new ArrayList<Lesson>();
         try {
@@ -236,16 +289,8 @@ public class DataLoader extends DataConstants {
                 JSONObject lessonJSON = (JSONObject) lessonsJSON.get(i);
                 UUID id = UUID.fromString((String) lessonJSON.get(LESSON_ID));
                 String title = (String) lessonJSON.get(LESSON_TITLE);
-                ArrayList<Question> questions = new ArrayList<Question>();
-                JSONArray questionsJSON = (JSONArray) lessonJSON.get(LESSON_QUESTIONS);
-                for (int j = 0; j < questionsJSON.size(); j++) {
-                    questions.add(questionFromUUIDString((String) questionsJSON.get(j)));
-                }
-                ArrayList<String> text = new ArrayList<String>();
-                JSONArray textJSON = (JSONArray) lessonJSON.get(LESSON_TEXT);
-                for (int j = 0; j < textJSON.size(); j++) {
-                    text.add((String) textJSON.get(j));
-                }
+                ArrayList<Question> questions = getQuestionsFromIDsJSON((JSONArray) lessonJSON.get(LESSON_QUESTIONS));
+                ArrayList<String> text = stringsFromJSON((JSONArray) lessonJSON.get(LESSON_TEXT));
                 lessons.add(new Lesson(id, title, questions, text));
             }
         } catch (Exception e) {
@@ -253,7 +298,46 @@ public class DataLoader extends DataConstants {
         }
         return lessons;
     }
-
+    /**
+     * Not relevant to this sprint
+     * @param stringsJSON
+     * @return
+     */
+    private static ArrayList<String> stringsFromJSON(JSONArray stringsJSON) {
+        ArrayList<String> strings = new ArrayList<String>();
+        if (stringsJSON != null) {
+            for (int j = 0; j < stringsJSON.size(); j++) {
+                strings.add((String) stringsJSON.get(j));
+            }
+        }
+        return strings;
+    }
+    /**
+     * Not relevant to this sprint
+     * @param questionIDsJSON
+     * @return
+     */
+    private static ArrayList<Question> getQuestionsFromIDsJSON(JSONArray questionIDsJSON) {
+        ArrayList<Question> questions = new ArrayList<Question>();
+        if (questionIDsJSON != null) {
+            for (int j = 0; j < questionIDsJSON.size(); j++) {
+                questions.add(questionFromUUIDString((String) questionIDsJSON.get(j)));
+            }
+        }
+        return questions;
+    }
+    /**
+     * Not relevant to this sprint
+     * @param id
+     * @return
+     */
+    private static Question questionFromUUIDString(String id) {
+        return QuestionList.getInstance().getQuestion(UUID.fromString(id));
+    }
+    /**
+     * Not relevant to this sprint
+     * @return
+     */
     public static ArrayList<Question> getQuestions() {
         ArrayList<Question> questions = new ArrayList<Question>();
         try {
@@ -273,7 +357,8 @@ public class DataLoader extends DataConstants {
                 String correctAnswer = (String) questionJSON.get(QUESTION_CORRECT_ANSWER);
                 String feedback = (String) questionJSON.get(QUESTION_FEEDBACK);
                 String hint = (String) questionJSON.get(QUESTION_HINT);
-                questions.add(new Question(id, question, answerChoices, correctAnswer, studentAnswer, points, feedback, hint));
+                questions.add(new Question(id, question, answerChoices, correctAnswer, studentAnswer, points, feedback,
+                        hint));
             }
         } catch (Exception e) {
             e.printStackTrace();

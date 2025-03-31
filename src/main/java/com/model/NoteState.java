@@ -57,9 +57,23 @@ public class NoteState extends State
             StringBuilder measure = new StringBuilder();
             for(int j = 0; j < notes.size(); j++)
             {
-                measure.append(notes.get(j).getName() + " ");
+                if(!notes.get(j).getName().equals("R"))
+                {
+                    measure.append(notes.get(j).getName());
+                    if(j + 1 < notes.size()) 
+                    {
+                        if (notes.get(j).getPosition() == notes.get(j + 1).getPosition() && !notes.get(j+1).getName().equals("R"))
+                        {
+                            measure.append("+");
+                        }
+                        else
+                        {
+                            measure.append(" ");
+                        }
+                    }
+                }
             }
-            measure.append("|");
+            measure.append("| ");
             displayTemplate.add(measure.toString());
         }
         return displayTemplate;

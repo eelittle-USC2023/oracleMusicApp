@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.ArrayList;
 
+//This Will Be Implemented in the next Sprint
+
 public class ChordState extends State
 {
     private static final ArrayList<String> chords = new ArrayList<String>();

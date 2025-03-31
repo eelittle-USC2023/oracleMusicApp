@@ -43,7 +43,7 @@ public class DataWriter extends DataConstants {
             
             }
 
-         return saveToFile("src/main/java/com/data/accounts_temp.json", accountArray);
+         return saveToFile(ACCOUNT_FILE_NAME, accountArray);
 
         }
 
@@ -57,10 +57,17 @@ public class DataWriter extends DataConstants {
             songObject.put(DataConstants.SONG_ARTIST_NAME, song.getArtistName());
             songObject.put(DataConstants.SONG_DIFFICULTY, song.getDifficulty());
             songObject.put(DataConstants.SONG_GENRE, song.getGenre());
+            songObject.put(SONG_INSTRUMENT, song.getInstrument().toString());
+
+            JSONArray measureArray = new JSONArray();
+            for (Measure measure : song.getMeasures()){
+                measureArray.add(convertMeasureJSON(measure));
+            }
+            songObject.put(DataConstants.SONG_MEASURES, measureArray);
             songArray.add(songObject);
         }
 
-        return saveToFile("src/main/java/com/data/songs_temp.json", songArray);// Add songs json later..(Done)
+        return saveToFile(SONG_FILE_NAME, songArray);
     }
     /**
      * Saves the list of lesson to a JSON file
@@ -225,10 +232,5 @@ public class DataWriter extends DataConstants {
             return false;
         }
 
-    }
-    
-    public static void main(String args[]) {
-        AccountList a = AccountList.getInstance();
-        DataWriter.savedAccounts(a);
     }
 }

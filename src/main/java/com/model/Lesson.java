@@ -3,7 +3,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
+//Not relevant to this sprint
 public class Lesson {
     private UUID id;
     private String title;

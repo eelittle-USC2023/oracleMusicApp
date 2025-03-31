@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"savedSongs":[],"password":"PPassword","role":"Student","username":"jake&finn,"},{"savedSongs":[],"password":"ffredpassword","role":"Student","username":"ffred"},{"savedSongs":[],"password":"password123","role":"Student","username":"TestUser1"},{"password":"Goodpassword1","role":"Teacher","username":"TestTeacher1"}]
+=======
+[{"savedSongs":["db29ba2e-d7df-4147-bb3e-55a56095f6ff"],"password":"sleepy","role":"Student","username":"jake&finn"},{"password":"password","role":"Teacher","username":"asmith24"},{"savedSongs":["9b362387-2cb1-4f45-aad4-b3d672095c48"],"password":"ch33s3","role":"Student","username":"mozartrella"},{"savedSongs":["7378c963-c977-42c1-a4ee-7e51751befa9"],"password":"pword","role":"Student","username":"ffredrickson"},{"savedSongs":[],"password":"GreatPassword123","role":"Student","username":"ffred"}]
+>>>>>>> 100a2545e32f8142dee2e7945f5d82df31a71d34

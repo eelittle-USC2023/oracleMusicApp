@@ -47,7 +47,6 @@ public class Note
         {
             noteNumber = noteNumber + multiply;
         }
-
         if (name.length() > 1) 
         {
             type = this.getName().charAt(1);
@@ -67,7 +66,7 @@ public class Note
      * @param letter the letter for the note name
      * @author Ally Blackwell
      */
-    public void setJFugueBase(char letter)
+    private void setJFugueBase(char letter)
     {
         java.util.Map<Character, Integer> noteMap = new java.util.HashMap<>();
         noteMap.put('C', 0);

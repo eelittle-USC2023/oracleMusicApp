@@ -1,1 +1,533 @@
-[{"difficulty":"None","measures":[{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"E","length":1.0,"position":1.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Cmajor"},{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"E","length":1.0,"position":1.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Cmajor"}],"genre":"None","artistName":"me","instrument":"Guitar","id":"708aeef0-d6c2-4cef-82d9-1bd54db516fe","title":null}]
+[
+    {
+        "id": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
+        "title": "Song Title 1",
+        "artistName": "Artist 1",
+        "difficulty": "Easy",
+        "genre": "None",
+        "instrument": "Guitar",
+        "tempo": 90,
+        "measures": [
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "C",
+                "notes": [
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "C#",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "D#",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 3,
+                "timeSignatureBottom": 4,
+                "keySignature": "G",
+                "notes": [
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "C#",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "9b362387-2cb1-4f45-aad4-b3d672095c48",
+        "title": "Smoke on the Water",
+        "artistName": "Deep Purple",
+        "difficulty": "Medium",
+        "genre": "Rock",
+        "instrument": "Guitar",
+        "tempo": 114,
+        "measures": [
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "G",
+                "notes": [
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "A",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "F",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "G",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "A",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "D",
+                "notes": [
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "F",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "D#",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "G#",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "G",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "A",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "G",
+                "notes": [
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "F",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "G",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 1
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "F",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 2
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "A",
+                        "octave": 3,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1,
+                        "position": 3
+                    }
+                ]
+            }
+        ]
+    }
+]

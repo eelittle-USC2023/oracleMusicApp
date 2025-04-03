@@ -1,1 +1,629 @@
-[{"difficulty":"Easy","measures":[{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"C#","length":1.0,"position":1.0},{"octave":4,"name":"D","length":1.0,"position":2.0},{"octave":4,"name":"D#","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"C"},{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"D","length":1.0,"position":0.0},{"octave":4,"name":"C#","length":1.0,"position":1.0},{"octave":4,"name":"C","length":1.0,"position":2.0}],"timeSignatureTop":3,"keySignature":"G"}],"genre":"None","artistName":"Artist 1","instrument":"Guitar","id":"db29ba2e-d7df-4147-bb3e-55a56095f6ff","title":"Song Title 1"},{"difficulty":"Medium","measures":[{"timeSignatureBottom":4,"notes":[{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":3,"name":"A","length":1.0,"position":0.0},{"octave":4,"name":"D","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":4,"name":"C","length":1.0,"position":1.0},{"octave":4,"name":"F","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":4,"name":"D","length":1.0,"position":2.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":3,"name":"A","length":1.0,"position":3.0},{"octave":4,"name":"D","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"G"},{"timeSignatureBottom":4,"notes":[{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"F","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":4,"name":"D#","length":1.0,"position":1.0},{"octave":4,"name":"G#","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":4,"name":"D","length":1.0,"position":2.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":3,"name":"A","length":1.0,"position":3.0},{"octave":4,"name":"D","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"D"},{"timeSignatureBottom":4,"notes":[{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"F","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":0.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":4,"name":"D","length":1.0,"position":1.0},{"octave":4,"name":"G","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":1.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":2.0},{"octave":4,"name":"F","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":2.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":3,"name":"A","length":1.0,"position":3.0},{"octave":4,"name":"D","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0},{"octave":-1,"name":"R","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"G"}],"genre":"Rock","artistName":"Deep Purple","instrument":"Guitar","id":"9b362387-2cb1-4f45-aad4-b3d672095c48","title":"Smoke on the Water"},{"difficulty":"None","measures":[],"genre":"None","artistName":"Deep Purple","instrument":"Guitar","id":"e96598c0-30bd-4768-af90-65928a51ee9b","title":"Soldier of Fortune"},{"difficulty":"None","measures":[],"genre":"None","artistName":"Deep Purple","instrument":"Guitar","id":"e96598c0-30bd-4768-af90-65928a51ee9b","title":"Burn"},{"difficulty":"None","measures":[{"timeSignatureBottom":4,"notes":[{"octave":3,"name":"A","length":1.0,"position":0.0},{"octave":4,"name":"C","length":1.0,"position":1.0},{"octave":4,"name":"F","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Amajor"},{"timeSignatureBottom":4,"notes":[{"octave":3,"name":"A","length":1.0,"position":0.0},{"octave":4,"name":"C#","length":1.0,"position":1.0},{"octave":4,"name":"F#","length":1.0,"position":2.0},{"octave":4,"name":"A","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Amajor"}],"genre":"None","artistName":"ffredrickson","instrument":"Guitar","id":"708aeef0-d6c2-4cef-82d9-1bd54db516fe","title":"A Horse's Journey"},{"difficulty":"None","measures":[{"timeSignatureBottom":4,"notes":[{"octave":3,"name":"A","length":1.0,"position":0.0},{"octave":4,"name":"C","length":1.0,"position":1.0},{"octave":4,"name":"F","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Amajor"},{"timeSignatureBottom":4,"notes":[{"octave":3,"name":"A","length":1.0,"position":0.0},{"octave":4,"name":"C#","length":1.0,"position":1.0},{"octave":4,"name":"F#","length":1.0,"position":2.0},{"octave":4,"name":"A","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Amajor"}],"genre":"None","artistName":"ffredrickson","instrument":"Guitar","id":"051c8d42-d674-4c00-9951-54e66659dbcd","title":"A Horse's Journey"},{"difficulty":"None","measures":[{"timeSignatureBottom":4,"notes":[{"octave":3,"name":"A","length":1.0,"position":0.0},{"octave":4,"name":"C","length":1.0,"position":1.0},{"octave":4,"name":"F","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Amajor"},{"timeSignatureBottom":4,"notes":[{"octave":3,"name":"A","length":1.0,"position":0.0},{"octave":4,"name":"C#","length":1.0,"position":1.0},{"octave":4,"name":"F#","length":1.0,"position":2.0},{"octave":4,"name":"A","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Amajor"}],"genre":"None","artistName":"ffredrickson","instrument":"Guitar","id":"dfe534d4-e62f-415a-965d-9e98c6ab5d12","title":"A Horse's Journey"}]
+<<<<<<< HEAD
+<<<<<<< HEAD
+[]
+=======
+[
+    {
+        "difficulty": "Easy",
+        "measures": [
+            {
+                "timeSignatureBottom": 4,
+                "notes": [
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C#",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D#",
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ],
+                "timeSignatureTop": 4,
+                "keySignature": "C"
+            },
+            {
+                "timeSignatureBottom": 4,
+                "notes": [
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C#",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 2.0
+                    }
+                ],
+                "timeSignatureTop": 3,
+                "keySignature": "G"
+            }
+        ],
+        "genre": "None",
+        "artistName": "Artist 1",
+        "instrument": "Guitar",
+        "id": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
+        "title": "Song Title 1"
+    },
+    {
+        "difficulty": "Medium",
+        "measures": [
+            {
+                "timeSignatureBottom": 4,
+                "notes": [
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 3,
+                        "name": "A",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "F",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "G",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": 3,
+                        "name": "A",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ],
+                "timeSignatureTop": 4,
+                "keySignature": "G"
+            },
+            {
+                "timeSignatureBottom": 4,
+                "notes": [
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "F",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D#",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "G#",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "G",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": 3,
+                        "name": "A",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ],
+                "timeSignatureTop": 4,
+                "keySignature": "D"
+            },
+            {
+                "timeSignatureBottom": 4,
+                "notes": [
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "F",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "G",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "F",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": 3,
+                        "name": "A",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "D",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    },
+                    {
+                        "octave": -1,
+                        "name": "R",
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ],
+                "timeSignatureTop": 4,
+                "keySignature": "G"
+            }
+        ],
+        "genre": "Rock",
+        "artistName": "Deep Purple",
+        "instrument": "Guitar",
+        "id": "9b362387-2cb1-4f45-aad4-b3d672095c48",
+        "title": "Smoke on the Water"
+    },
+    {
+        "difficulty": "None",
+        "measures": [],
+        "genre": "None",
+        "artistName": "Deep Purple",
+        "instrument": "Guitar",
+        "id": "e96598c0-30bd-4768-af90-65928a51ee9b",
+        "title": "Soldier of Fortune"
+    },
+    {
+        "difficulty": "None",
+        "measures": [],
+        "genre": "None",
+        "artistName": "Deep Purple",
+        "instrument": "Guitar",
+        "id": "e96598c0-30bd-4768-af90-65928a51ee9b",
+        "title": "Burn"
+    },
+    {
+        "difficulty": "None",
+        "measures": [
+            {
+                "timeSignatureBottom": 4,
+                "notes": [
+                    {
+                        "octave": 3,
+                        "name": "A",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "F",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C",
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ],
+                "timeSignatureTop": 4,
+                "keySignature": "Amajor"
+            },
+            {
+                "timeSignatureBottom": 4,
+                "notes": [
+                    {
+                        "octave": 3,
+                        "name": "A",
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "C#",
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "F#",
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "octave": 4,
+                        "name": "A",
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ],
+                "timeSignatureTop": 4,
+                "keySignature": "Amajor"
+            }
+        ],
+        "genre": "None",
+        "artistName": "ffredrickson",
+        "instrument": "Guitar",
+        "id": "708aeef0-d6c2-4cef-82d9-1bd54db516fe",
+        "title": "A Horse's Journey"
+    }
+]
+>>>>>>> 100a2545e32f8142dee2e7945f5d82df31a71d34
+=======
+[{"difficulty":"None","measures":[{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"E","length":1.0,"position":1.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Cmajor"},{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"E","length":1.0,"position":1.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Cmajor"}],"genre":"None","artistName":"me","instrument":"Guitar","id":"708aeef0-d6c2-4cef-82d9-1bd54db516fe","title":null}]
+>>>>>>> ebd8da43f0da78cf789b1ec5e0c934066733fd8f

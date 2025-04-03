@@ -55,7 +55,7 @@ public class QuestionList {
         return true;
     }
     public void save() {
-        
+        DataWriter.savedQuestions(instance);
     }
     
 

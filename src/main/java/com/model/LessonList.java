@@ -61,6 +61,7 @@ public class LessonList
     }
     public void save()
     {
+        DataWriter.savedLessons(this);
 
     }
 

@@ -1,1 +1,124 @@
-[{"savedSongs":["db29ba2e-d7df-4147-bb3e-55a56095f6ff"],"password":"sleepy","role":"Student","username":"jake&finn"},{"password":"password","role":"Teacher","username":"asmith24"},{"savedSongs":["9b362387-2cb1-4f45-aad4-b3d672095c48"],"password":"ch33s3","role":"Student","username":"mozartrella"},{"savedSongs":["708aeef0-d6c2-4cef-82d9-1bd54db516fe","051c8d42-d674-4c00-9951-54e66659dbcd","dfe534d4-e62f-415a-965d-9e98c6ab5d12"],"password":"pword","role":"Student","username":"ffredrickson"},{"savedSongs":[],"password":"GreatPassword123","role":"Student","username":"ffred"}]
+<<<<<<< HEAD
+<<<<<<< HEAD
+[
+    {
+        "password": "sleepy",
+        "role": "Student",
+        "username": "jake&finn"
+    },
+    {
+        "password": "password",
+        "role": "Teacher",
+        "username": "asmith24"
+    },
+    {
+        "password": "ch33s3",
+        "role": "Student",
+        "username": "mozartrella"
+    },
+    {
+        "password": "PPassword",
+        "role": "Student",
+        "username": "jake&finn,"
+    },
+    {
+        "password": "ffredpassword",
+        "role": "Student",
+        "username": "ffred"
+    },
+    {
+        "password": "password123",
+        "role": "Student",
+        "username": "TestUser1"
+    },
+    {
+        "password": "Goodpassword1",
+        "role": "Teacher",
+        "username": "TestTeacher1"
+    }
+]
+[
+    {
+        "username": "jake&finn",
+        "password": "sleepy",
+        "role": "Student",
+        "savedSongs": [
+            "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
+        ],
+        "savedLessons": [
+            "441d3ec4-0533-4513-ac8b-a9f8ab91321b"
+        ],
+        "assignments": [
+            {
+                "type": "Lesson",
+                "title": "LessonAssignment",
+                "description": "This is a lesson assignment",
+                "complete": false,
+                "lesson": "441d3ec4-0533-4513-ac8b-a9f8ab91321b",
+                "difficultyLevel": "Easy",
+                "recommendedLessons": []
+            },
+            {
+                "type": "Song",
+                "title": "SongAssignment",
+                "description": "This is a song assignment",
+                "complete": false,
+                "song": "db29ba2e-d7df-4147-bb3e-55a56095f6ff",
+                "difficultyLevel": "Easy",
+                "recommendedSongs": []
+            }
+        ],
+        "achievements": [
+            "WEEKSTREAK"
+        ],
+        "songsPlayed": [
+            "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
+        ],
+        "completedSongs": [
+            "db29ba2e-d7df-4147-bb3e-55a56095f6ff"
+        ],
+        "completedLessons": [
+            "441d3ec4-0533-4513-ac8b-a9f8ab91321b"
+        ]
+    },
+    {
+        "username": "asmith24",
+        "password": "password",
+        "role": "Teacher"
+    },
+    {
+        "username": "mozartrella",
+        "password": "ch33s3",
+        "role": "Student",
+        "savedSongs": [
+            "9b362387-2cb1-4f45-aad4-b3d672095c48"
+        ],
+        "savedLessons": [],
+        "assignments": [],
+        "achievements": [
+            "ROCKSTAR"
+        ],
+        "songsPlayed": [
+            "9b362387-2cb1-4f45-aad4-b3d672095c48"
+        ],
+        "completedSongs": [],
+        "completedLessons": []
+    },
+    {
+        "username": "ffredrickson",
+        "password": "pword",
+        "role": "Student",
+        "savedSongs": [],
+        "savedLessons": [],
+        "assignments": [],
+        "achievements": [],
+        "songsPlayed": [],
+        "completedSongs": [],
+        "completedLessons": []
+    }
+=======
+[{"savedSongs":["db29ba2e-d7df-4147-bb3e-55a56095f6ff"],"password":"sleepy","role":"Student","username":"jake&finn"},{"password":"password","role":"Teacher","username":"asmith24"},{"savedSongs":["9b362387-2cb1-4f45-aad4-b3d672095c48"],"password":"ch33s3","role":"Student","username":"mozartrella"},{"savedSongs":["708aeef0-d6c2-4cef-82d9-1bd54db516fe","051c8d42-d674-4c00-9951-54e66659dbcd","dfe534d4-e62f-415a-965d-9e98c6ab5d12"],"password":"pword","role":"Student","username":"ffredrickson"},{"savedSongs":[],"password":"GreatPassword123","role":"Student","username":"ffred"}>>>>>>> 100a2545e32f8142dee2e7945f5d82df31a71d34
+]
+=======
+[]
+>>>>>>> ebd8da43f0da78cf789b1ec5e0c934066733fd8f

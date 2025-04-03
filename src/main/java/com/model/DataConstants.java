@@ -2,6 +2,7 @@ package com.model;
 
 public class DataConstants {
     protected static final String ACCOUNT_FILE_NAME = "src/main/java/com/data/accounts.json";
+    protected static final String ACCOUNT_TEST_FILE_NAME = "src/test/java/resources/data/accounts_test.json";
     protected static final String ACCOUNT_USERNAME = "username";
     protected static final String ACCOUNT_PASSWORD = "password";
     protected static final String ACCOUNT_ROLE = "role";
@@ -51,6 +52,7 @@ public class DataConstants {
     protected static final String QUESTION_HINT = "hint";
 
     protected static final String SONG_FILE_NAME = "src/main/java/com/data/songs.json";
+    protected static final String SONG_TEST_FILE_NAME = "src/test/java/resources/data/songs_test.json";
     protected static final String SONG_ID = "id";
     protected static final String SONG_TITLE = "title";
     protected static final String SONG_ARTIST_NAME = "artistName";
@@ -73,4 +75,13 @@ public class DataConstants {
     protected static final String ASSIGNMENT_TITLE = "title";
     protected static final String ASSIGNMENT_DESCRIPTION = "description";
     protected static final String ASSIGNMENT_COMPLETE = " complete";
+
+    public static boolean isJUnitTest() {  
+		for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+		  if (element.getClassName().startsWith("org.junit.")) {
+			return true;
+		  }           
+		}
+		return false;
+	  }
 }

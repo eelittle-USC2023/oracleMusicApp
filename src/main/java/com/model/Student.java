@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Student extends Account
 {
-    private ArrayList<Song> savedSongs;
+    private ArrayList<Song> savedSongs;//Needs to saved into the Accounts json only for students 
     private ArrayList<Lesson> savedLessons;
     private ArrayList<Assignment> assignments;
     private ArrayList<Achievement> achievements;

@@ -23,7 +23,7 @@ public class DataLoader extends DataConstants {
     public static ArrayList<Account> getAccounts() {
         ArrayList<Account> accounts = new ArrayList<Account>();
         try {
-            FileReader reader = new FileReader(ACCOUNT_FILE_NAME);
+            FileReader reader = getReaderFromFile(ACCOUNT_FILE_NAME, ACCOUNT_TEST_FILE_NAME);
             JSONArray accountsJSON = (JSONArray) new JSONParser().parse(reader);
             for (int i = 0; i < accountsJSON.size(); i++) {
                 JSONObject accountJSON = (JSONObject) accountsJSON.get(i);
@@ -204,7 +204,7 @@ public class DataLoader extends DataConstants {
     public static ArrayList<Song> getSongs() {
         ArrayList<Song> songs = new ArrayList<Song>();
         try {
-            FileReader reader = new FileReader(SONG_FILE_NAME);
+            FileReader reader = getReaderFromFile(SONG_FILE_NAME, SONG_TEST_FILE_NAME);
             JSONArray songsJSON = (JSONArray) new JSONParser().parse(reader);
             for (int i = 0; i < songsJSON.size(); i++) {
                 JSONObject songJSON = (JSONObject) songsJSON.get(i);
@@ -367,4 +367,17 @@ public class DataLoader extends DataConstants {
         return questions;
     }
 
+    private static FileReader getReaderFromFile(String fileName, String jsonFileName){
+		try {
+			if(isJUnitTest()){
+				return new FileReader(jsonFileName);
+			} else {
+				return new FileReader(fileName);
+			}
+		} catch(Exception e){
+			System.out.println("Can't load");
+			return null;
+		}
+			
+	}
 }

@@ -2,6 +2,8 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.junit.Test;
+
 public class SongList 
 {
     private ArrayList<Song> songs;
@@ -69,9 +71,6 @@ public class SongList
         return songs.remove(song);
 
     }
-    public void save() {
-        DataWriter.savedSongs(this);
-    }
 
     public ArrayList<Song> getSongsByUser(String username) {
         ArrayList<Song> userSongs = new ArrayList<>();
@@ -106,6 +105,9 @@ public class SongList
             }
         }
         return songsFound;
+    }
+    public void save(){
+        DataWriter.savedSongs(this);
     }
     public static void main(String[] args) {
         SongList songList = SongList.getInstance();

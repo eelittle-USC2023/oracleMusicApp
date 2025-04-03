@@ -62,7 +62,7 @@ public class Song {
         for(int i = 0; i < measures.size(); i++)
         {
             String input = measures.get(i).toJFugueString();
-            jFugueInput.append(input);
+            jFugueInput.append(input + "|");
 
         }
         return jFugueInput.toString();

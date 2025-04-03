@@ -6,8 +6,8 @@ public class Driver {
     
     public static void main(String[] args) {
         //createAccountScenario();
-        //playSongScenario();
-        makeSongScenario();
+        playSongScenario();
+        //makeSongScenario();
     }
     /**
      * Scenario where Fred Fredrickson attempts to make an account, but it fails because the username is taken.
@@ -43,8 +43,8 @@ public class Driver {
             System.out.println(s.getTitle() + " by " + s.getArtistName());
         }
         facade.setSelectedSong(searchResults.get(0));
-        //facade.displayNotes();
-        facade.displayTabs();
+        facade.displayNotes();
+        //facade.displayTabs();
         //facade.playSong();
         
 

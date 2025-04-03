@@ -43,7 +43,7 @@ public class DataWriter extends DataConstants {
             
             }
 
-         return saveToFile(ACCOUNT_FILE_NAME, accountArray);
+         return saveToFile(getFileWritingPath(ACCOUNT_FILE_NAME, ACCOUNT_TEST_FILE_NAME), accountArray);
 
         }
 
@@ -67,7 +67,7 @@ public class DataWriter extends DataConstants {
             songArray.add(songObject);
         }
 
-        return saveToFile(SONG_FILE_NAME, songArray);
+        return saveToFile(getFileWritingPath(SONG_FILE_NAME, SONG_TEST_FILE_NAME), songArray);
     }
     /**
      * Saves the list of lesson to a JSON file
@@ -233,4 +233,17 @@ public class DataWriter extends DataConstants {
         }
 
     }
+
+    private static String getFileWritingPath(String PATH_NAME, String JUNIT_PATH_NAME) {
+		try {
+			if(isJUnitTest()){
+				return JUNIT_PATH_NAME;
+			} else {
+				return PATH_NAME;
+			}
+		} catch(Exception e){
+			System.out.println("Difficulty getting resource path");
+			return "";
+		}
+	}
 }

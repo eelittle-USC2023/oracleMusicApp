@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 []
 =======
 [
@@ -623,3 +624,6 @@
     }
 ]
 >>>>>>> 100a2545e32f8142dee2e7945f5d82df31a71d34
+=======
+[{"difficulty":"None","measures":[{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"E","length":1.0,"position":1.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Cmajor"},{"timeSignatureBottom":4,"notes":[{"octave":4,"name":"C","length":1.0,"position":0.0},{"octave":4,"name":"E","length":1.0,"position":1.0},{"octave":4,"name":"G","length":1.0,"position":2.0},{"octave":4,"name":"C","length":1.0,"position":3.0}],"timeSignatureTop":4,"keySignature":"Cmajor"}],"genre":"None","artistName":"me","instrument":"Guitar","id":"708aeef0-d6c2-4cef-82d9-1bd54db516fe","title":null}]
+>>>>>>> ebd8da43f0da78cf789b1ec5e0c934066733fd8f

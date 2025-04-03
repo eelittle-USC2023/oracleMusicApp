@@ -2,6 +2,8 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.junit.Test;
+
 public class SongList 
 {
     private ArrayList<Song> songs;

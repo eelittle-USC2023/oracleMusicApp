@@ -10,7 +10,7 @@ public class ChordState extends State
     
     public ChordState(MusicPlayer player)
     {
-        super(player, chords);
+        
     }
     public void pressTabButton()
     {

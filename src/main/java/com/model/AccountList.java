@@ -35,13 +35,17 @@ public class AccountList{
         return null;
     }
     public boolean addAccount(String username, String password, String role){
+
+        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+            return false;
+        }
         for (Account a : accounts) {
             if(a.getUsername().equals(username)) {
                 return false;
             }
         }
         Account newAccount;
-        if(role.equalsIgnoreCase("Student")){
+        if(role.equals("Student")){
             newAccount = new Student (username, password);
         } else {
             newAccount = new Teacher (username, password);

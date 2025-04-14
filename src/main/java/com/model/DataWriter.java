@@ -24,17 +24,25 @@ public class DataWriter extends DataConstants {
 
         for (Account account : accountList.getAccounts()) {
                 JSONObject accountObject = new JSONObject();
+               
+                    if (account.getUsername() == null || account.getUsername().isEmpty()) continue;
+                    if (account.getPassword() == null || account.getPassword().isEmpty()) continue;
+                
                 accountObject.put(DataConstants.ACCOUNT_USERNAME, account.getUsername());
                 accountObject.put(DataConstants.ACCOUNT_PASSWORD, account.getPassword());
+                
 
                 String role = (account instanceof Teacher) ? "Teacher" : "Student";
                 accountObject.put(DataConstants.ACCOUNT_ROLE, role);
 
                 if (account instanceof Student) {
                     JSONArray savedSongsArray = new JSONArray();
+                    List<Song> savedSongs = ((Student)account).getSavedSongs();
+                    if (savedSongs != null){
                     for (Song song : ((Student) account).getSavedSongs()) {
                         savedSongsArray.add(song.getID().toString());
                     }
+                }
                     accountObject.put(DataConstants.ACCOUNT_SAVED_SONGS, savedSongsArray);
 
                 }
@@ -53,16 +61,19 @@ public class DataWriter extends DataConstants {
         for (Song song : songList.getSongs()) {
             JSONObject songObject = new JSONObject();
             songObject.put(DataConstants.SONG_ID, song.getID().toString());
-            songObject.put(DataConstants.SONG_TITLE, song.getTitle());
-            songObject.put(DataConstants.SONG_ARTIST_NAME, song.getArtistName());
+            songObject.put(DataConstants.SONG_TITLE, song.getTitle()== null ? "Untitled":song.getTitle());
+            songObject.put(DataConstants.SONG_ARTIST_NAME, (song.getArtistName()== null || song.getArtistName().isEmpty()) ? "Unknown Artist" : song.getArtistName());
             songObject.put(DataConstants.SONG_DIFFICULTY, song.getDifficulty());
             songObject.put(DataConstants.SONG_GENRE, song.getGenre());
             songObject.put(SONG_INSTRUMENT, song.getInstrument().toString());
 
             JSONArray measureArray = new JSONArray();
+            List<Measure> measures = song.getMeasures();
+            if (measures != null){
             for (Measure measure : song.getMeasures()){
                 measureArray.add(convertMeasureJSON(measure));
             }
+        }
             songObject.put(DataConstants.SONG_MEASURES, measureArray);
             songArray.add(songObject);
         }

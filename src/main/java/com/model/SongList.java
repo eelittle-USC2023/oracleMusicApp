@@ -2,8 +2,6 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import org.junit.Test;
-
 public class SongList 
 {
     private ArrayList<Song> songs;
@@ -109,9 +107,4 @@ public class SongList
     public void save(){
         DataWriter.savedSongs(this);
     }
-    public static void main(String[] args) {
-        SongList songList = SongList.getInstance();
-        ArrayList<Song> searchResults = songList.searchSongs("Title", "Smoke");
-    }
-
 }

@@ -3,14 +3,6 @@ package com.model;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-import java.util.List;
-import com.model.Account;
-import com.model.Lesson;
-import com.model.Question;
-import com.model.Song;
-import com.model.Measure;
-import java.io.File;
-import java.io.FileWriter;
 
 /**
  * @author James Lyles 

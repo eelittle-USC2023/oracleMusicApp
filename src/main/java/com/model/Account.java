@@ -5,6 +5,9 @@ public abstract class Account {
     private String password;
 
     public Account(String username, String password) {
+        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+            throw new IllegalArgumentException("Username and password cannot be empty.");
+        }
         this.username = username;
         this.password = password;
     }

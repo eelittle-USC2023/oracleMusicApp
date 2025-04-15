@@ -27,15 +27,6 @@ public class NoteState extends State
         player.setState(player.getTabState());
     }
     /**
-     * Changes the user into "Chord Mode"
-     * @author Ally Blackwell
-     */
-    public void pressChordButton()
-    {
-        System.out.println("Entering Chord Mode");
-        player.setState(player.getChordState());
-    }
-    /**
      * Reminds the user that it is already in "Note Mode"
      * @author Ally Blackwell
      */

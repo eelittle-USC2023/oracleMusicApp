@@ -33,6 +33,5 @@ public abstract class State
      * @author Ally Blackwell
      */
     public abstract void pressTabButton();
-    public abstract void pressChordButton();
     public abstract void pressNoteButton();
 }

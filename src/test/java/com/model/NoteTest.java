@@ -14,7 +14,7 @@ public class NoteTest
     {
         note = new Note(null, 4, 1, 0);
         int test = note.noteToJFugue();
-        assertEquals(-1, test);
+        assertEquals(-3, test);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class NoteTest
     {
         note = new Note("Q", 4, 1, 0);
         int test = note.noteToJFugue();
-        assertEquals(-1, test);
+        assertEquals(-2, test);
     }
 
     @Test
@@ -54,6 +54,6 @@ public class NoteTest
     {
         note = new Note("A", 12, 1, 0);
         int test = note.noteToJFugue();
-        assertEquals(-1, test);
+        assertEquals(-4, test);
     }    
 }

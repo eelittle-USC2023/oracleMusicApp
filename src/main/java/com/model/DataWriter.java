@@ -3,6 +3,8 @@ package com.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -133,6 +135,7 @@ public class DataWriter extends DataConstants {
         questionObject.put(DataConstants.QUESTION_POINTS, question.getPoints());
         questionObject.put(DataConstants.QUESTION_FEEDBACK, question.getFeedback());
         questionObject.put(DataConstants.QUESTION_HINT, question.getHint());
+        questionObject.put(DataConstants.QUESTION_ID, question.getID().toString());
 
         return questionObject;
     }
@@ -246,4 +249,8 @@ public class DataWriter extends DataConstants {
 			return "";
 		}
 	}
+
+    public static void main(String args[]) {
+        System.out.println(UUID.randomUUID());
+    }
 }

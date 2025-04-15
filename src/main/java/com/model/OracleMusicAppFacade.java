@@ -14,7 +14,7 @@ public class OracleMusicAppFacade
 
     /**
      * This is called when getInstance is called for the first time.
-     * Sets up all the lists, then makes sure the currentAccount and selectedSong are null 
+     * Sets up all the lists, then makes sure the currentAccount, musicPlayer and selectedSong are null 
      * because no one has logged in or made a song.
      * @author Ethan Little
      */

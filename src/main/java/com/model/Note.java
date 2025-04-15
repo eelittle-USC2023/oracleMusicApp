@@ -23,7 +23,7 @@ public class Note
      */
     public Note(String n, int o, double l, double pos)
     {
-        this.name = n;
+        this.name = n.toUpperCase();
         this.octave = o;
         this.length = l;
         this.position = pos;
@@ -37,15 +37,28 @@ public class Note
      */
     public int noteToJFugue()
     {
+        if(this.name== null)
+        {
+            return -3;
+        }
         String name = this.getName();
         char letter =  this.getName().charAt(0);
         char type = 'n';
+        int multiply = 1;
 
         setJFugueBase(letter);
-        int multiply = this.octave * 12;
-        if(noteNumber != -1)
+
+        if(-1 < octave && octave < 11)
         {
-            noteNumber = noteNumber + multiply;
+            multiply = this.octave * 12;
+            if(noteNumber != -1 && noteNumber != -2)
+            {
+                noteNumber = noteNumber + multiply;
+            }
+        }
+        else
+        {
+            this.noteNumber = -4;
         }
         if (name.length() > 1) 
         {

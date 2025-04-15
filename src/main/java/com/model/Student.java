@@ -62,6 +62,9 @@ public class Student extends Account
      * @author Ethan Little
      */
     public boolean addCourse(Course course) {
+        if (course == null) {
+            return false;
+        }
         boolean add = true;
         for (Course c : courses) {
             if (c.getCourseID().equals(course.getCourseID())) {
@@ -107,6 +110,9 @@ public class Student extends Account
         return courses;
     }
     public void addSavedSong(Song song) {
+        if (song == null || savedSongs.contains(song)) {
+            return;
+        }
         savedSongs.add(song);
     }
 

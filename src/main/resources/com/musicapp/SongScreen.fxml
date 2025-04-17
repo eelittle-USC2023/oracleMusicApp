@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" prefWidth="750" prefHeight="340" style="-fx-background-color: #d9a9a9;">
+    <!-- Back Arrow -->
+    <Button layoutX="10" layoutY="10" text="←" style="-fx-font-size: 20px; -fx-background-color: transparent;" />
+
+    <!-- Album Cover -->
+    <ImageView fx:id="albumCover" layoutX="60" layoutY="70" fitWidth="180" fitHeight="180" />
+
+    <!-- Song Info -->
+    <VBox layoutX="270" layoutY="70" spacing="10">
+        <Text text="Smoke on the Water" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, black, 2, 0.5, 1, 1);" />
+        <Text text="Deep Purple" style="-fx-font-size: 18px;" />
+        <Text text="Genre: Hard Rock" style="-fx-font-size: 14px;" />
+        <Text text="Difficulty: Beginner" style="-fx-font-size: 14px;" />
+    </VBox>
+
+    <!-- Buttons -->
+    <HBox layoutX="270" layoutY="200" spacing="20">
+        <Button text="Play" style="-fx-background-color: #4b0000; -fx-text-fill: white; -fx-pref-width: 80px;" />
+        <Button text="Create" style="-fx-background-color: #4b0000; -fx-text-fill: white; -fx-pref-width: 80px;" />
+        <Button text="Share" style="-fx-background-color: #4b0000; -fx-text-fill: white; -fx-pref-width: 80px;" />
+    </HBox>
+</AnchorPane>

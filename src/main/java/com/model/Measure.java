@@ -37,12 +37,7 @@ public class Measure
      */
     public void addNote(String name, int octave, double length, double position)
     {
-        Note previous = notes.get(notes.size()-1);
-        if(position == previous.getPosition() || position == previous.getPosition()+1)
-        {
-            notes.add(new Note(name, octave, length, position));
-            return;
-        }
+        notes.add(new Note(name, octave, length, position));
     }
     /**
      * Removes note from the Array List which makes the measure

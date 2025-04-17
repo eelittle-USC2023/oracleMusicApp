@@ -37,15 +37,6 @@ public class TabState extends State
         System.out.println("Already In Tab Mode");
     }
     /**
-     * Switches the user to "Chord Mode"
-     * @author Ally Blackwell
-     */
-    public void pressChordButton()
-    {
-        System.out.println("Entering Chord Mode");
-        player.setState(player.getChordState());
-    }
-    /**
      * Switches the user to "Note Mode"
      * @author Ally Blackwell
      */

@@ -4,7 +4,6 @@ import java.io.FileWriter;
 
 public class MusicPlayer {
     private State tabState;
-    private State chordState;
     private State noteState;
     private State state;
     protected Song song;
@@ -19,7 +18,6 @@ public class MusicPlayer {
     {
         this.song = s;
         tabState = new TabState(this);
-        chordState = new ChordState(this);
         noteState = new NoteState(this);
         state = noteState;
     }
@@ -30,14 +28,6 @@ public class MusicPlayer {
     public void pressTabButton()
     {
         state.pressTabButton();
-    }
-    /**
-     * Changes the player into "Chord Mode"
-     * @author Ally Blackwell
-     */
-    public void pressChordButton()
-    {
-        state.pressChordButton();
     }
     /**
      * Changes the player into "Note Mode"
@@ -64,15 +54,6 @@ public class MusicPlayer {
     public State getTabState()
     {
         return tabState;
-    }
-    /**
-     * Gets the Chord state
-     * @return the chord state
-     * @author Ally Blackwell
-     */
-    public State getChordState()
-    {
-        return chordState;
     }
     /**
      * Gets the noteState

@@ -348,11 +348,7 @@ public class DataLoader extends DataConstants {
                 UUID id = UUID.fromString((String) questionJSON.get(QUESTION_ID));
                 String question = (String) questionJSON.get(QUESTION_QUESTION);
                 String studentAnswer = (String) questionJSON.get(QUESTION_STUDENT_ANSWER);
-                ArrayList<String> answerChoices = new ArrayList<String>();
-                JSONArray answerChoicesJSON = (JSONArray) questionJSON.get(QUESTION_ANSWER_CHOICES);
-                for (int j = 0; j < answerChoicesJSON.size(); j++) {
-                    answerChoices.add((String) answerChoicesJSON.get(j));
-                }
+                ArrayList<String> answerChoices = stringsFromJSON((JSONArray) questionJSON.get(QUESTION_ANSWER_CHOICES));
                 int points = ((Long) questionJSON.get(QUESTION_POINTS)).intValue();
                 String correctAnswer = (String) questionJSON.get(QUESTION_CORRECT_ANSWER);
                 String feedback = (String) questionJSON.get(QUESTION_FEEDBACK);

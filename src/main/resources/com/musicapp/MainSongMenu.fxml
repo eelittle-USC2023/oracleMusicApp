@@ -12,51 +12,55 @@
 
     <VBox spacing="10.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
 
-        <Label text="Welcome, {Username}" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label text="Welcome, {Username}" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
 
-        <TextField promptText="Search" style="-fx-background-color: #702c2c; -fx-text-fill: white;" />
+    <!-- Rounded Search Bar -->
+    <TextField promptText="Search"
+               style="-fx-background-color: #702c2c; -fx-text-fill: white; -fx-background-radius: 10;" />
 
-       
-        <VBox style="-fx-background-color: #702c2c; -fx-padding: 10;" spacing="5">
-            <Label text="Saved Songs:" textFill="white" />
-            <HBox spacing="5">
-                <Label text="ff" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Button text="+" style="-fx-background-color: #702c2c; -fx-text-fill: white;" />
-            </HBox>
-        </VBox>
-
-        
-        <VBox style="-fx-background-color: #702c2c; -fx-padding: 10;" spacing="5">
-            <Label text="Suggested Songs:" textFill="white" />
-            <HBox spacing="5">
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-            </HBox>
-        </VBox>
-
-    
-        <VBox style="-fx-background-color: #702c2c; -fx-padding: 10;" spacing="5">
-            <Label text="Popular Songs:" textFill="white" />
-            <HBox spacing="5">
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-            </HBox>
-        </VBox>
-
-        
-        <VBox style="-fx-background-color: #702c2c; -fx-padding: 10;" spacing="5">
-            <Label text="New Songs:" textFill="white" />
-            <HBox spacing="5">
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-                <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20;" />
-            </HBox>
-        </VBox>
-
-        <Button text="Create a Song +" style="-fx-background-color: #9b3e3e; -fx-text-fill: white;" />
-
+    <!-- Saved Songs Section -->
+    <VBox style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="5">
+        <Label text="Saved Songs:" textFill="white" />
+        <HBox spacing="5">
+            <Label text="ff" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Button text="+" style="-fx-background-color: #702c2c; -fx-text-fill: white; -fx-background-radius: 10;" />
+        </HBox>
     </VBox>
+
+    <!-- Suggested Songs Section -->
+    <VBox style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="5">
+        <Label text="Suggested Songs:" textFill="white" />
+        <HBox spacing="5">
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+        </HBox>
+    </VBox>
+
+    <!-- Popular Songs Section -->
+    <VBox style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="5">
+        <Label text="Popular Songs:" textFill="white" />
+        <HBox spacing="5">
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+        </HBox>
+    </VBox>
+
+    <!-- New Songs Section -->
+    <VBox style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="5">
+        <Label text="New Songs:" textFill="white" />
+        <HBox spacing="5">
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+            <Label text="Placeholder" style="-fx-border-color: gray; -fx-padding: 20; -fx-border-radius: 10;" />
+        </HBox>
+    </VBox>
+
+    <!-- Rounded "Create a Song" Button -->
+    <Button text="Create a Song +"
+            style="-fx-background-color: #9b3e3e; -fx-text-fill: white; -fx-background-radius: 10;" />
+
+</VBox>
 </AnchorPane>

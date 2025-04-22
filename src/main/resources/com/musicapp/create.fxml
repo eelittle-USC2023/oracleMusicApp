@@ -3,14 +3,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.CreateController">
    <children>
-      <Button layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="P" translateX="180.0" />
-      <Button layoutX="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="&lt;" translateX="80.0" translateY="550.0" />
-      <Button layoutX="-120.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="&gt;" translateX="380.0" />
-      <MenuButton layoutX="150.0" layoutY="157.0" mnemonicParsing="false" text="High E Note">
+      <Button layoutX="-10.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" translateX="180.0">
+         <graphic>
+            <ImageView fx:id="Play" fitHeight="57.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/UI%20Button%201.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="Right" layoutX="-13.0" layoutY="-40.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="&lt;" translateX="80.0" translateY="550.0" />
+      <Button fx:id="Left" layoutX="-107.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="&gt;" translateX="380.0" />
+      <MenuButton layoutX="127.0" layoutY="103.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="E (Low)">
         <items>
           <MenuItem mnemonicParsing="false" text="-" />
           <MenuItem mnemonicParsing="false" text="1" />
@@ -26,8 +38,11 @@
           <MenuItem mnemonicParsing="false" text="11" />
           <MenuItem mnemonicParsing="false" text="12" />
         </items>
+         <font>
+            <Font size="18.0" />
+         </font>
       </MenuButton>
-      <MenuButton layoutX="164.0" layoutY="192.0" mnemonicParsing="false" text="E Note">
+      <MenuButton layoutX="127.0" layoutY="153.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="A">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -43,8 +58,11 @@
             <MenuItem mnemonicParsing="false" text="11" />
             <MenuItem mnemonicParsing="false" text="12" />
          </items>
+         <font>
+            <Font size="18.0" />
+         </font>
       </MenuButton>
-      <MenuButton layoutX="164.0" layoutY="225.0" mnemonicParsing="false" text="E Note">
+      <MenuButton layoutX="127.0" layoutY="207.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="D">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -60,8 +78,11 @@
             <MenuItem mnemonicParsing="false" text="11" />
             <MenuItem mnemonicParsing="false" text="12" />
          </items>
+         <font>
+            <Font size="18.0" />
+         </font>
       </MenuButton>
-      <MenuButton layoutX="164.0" layoutY="259.0" mnemonicParsing="false" text="E Note">
+      <MenuButton layoutX="127.0" layoutY="260.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="G">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -77,8 +98,11 @@
             <MenuItem mnemonicParsing="false" text="11" />
             <MenuItem mnemonicParsing="false" text="12" />
          </items>
+         <font>
+            <Font size="18.0" />
+         </font>
       </MenuButton>
-      <MenuButton layoutX="164.0" layoutY="294.0" mnemonicParsing="false" text="E Note">
+      <MenuButton layoutX="127.0" layoutY="316.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="B">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -94,8 +118,11 @@
             <MenuItem mnemonicParsing="false" text="11" />
             <MenuItem mnemonicParsing="false" text="12" />
          </items>
+         <font>
+            <Font size="18.0" />
+         </font>
       </MenuButton>
-      <MenuButton layoutX="150.0" layoutY="327.0" mnemonicParsing="false" text="Low E Note">
+      <MenuButton layoutX="127.0" layoutY="370.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="E (High)">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -111,6 +138,25 @@
             <MenuItem mnemonicParsing="false" text="11" />
             <MenuItem mnemonicParsing="false" text="12" />
          </items>
+         <font>
+            <Font size="18.0" />
+         </font>
       </MenuButton>
+      <ScrollBar layoutX="102.0" layoutY="436.0" prefHeight="30.0" prefWidth="188.0" />
+      <Button layoutX="324.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0">
+         <graphic>
+            <ImageView fx:id="Exit" fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/UI%20Button%203.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text layoutX="130.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Text>
+      <Text layoutX="150.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Frets" />
    </children>
 </Pane>

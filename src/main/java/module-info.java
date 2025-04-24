@@ -6,9 +6,10 @@ module com.musicapp {
     requires junit;
 
     opens com.musicapp to javafx.fxml;
-    exports com.musicapp;
-
     opens com.model to javafx.fxml;
+    
+    exports com.musicapp;
     exports com.model;
+
 
 }

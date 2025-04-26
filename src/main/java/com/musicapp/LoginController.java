@@ -11,8 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 public class LoginController {
+
+    @FXML
+    private Button createAccountButton;
 
     @FXML
     private Button loginButton;
@@ -23,34 +27,24 @@ public class LoginController {
     @FXML
     private TextField usernameField;
 
+    @FXML 
+    private void createAccountButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("createAccount");
+    }
+
     @FXML
-    private void loginButtonClicked(ActionEvent event) throws IOException {
+    private void loginButtonClicked(MouseEvent event) throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
 
         if (!facade.login(username, password)) {
-            // Login failed - you might want to show an error message here
+           
             return;
         }
-        
-        // Load the MainSongMenu
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainSongMenu.fxml"));
-        Parent root = loader.load();
-        
-        // Get the controller and set the username
-        SongMenuController controller = loader.getController();
-        controller.setUsername(username);
-        
-        // Get the current stage
-        Stage stage = (Stage) loginButton.getScene().getWindow();
-        
-        // Set the new scene (using the dimensions from your MainSongMenu)
-        Scene scene = new Scene(root,  375, 812);
-        stage.setScene(scene);
-        
-        // Center the window (optional)
-        stage.centerOnScreen();
+
+        App.setRoot("MainSongMenu");
     }
+
 }

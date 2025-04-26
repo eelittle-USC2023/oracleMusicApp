@@ -148,5 +148,38 @@ public class Guitar extends Instrument
     public String toString() {
         return "Guitar";
     }
+
+    public int getStringTab(String string)
+    {
+
+        if (string == "LE")
+        {
+            return getLowE();
+        }
+        else if (string == "A")
+        {
+            return getA();
+        }
+        else if (string == "B")
+        {
+            return getB();
+        }
+        else if (string == "D")
+        {
+            return getD();
+        }
+        else if (string == "G")
+        {
+            return getG();
+        }
+        else if (string == "HE")
+        {
+            return getHighE();
+        }
+        else
+        {
+            return -2;
+        }
+    }
 }
 

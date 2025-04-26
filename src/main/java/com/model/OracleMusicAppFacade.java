@@ -38,6 +38,9 @@ public class OracleMusicAppFacade
     public Account getCurrentAccount() {
         return currentAccount;
     }
+    public Song getSelectedSong() {
+        return selectedSong;
+    }
     
     public boolean createAccount(String username, String password, String role){
         boolean successful = accountList.addAccount(username, password, role);

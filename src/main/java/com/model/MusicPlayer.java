@@ -1,6 +1,7 @@
 package com.model;
 
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class MusicPlayer {
     private State tabState;
@@ -116,6 +117,13 @@ public class MusicPlayer {
     public void setSong(Song s)
     {
         this.song = s;
+    }
+
+    /**
+     * 
+     */
+    public ArrayList<String> getSongString() {
+        return this.state.getDisplay();
     }
 }
 

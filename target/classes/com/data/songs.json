@@ -529,5 +529,110 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "f3e60b2a-8c1b-4b32-9db3-cb9e9ab7b987",
+        "title": "Sweet Home Alabama",
+        "artistName": "Lynyrd Skynyrd",
+        "difficulty": "Medium",
+        "genre": "Rock",
+        "instrument": "Guitar",
+        "tempo": 98,
+        "measures": [
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "D",
+                "notes": [
+                    {
+                        "name": "D",
+                        "octave": 4,
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "name": "G",
+                        "octave": 3,
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "C",
+                "notes": [
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "name": "Bb",
+                        "octave": 3,
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "name": "F",
+                        "octave": 3,
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ]
+            },
+            {
+                "timeSignatureTop": 4,
+                "timeSignatureBottom": 4,
+                "keySignature": "G",
+                "notes": [
+                    {
+                        "name": "G",
+                        "octave": 3,
+                        "length": 1.0,
+                        "position": 0.0
+                    },
+                    {
+                        "name": "F",
+                        "octave": 3,
+                        "length": 1.0,
+                        "position": 1.0
+                    },
+                    {
+                        "name": "C",
+                        "octave": 4,
+                        "length": 1.0,
+                        "position": 2.0
+                    },
+                    {
+                        "name": "R",
+                        "octave": -1,
+                        "length": 1.0,
+                        "position": 3.0
+                    }
+                ]
+            }
+        ]
     }
+    
 ]

@@ -245,4 +245,14 @@ public class Song {
 
         return baseOctave + (tab / 12);
     }
+
+    // Added as test for SongScreen.fxml implementation...
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+    
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+    
 }

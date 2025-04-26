@@ -43,8 +43,8 @@ public class Driver {
             System.out.println(s.getTitle() + " by " + s.getArtistName());
         }
         facade.setSelectedSong(searchResults.get(0));
-        facade.displayNotes();
-        //facade.displayTabs();
+        //facade.displayNotes();
+        facade.displayTabs();
         //facade.playSong();
         
 

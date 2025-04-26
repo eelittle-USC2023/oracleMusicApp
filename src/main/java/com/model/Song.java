@@ -13,7 +13,6 @@ public class Song {
     private int tempo;
     private ArrayList<Measure> measures;
     private int createPosition;
-    private Measure createMeasure;
 
     /**
      * Constructor used in the facade for when a user makes a new song.
@@ -194,7 +193,7 @@ public class Song {
         {
             addMeasure(4,4,"Cmaj");
         }
-        createMeasure = new Measure(4,4,"CMaj", new ArrayList<Note>);
+        Measure createMeasure = new Measure(4,4,"CMaj", new ArrayList<Note>());
         String[] strings = {"LE", "A", "D", "G", "B", "HE"};
         int octave = 4;
         for (String string : strings) {
@@ -206,7 +205,7 @@ public class Song {
             }
             addNoteToMeasure(index, name, octave, 1, createPosition);
         }
-        
+        measures.set(index, createMeasure);
         createPosition++;
     }
     

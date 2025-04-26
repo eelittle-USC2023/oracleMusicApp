@@ -131,6 +131,11 @@ public class OracleMusicAppFacade
         }
         musicPlayer.setSong(selectedSong);
     }
+
+    public void addGuitarToMeasure(int index, Guitar guitar)
+    {
+        selectedSong.addTabToMeasure(index, guitar);
+    }
     
     //Everything below this point won't be implemented this sprint
     public void viewLesson()

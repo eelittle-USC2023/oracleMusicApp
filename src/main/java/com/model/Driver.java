@@ -43,8 +43,8 @@ public class Driver {
             System.out.println(s.getTitle() + " by " + s.getArtistName());
         }
         facade.setSelectedSong(searchResults.get(0));
-        facade.displayNotes();
-        //facade.displayTabs();
+        //facade.displayNotes();
+        facade.displayTabs();
         //facade.playSong();
         
 
@@ -59,12 +59,12 @@ public class Driver {
         facade.login("ffredrickson", "pword");
         System.out.println("Logged in as ffredrickson");
         facade.createNewSong("A Horse's Journey");
-        facade.addMeasure(4, 4, "Amajor");
+        facade.addMeasure(4, 4, 0,"Amajor");
         facade.addNote(0, "A", 3, 1.0, 0.0);
         facade.addNote(0, "C", 4, 1.0, 1.0);
         facade.addNote(0, "F", 4, 1.0, 2.0);
         facade.addNote(0, "C", 4, 1.0, 3.0);
-        facade.addMeasure(4, 4, "Amajor");
+        facade.addMeasure(4, 4, 1,"Amajor");
         facade.addNote(1, "A", 3, 1.0, 0.0);
         facade.addNote(1, "C#", 4, 1.0, 1.0);
         facade.addNote(1, "F#", 4, 1.0, 2.0);

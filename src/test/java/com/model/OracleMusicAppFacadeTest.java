@@ -199,15 +199,15 @@ public class OracleMusicAppFacadeTest {
     @Test
     public void testAddSingleMeasure() {
         facade.createNewSong("StructuredSong");
-        facade.addMeasure(4, 4, "C");
+        facade.addMeasure(4, 4, 0, "C");
         Song song = ((Student) facade.getCurrentAccount()).getSavedSongs().get(0);
         assertEquals(1, song.getMeasures().size());
     }
 
     @Test
     public void testAddMultipleMeasures() {
-        facade.addMeasure(4, 4, "D");
-        facade.addMeasure(3, 4, "G");
+        facade.addMeasure(4, 4, 0,"D");
+        facade.addMeasure(3, 4, 1,"G");
         Song song = ((Student) facade.getCurrentAccount()).getSavedSongs().get(0);
         assertEquals(3, song.getMeasures().size()); // 1 from previous test, 2 here
     }
@@ -215,7 +215,7 @@ public class OracleMusicAppFacadeTest {
     @Test
     public void testAddMeasureInvalidSignature() {
         try {
-            facade.addMeasure(0, 0, "Z");
+            facade.addMeasure(0, 0, 0,"Z");
         } catch (Exception e) {
             fail("addMeasure() should not throw even with bad input");
         }
@@ -223,7 +223,7 @@ public class OracleMusicAppFacadeTest {
 
     @Test
     public void testAddMeasureNullKeySignature() {
-        facade.addMeasure(4, 4, null);
+        facade.addMeasure(4, 4, 0,null);
         Song song = ((Student) facade.getCurrentAccount()).getSavedSongs().get(0);
         assertEquals(4, song.getMeasures().size());
     }

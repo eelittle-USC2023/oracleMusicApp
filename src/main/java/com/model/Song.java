@@ -12,6 +12,8 @@ public class Song {
     private Instrument instrument;
     private int tempo;
     private ArrayList<Measure> measures;
+    private int createPosition;
+    private Measure createMeasure;
 
     /**
      * Constructor used in the facade for when a user makes a new song.
@@ -28,6 +30,7 @@ public class Song {
         this.instrument = new Guitar();
         this.tempo = 100;
         this.measures = new ArrayList<Measure>();
+        this.createPosition = 0;
     }
     /**
      * Song constructor for use in DataLoader. All data members are loaded in from the JSON file, so simply sets them.
@@ -184,6 +187,63 @@ public class Song {
             ret = ret + m.toString() + " | ";
         }
         return ret;
+    }
+
+    public void addTabToMeasure(int index, Guitar guitar) {
+        if(measures.size() < index)
+        {
+            addMeasure(4,4,"Cmaj");
+        }
+        createMeasure = new Measure(4,4,"CMaj", new ArrayList<Note>);
+        String[] strings = {"LE", "A", "D", "G", "B", "HE"};
+        int octave = 4;
+        for (String string : strings) {
+
+            String name = (guitar.getStringTab(string) == -1) ? "R" : tabToNoteName(string, guitar.getStringTab(string));
+            if(name != "R")
+            {
+                octave = tabToNoteOctave(string, guitar.getStringTab(string)); 
+            }
+            addNoteToMeasure(index, name, octave, 1, createPosition);
+        }
+        
+        createPosition++;
+    }
+    
+
+    private static final String[] NOTES = 
+        {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+
+    public String tabToNoteName(String string, int tab) {
+        int baseNoteIndex;
+        switch (string) {
+            case "LE": baseNoteIndex = 4; break;
+            case "A":  baseNoteIndex = 9; break;
+            case "D":  baseNoteIndex = 2; break;
+            case "G":  baseNoteIndex = 7; break;
+            case "B":  baseNoteIndex = 11; break;
+            case "HE": baseNoteIndex = 4; break;
+            default: return "Invalid string";
+        }
+    
+        int noteIndex = (baseNoteIndex + tab) % 12;
+        return NOTES[noteIndex];
+    }
+    
+    public int tabToNoteOctave(String string, int tab) {
+        int baseOctave;
+
+        switch (string) {
+            case "LE": baseOctave = 2; break;
+            case "A":  baseOctave = 2; break;
+            case "D":  baseOctave = 3; break;
+            case "G":  baseOctave = 3; break;
+            case "B":  baseOctave = 3; break;
+            case "HE": baseOctave = 4; break;
+            default: return -1;
+        }
+
+        return baseOctave + (tab / 12);
     }
 
     // Added as test for SongScreen.fxml implementation...

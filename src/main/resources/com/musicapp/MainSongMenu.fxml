@@ -12,48 +12,48 @@
             prefWidth="375" prefHeight="812"
             style="-fx-background-color: #dba5a5;">
 
-    <VBox spacing="10.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+    <VBox spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
 
     <Label fx:id="welcomeLabel" text="welcome,{username}" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
 
-    <!-- Rounded Search Bar -->
+    
     <TextField fx:id="searchField" promptText="Search"
         onAction="#handleSearchInput"
                style="-fx-background-color: #702c2c; -fx-text-fill: white; -fx-background-radius: 10;" />
 
-    <!-- Saved Songs Section -->
+    
     <VBox fx:id="savedSongsContainer" style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="5">
         <Label text="Saved Songs:" textFill="white" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
         <HBox fx:id="savedSongsHBox" spacing="10" alignment="CENTER">
-            <!-- Images will be added programmatically -->
+           
         </HBox>
     </VBox>
 
-    <!-- Suggested Songs Section -->
+   
     <VBox fx:id="suggestedSongsContainer" style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="5">
         <Label text="Suggested Songs:" textFill="white" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
         <HBox fx:id="suggestedSongsHBox" spacing="10" alignment="CENTER">
-            <!-- Images will be added programmatically -->
+           
         </HBox>
     </VBox>
 
-    <!-- Popular Songs Section -->
+  
     <VBox fx:id="popularSongsContainer" style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="10">
         <Label text="Popular Songs:" textFill="white" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
         <HBox fx:id="popularSongsHBox" spacing="10" alignment="CENTER">
-            <!-- Images will be added programmatically -->
+           
         </HBox>
     </VBox>
 
-    <!-- New Songs Section -->
+    
     <VBox fx:id="newSongsContainer" style="-fx-background-color: #702c2c; -fx-padding: 10; -fx-background-radius: 10;" spacing="5">
         <Label text="New Songs:" textFill="white" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
         <HBox fx:id="newSongsHBox" spacing="10" alignment="CENTER">
-            <!-- Images will be added programmatically -->
+           
         </HBox>
     </VBox>
 
-    <!-- Rounded "Create a Song" Button -->
+    
     <Button fx:id="createSongButton" text="Create a Song +"
       onAction="#handleCreateSong"
             style="-fx-background-color: #9b3e3e; -fx-text-fill: white; -fx-background-radius: 10; -fx-font-size: 16px;" />

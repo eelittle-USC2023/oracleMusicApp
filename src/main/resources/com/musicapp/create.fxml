@@ -14,15 +14,15 @@
    <children>
       <Button layoutX="-10.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" translateX="180.0">
          <graphic>
-            <ImageView fx:id="Play" fitHeight="57.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="57.0" fitWidth="35.0" onMouseClicked="#onPlayClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../../Downloads/UI%20Button%201.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="Right" layoutX="-13.0" layoutY="-40.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="&lt;" translateX="80.0" translateY="550.0" />
-      <Button fx:id="Left" layoutX="-107.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="&gt;" translateX="380.0" />
-      <MenuButton layoutX="127.0" layoutY="103.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="E (Low)">
+      <Button layoutX="-13.0" layoutY="-40.0" mnemonicParsing="false" onMouseClicked="#onLeftClicked" prefHeight="60.0" prefWidth="60.0" text="&lt;" translateX="80.0" translateY="550.0" />
+      <Button fx:id="Left" layoutX="-107.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#onRightClicked" prefHeight="60.0" prefWidth="60.0" text="&gt;" translateX="380.0" />
+      <MenuButton fx:id="LowE" layoutX="127.0" layoutY="103.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="107.0" text="E (Low)">
         <items>
           <MenuItem mnemonicParsing="false" text="-" />
           <MenuItem mnemonicParsing="false" text="1" />
@@ -42,7 +42,7 @@
             <Font size="18.0" />
          </font>
       </MenuButton>
-      <MenuButton layoutX="127.0" layoutY="153.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="A">
+      <MenuButton fx:id="A" layoutX="127.0" layoutY="153.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="107.0" text="A">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -62,7 +62,7 @@
             <Font size="18.0" />
          </font>
       </MenuButton>
-      <MenuButton layoutX="127.0" layoutY="207.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="D">
+      <MenuButton fx:id="D" layoutX="127.0" layoutY="207.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="107.0" text="D">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -82,7 +82,7 @@
             <Font size="18.0" />
          </font>
       </MenuButton>
-      <MenuButton layoutX="127.0" layoutY="260.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="G">
+      <MenuButton fx:id="G" layoutX="127.0" layoutY="260.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="107.0" text="G">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -102,7 +102,7 @@
             <Font size="18.0" />
          </font>
       </MenuButton>
-      <MenuButton layoutX="127.0" layoutY="316.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="B">
+      <MenuButton fx:id="B" layoutX="127.0" layoutY="316.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="107.0" text="B">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -122,7 +122,7 @@
             <Font size="18.0" />
          </font>
       </MenuButton>
-      <MenuButton layoutX="127.0" layoutY="370.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="E (High)">
+      <MenuButton fx:id="HighE" layoutX="127.0" layoutY="370.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="107.0" text="E (High)">
          <items>
             <MenuItem mnemonicParsing="false" text="-" />
             <MenuItem mnemonicParsing="false" text="1" />
@@ -142,21 +142,25 @@
             <Font size="18.0" />
          </font>
       </MenuButton>
-      <ScrollBar layoutX="102.0" layoutY="436.0" prefHeight="30.0" prefWidth="188.0" />
-      <Button layoutX="324.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0">
+      <ScrollBar layoutX="102.0" layoutY="437.0" prefHeight="30.0" prefWidth="188.0" />
+      <Button layoutX="324.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#exitClicked" prefHeight="40.0" prefWidth="60.0">
          <graphic>
-            <ImageView fx:id="Exit" fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="60.0" onMouseClicked="#exitClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../../Downloads/UI%20Button%203.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Text layoutX="130.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
+      <Text layoutX="144.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
          <font>
-            <Font size="47.0" />
+            <Font size="37.0" />
          </font>
       </Text>
-      <Text layoutX="150.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Frets" />
+      <Text layoutX="143.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Fret">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

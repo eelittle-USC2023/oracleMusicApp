@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SongMenuController {
     @FXML private Label welcomeLabel;
@@ -62,8 +63,8 @@ public class SongMenuController {
 
     private ImageView createSongImageView(Song song) {
         try {
-            
-            Image image = new Image(getClass().getResourceAsStream(song.getAlbumArt()));
+            String imagePath = "/com/musicapp/images/" + song.getTitle().toLowerCase().replaceAll(" ", "_") + ".jpg";
+            Image image = new Image(getClass().getResourceAsStream(imagePath));
             ImageView imageView = new ImageView(image);
             
            
@@ -119,21 +120,33 @@ public class SongMenuController {
 
     
     private List<Song> getSavedSongs(List<Song> allSongs) {
-      
-        return allSongs.subList(0, Math.min(2, allSongs.size()));
+    if (facade.getCurrentAccount() != null) {
+        return allSongs.stream()
+                .filter(song -> song.getArtistName().equalsIgnoreCase(facade.getCurrentAccount().getUsername()))
+                .limit(3)
+                .collect(Collectors.toList());
     }
-    
+    return allSongs.subList(0, Math.min(3, allSongs.size()));
+    }
+
     private List<Song> getSuggestedSongs(List<Song> allSongs) {
-        return allSongs.subList(0, Math.min(3, allSongs.size()));
+        return allSongs.stream()
+                .filter(song -> !"None".equalsIgnoreCase(song.getGenre()))
+                .limit(3)
+                .collect(Collectors.toList());
     }
-    
+
     private List<Song> getPopularSongs(List<Song> allSongs) {
-        return allSongs.subList(0, Math.min(3, allSongs.size()));
+        return allSongs.stream()
+                .limit(3)
+                .collect(Collectors.toList());
     }
     
     private List<Song> getNewSongs(List<Song> allSongs) {
-        return allSongs.subList(0, Math.min(3, allSongs.size()));
-    }
+        return allSongs.stream()
+                .skip(Math.max(0, allSongs.size() - 3))
+                .collect(Collectors.toList());
+    }    
 
     @FXML 
     private void handleSearchInput() {
@@ -143,8 +156,8 @@ public class SongMenuController {
             return;
         }
         
-        ArrayList<Song> titleResults = facade.songSearch("title", query);
-        ArrayList<Song> artistResults = facade.songSearch("artist", query);
+        ArrayList<Song> titleResults = facade.songSearch("Title", query);
+        ArrayList<Song> artistResults = facade.songSearch("Artist", query);
         ArrayList<Song> allResults = new ArrayList<>(titleResults);
         allResults.addAll(artistResults);
         

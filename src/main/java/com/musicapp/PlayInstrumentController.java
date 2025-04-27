@@ -13,7 +13,6 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
@@ -25,7 +24,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.scene.paint.Color;
 
-public class PlayInstrumentController implements Initializable {
+public class PlayInstrumentController {
 
     @FXML
     private Button exit;
@@ -69,7 +68,13 @@ public class PlayInstrumentController implements Initializable {
     @FXML
     private void playButtonClicked(MouseEvent event) {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-        MusicPlayer musicPlayer = new MusicPlayer(facade.getSelectedSong());
+        ArrayList<ArrayList<String>> tabList = facade.getTabs();
+        for (ArrayList<String> stringList : tabList) {
+            for (String string : stringList) {
+                System.out.print(string);
+            }
+            System.out.println();
+        }
         ArrayList<String> tabs = new ArrayList<String>(); /* Once tabs is fixed, will be set here from musicPlayer */
         tabs.add("----------");
         tabs.add("0--3--5--12");
@@ -108,10 +113,4 @@ public class PlayInstrumentController implements Initializable {
         timeline.play();
         guitarGrid.getChildren().clear();
     }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
-    }
-
 }

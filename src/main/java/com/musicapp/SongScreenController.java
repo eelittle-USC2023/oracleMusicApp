@@ -7,7 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
+
 import com.model.Song;
 
 public class SongScreenController {
@@ -51,6 +55,11 @@ public class SongScreenController {
         }
     
         albumCover.setImage(image);
+    }
+
+    @FXML
+    private void playButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("playMusic");
     }
 }
     

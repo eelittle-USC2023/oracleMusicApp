@@ -72,6 +72,12 @@ public class OracleMusicAppFacade
         }
         return false;
     }
+
+    public void setSelectedSongTitle(String title)
+    {
+        selectedSong.setTitle(title);
+    }
+
     public void logout(){
         accountList.save();
         songList.save();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
@@ -140,6 +146,11 @@ public class OracleMusicAppFacade
     public ArrayList<ArrayList<String>> getTabs()
     {
         return musicPlayer.getTabs();
+    }
+
+    public String getSelectedSongTitle()
+    {
+        return selectedSong.getTitle();
     }
     
     //Everything below this point won't be implemented this sprint

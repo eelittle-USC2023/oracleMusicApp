@@ -133,6 +133,17 @@ public class Song {
     public Measure getMeasure(int measureIndex) {
         return measures.get(measureIndex);
     }
+
+    /**
+     * Sets the title of the song to the input
+     * @param t the title passed through
+     * @author Ally Blackwell
+     */
+    public void setTitle(String t)
+    {
+        this.title = t;
+    }
+
     /**
      * Adds the inputted note to the inputted measure
      * @param measureIndex the index of the desired measure
@@ -225,7 +236,7 @@ public class Song {
             default: return "Invalid string";
         }
     
-        int noteIndex = (baseNoteIndex + tab) % 12;
+        int noteIndex = (baseNoteIndex + tab + 12) % 12;
         return NOTES[noteIndex];
     }
     

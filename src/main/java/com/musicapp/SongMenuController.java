@@ -104,9 +104,8 @@ public class SongMenuController {
             SongScreenController controller = loader.getController();
             controller.setSong(song);
             
-            Stage stage = new Stage();
-            stage.setTitle(song.getTitle());
-            stage.setScene(new Scene(root));
+            Stage stage = (Stage) savedSongsHBox.getScene().getWindow();
+            stage.setScene(new Scene(root, 633, 282));
             stage.show();
         } catch (IOException e) {
             showAlert("Error", "Could not open song details");

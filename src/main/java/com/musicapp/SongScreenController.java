@@ -13,9 +13,6 @@ import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
 import java.io.IOException;
-
-
-import java.io.IOException;
 import java.net.URL;
 
 import com.model.OracleMusicAppFacade;
@@ -72,7 +69,7 @@ public class SongScreenController{
             Parent root = loader.load();
 
             PlayMusicController controller = loader.getController();
-            //controller.setSongTitle(currentSong.getTitle()); // pass title to play screen
+            controller.setSongTitle(currentSong.getTitle()); // pass title to play screen
 
             Stage stage = (Stage) playButton.getScene().getWindow();
             stage.setScene(new Scene(root, 750, 340)); // Landscape size for playMusic.fxml

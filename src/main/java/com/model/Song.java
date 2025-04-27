@@ -154,7 +154,11 @@ public class Song {
      * @author Ethan Little
      */
     public void addNoteToMeasure(int measureIndex, String noteName, int octave, double length, double position) {
-        measures.get(measureIndex).addNote(noteName, octave, length, position);
+        if (measureIndex >= 0 && measureIndex < measures.size()) {
+            measures.get(measureIndex).addNote(noteName, octave, length, position);
+        } else {
+            System.out.println("Invalid measureIndex: " + measureIndex);
+        }
     }
     /**
      * Creates and adds a measure to this instance of song
@@ -200,9 +204,9 @@ public class Song {
     }
 
     public void addTabToMeasure(int index, Guitar guitar) {
-        if(measures.size() < index)
-        {
-            addMeasure(4,4,"Cmaj");
+        if (measures.size() <= index) 
+        { 
+            addMeasure(4, 4, "Cmaj");
         }
         Measure createMeasure = new Measure(4,4,"CMaj", new ArrayList<Note>());
         String[] strings = {"LE", "A", "D", "G", "B", "HE"};

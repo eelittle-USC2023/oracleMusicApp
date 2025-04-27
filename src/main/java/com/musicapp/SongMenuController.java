@@ -182,12 +182,9 @@ public class SongMenuController {
     private void handleCreateSong() {
         try {
             facade.createNewSong("");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/create.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) createSongButton.getScene().getWindow();
-            stage.setScene(new Scene(root, 375, 812));
-            stage.show();
-        } catch (IOException e) {
+            App.setRoot("create");
+        } catch (Exception e) {
+            e.printStackTrace();
             showAlert("Error", "Could not load creation screen: " + e.getMessage());
         }
     }

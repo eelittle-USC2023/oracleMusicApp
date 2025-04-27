@@ -1,6 +1,9 @@
 package com.musicapp;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import com.model.MusicPlayer;
 import com.model.OracleMusicAppFacade;
@@ -10,8 +13,11 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
@@ -19,7 +25,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.scene.paint.Color;
 
-public class PlayInstrumentController {
+public class PlayInstrumentController implements Initializable {
 
     @FXML
     private Button exit;
@@ -31,14 +37,33 @@ public class PlayInstrumentController {
     private Button playButton;
 
     @FXML
+    private ToggleGroup displayButtons;
+
+    @FXML
+    private ToggleButton toInstrumentButton;
+
+    @FXML
+    private ToggleButton toMusicButton;
+
+    @FXML
     private Slider playbackSpeedSlider;
 
     @FXML
     private Text songTitle;
 
     @FXML
-    void exitButtonClicked(MouseEvent event) {
+    void exitButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("SongScreen");
+    }
+    
+    @FXML
+    private void toInstrumentButtonClicked(MouseEvent event) throws IOException {
+        App.setRoot("playInstrument");
+    }
 
+    @FXML
+    private void toMusicButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("playMusic");
     }
 
     @FXML
@@ -82,6 +107,11 @@ public class PlayInstrumentController {
         timeline.setCycleCount(tabs.get(0).length()/3+1);
         timeline.play();
         guitarGrid.getChildren().clear();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
     }
 
 }

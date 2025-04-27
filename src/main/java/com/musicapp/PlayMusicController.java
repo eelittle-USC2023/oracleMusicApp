@@ -1,9 +1,12 @@
 package com.musicapp;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -23,6 +26,9 @@ public class PlayMusicController {
     private Text songTitle;
 
     @FXML
+    private ToggleGroup displayButtons;
+
+    @FXML
     private ToggleButton toInstrumentButton;
 
     @FXML
@@ -32,12 +38,22 @@ public class PlayMusicController {
     private GridPane guitarGrid;
 
     @FXML
-    private void exitButtonClicked(MouseEvent event) {
+    private void exitButtonClicked(MouseEvent event) throws IOException {
+        App.setRoot("SongScreen");
+    }
 
+    @FXML
+    private void toInstrumentButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("playInstrument");
+    }
+
+    @FXML
+    private void toMusicButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("playMusic");
     }
 
     @FXML
     private void playButtonClicked(MouseEvent event) {
-
+        
     }
 }

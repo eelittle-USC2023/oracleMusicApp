@@ -34,4 +34,5 @@ public abstract class State
      */
     public abstract void pressTabButton();
     public abstract void pressNoteButton();
+    protected abstract ArrayList<ArrayList<String>> getTabs();
 }

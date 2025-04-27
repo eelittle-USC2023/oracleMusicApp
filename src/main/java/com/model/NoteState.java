@@ -69,4 +69,8 @@ public class NoteState extends State
         }
         return displayTemplate;
     }
+    public ArrayList<ArrayList<String>> getTabs()
+    {
+        return new ArrayList<ArrayList<String>>();
+    }
 }

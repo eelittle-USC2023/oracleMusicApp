@@ -136,6 +136,11 @@ public class OracleMusicAppFacade
     {
         selectedSong.addTabToMeasure(index, guitar);
     }
+
+    public ArrayList<ArrayList<String>> getTabs()
+    {
+        return musicPlayer.getTabs();
+    }
     
     //Everything below this point won't be implemented this sprint
     public void viewLesson()

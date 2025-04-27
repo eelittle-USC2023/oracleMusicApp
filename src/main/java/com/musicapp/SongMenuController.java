@@ -184,6 +184,7 @@ public class SongMenuController {
     @FXML
     private void handleCreateSong() {
         try {
+            facade.createNewSong("");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/create.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) createSongButton.getScene().getWindow();

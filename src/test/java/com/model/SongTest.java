@@ -78,7 +78,7 @@ public class SongTest
     public void testAddNoteToMeasureNullOctave()
     {
         song = new Song("Title", "Artist");
-        song.addMeasure(4, 4, "1");
+        song.addMeasure(4, 4,"1");
         song.addNoteToMeasure(0, "Q", -1, 1, 0);
         assertEquals(null , song.getMeasure(0).getNotes().get(0));
     }
@@ -87,7 +87,7 @@ public class SongTest
     public void testAddMeasureInvalidTop()
     {
         song = new Song("Title", "Artist");
-        song.addMeasure(-1, 4, "1");
+        song.addMeasure(-1, 4,"1");
         assertEquals(null, song.getMeasure(0));
     }
 

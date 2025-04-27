@@ -20,7 +20,7 @@ public class MusicPlayer {
         this.song = s;
         tabState = new TabState(this);
         noteState = new NoteState(this);
-        state = noteState;
+        state = tabState;
     }
     /**
      * Changes the player into "Tab Mode"
@@ -124,6 +124,10 @@ public class MusicPlayer {
      */
     public ArrayList<String> getSongString() {
         return this.state.getDisplay();
+    }
+    public ArrayList<ArrayList<String>> getTabs()
+    {
+        return tabState.getTabs();
     }
 }
 

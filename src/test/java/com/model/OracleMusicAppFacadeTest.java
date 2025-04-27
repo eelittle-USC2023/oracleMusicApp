@@ -199,7 +199,7 @@ public class OracleMusicAppFacadeTest {
     @Test
     public void testAddSingleMeasure() {
         facade.createNewSong("StructuredSong");
-        facade.addMeasure(4, 4, "C");
+        facade.addMeasure(4, 4,  "C");
         Song song = ((Student) facade.getCurrentAccount()).getSavedSongs().get(0);
         assertEquals(1, song.getMeasures().size());
     }

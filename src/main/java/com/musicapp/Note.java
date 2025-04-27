@@ -42,7 +42,7 @@ public class Note
     {
         if (this.name.isEmpty())
         {
-            return -3; 
+            return -1; 
         }
 
         String name = this.getName();
@@ -52,17 +52,17 @@ public class Note
 
         setJFugueBase(letter);
 
-        if (octave < 0 || octave > 10)
+        if (this.octave < 0 || this.octave > 10)
         {
-            this.noteNumber = -4;
-            return noteNumber;
+            this.noteNumber = -1;
+            return this.noteNumber;
         }
         else
         {
             multiply = this.octave * 12;
-            if (noteNumber != -1 && noteNumber != -2)
+            if (this.noteNumber != -1)
             {
-                noteNumber = noteNumber + multiply;
+                this.noteNumber = this.noteNumber + multiply;
             }
         }
 
@@ -72,14 +72,14 @@ public class Note
         }
         if (type == '#')
         {
-            noteNumber++;
+            this.noteNumber++;
         }
         else if (type == 'b')
         {
-            noteNumber--;
+            this.noteNumber--;
         }
 
-        return noteNumber;
+        return this.noteNumber;
     }
 
     /**
@@ -103,7 +103,7 @@ public class Note
         noteMap.put('A', 9);
         noteMap.put('B', 11);
 
-        this.noteNumber = noteMap.getOrDefault(letter, -2); 
+        this.noteNumber = noteMap.getOrDefault(letter, -1); 
     }
 
     /**

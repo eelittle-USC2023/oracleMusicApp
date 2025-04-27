@@ -37,7 +37,7 @@ public class Measure
      */
     public void addNote(String name, int octave, double length, double position)
     {
-        notes.add(new Note(name, octave, length, position));
+        this.notes.add(new Note(name, octave, length, position));
     }
     /**
      * Removes note from the Array List which makes the measure
@@ -46,7 +46,7 @@ public class Measure
      */
     public void removeNote(Note note)
     {
-        notes.remove(note);
+        this.notes.remove(note);
     }
     /**
      * Gets the array of notes which make the measure
@@ -54,7 +54,7 @@ public class Measure
      */
     public ArrayList<Note> getNotes()
     {
-        return notes;
+        return this.notes;
     }
     /**
      * Takes the JFugue translated notes and creates a singular string which can be played on JFugue
@@ -64,29 +64,26 @@ public class Measure
      */
     public String toJFugueString()
     {
-        if(notes.isEmpty())
+        if(this.notes.isEmpty())
         {
             return "";
         }
         StringBuilder jFugueInput = new StringBuilder(" ");
         int noteNumber;
-        for(int i = 0; i < notes.size(); i++)
+        for(int i = 0; i < this.notes.size(); i++)
         {
-            noteNumber = notes.get(i).noteToJFugue();
+            noteNumber = this.notes.get(i).noteToJFugue();
             String next = " ";
 
-            if(noteNumber != -2)
+            if(i + 1 < this.notes.size()) 
             {
-                if(i + 1 < notes.size()) 
+                if (this.notes.get(i).getPosition() == this.notes.get(i + 1).getPosition())
                 {
-                    if (notes.get(i).getPosition() == notes.get(i + 1).getPosition())
-                    {
-                        next = "+";
-                    }
+                    next = "+";
                 }
-                String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
-                jFugueInput.append(input);
             }
+            String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
+            jFugueInput.append(input);
         }
         return jFugueInput.toString();
     }

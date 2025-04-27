@@ -4,20 +4,24 @@
 package com.musicapp;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+
 import javafx.stage.Stage;
 import java.io.IOException;
 
+
+import java.io.IOException;
+import java.net.URL;
+
+import com.model.OracleMusicAppFacade;
 import com.model.Song;
 
-public class SongScreenController {
+public class SongScreenController{
 
     @FXML private ImageView albumCover;
     @FXML private Text titleText;
@@ -28,21 +32,11 @@ public class SongScreenController {
     @FXML private Button playButton;
     @FXML private Button createButton;
     @FXML private Button shareButton;
-    @FXML private Button backButton;
 
-    private Song currentSong;
-
-    @FXML
     public void initialize() {
-        playButton.setOnAction(event -> openPlayMusicScreen());
-
-        if (backButton != null) {
-            backButton.setOnAction(event -> goBackToMenu());
-        }
-    }
-
-    public void setSong(Song song) {
         // Set basic song information
+        OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+        Song song = facade.getSelectedSong();
         titleText.setText(song.getTitle());
         artistText.setText(song.getArtistName());
         genreText.setText("Genre: " + song.getGenre());

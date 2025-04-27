@@ -180,17 +180,25 @@ public class TabState extends State
         int stringNumber;
         switch (s) 
         {
-            case 0: stringNumber = 28; break;
-            case 1: stringNumber = 33; break;
-            case 2: stringNumber = 38; break;
-            case 3: stringNumber = 43; break;
-            case 4: stringNumber = 47; break;
-            case 5: stringNumber = 52; break;
+            case 0: stringNumber = 28; break;  // Low E
+            case 1: stringNumber = 33; break;  // A
+            case 2: stringNumber = 38; break;  // D
+            case 3: stringNumber = 43; break;  // G
+            case 4: stringNumber = 47; break;  // B
+            case 5: stringNumber = 52; break;  // High E
             default:
-                stringNumber = -1;
+                stringNumber = -1; 
         }
-        return nN - stringNumber - 12;
+
+        int fret = nN - stringNumber - 12;
+
+        if (fret < 0) {
+            return -1;
+        }
+
+        return fret;
     }
+
 
     public ArrayList<ArrayList<String>> getTabs()
     {

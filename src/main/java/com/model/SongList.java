@@ -53,7 +53,7 @@ public class SongList
      * @author Ethan Little
      */
     public Song addSong(String title, String artistName) {
-        if (title == null || title.isEmpty()) {
+        if (title == null) {
             return null;
         }
         Song song = new Song(title, artistName);

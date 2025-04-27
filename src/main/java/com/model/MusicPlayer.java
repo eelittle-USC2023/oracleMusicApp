@@ -125,6 +125,7 @@ public class MusicPlayer {
     public ArrayList<String> getSongString() {
         return this.state.getDisplay();
     }
+    
     public ArrayList<ArrayList<String>> getTabs()
     {
         return tabState.getTabs();

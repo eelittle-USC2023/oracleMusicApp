@@ -19,34 +19,39 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SongMenuController {
-    @FXML private Label welcomeLabel;
-    @FXML private TextField searchField;
-    @FXML private Button addSavedSongButton;
-    @FXML private Button createSongButton;
-    
-    
-    @FXML private HBox savedSongsHBox;
-    @FXML private HBox suggestedSongsHBox;
-    @FXML private HBox popularSongsHBox;
-    @FXML private HBox newSongsHBox;
-    
+    @FXML
+    private Label welcomeLabel;
+    @FXML
+    private TextField searchField;
+    @FXML
+    private Button addSavedSongButton;
+    @FXML
+    private Button createSongButton;
+
+    @FXML
+    private HBox savedSongsHBox;
+    @FXML
+    private HBox suggestedSongsHBox;
+    @FXML
+    private HBox popularSongsHBox;
+    @FXML
+    private HBox newSongsHBox;
+
     private OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
 
     @FXML
     public void initialize() {
-      
+
         if (facade.getCurrentAccount() != null) {
             welcomeLabel.setText("Welcome, " + facade.getCurrentAccount().getUsername() + "!");
         }
-        
-        
+
         loadSongSections();
     }
 
     private void loadSongSections() {
         List<Song> allSongs = SongList.getInstance().getSongs();
-        
-        
+
         loadSongSection(savedSongsHBox, getSavedSongs(allSongs));
         loadSongSection(suggestedSongsHBox, getSuggestedSongs(allSongs));
         loadSongSection(popularSongsHBox, getPopularSongs(allSongs));
@@ -84,7 +89,11 @@ public class SongMenuController {
             );
             
             
-            imageView.setOnMouseClicked(e -> openSongScreen(song));
+            imageView.setOnMouseClicked(e -> {
+            try {openSongScreen(song);
+            } catch (Exception exception) { 
+                exception.printStackTrace();
+            }});
             
             return imageView;
         } catch (Exception e) {
@@ -93,23 +102,10 @@ public class SongMenuController {
         }
     }
 
-    private void openSongScreen(Song song) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/SongScreen.fxml"));
-            Parent root = loader.load();
-            
-            OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-            facade.setSelectedSong(song);
-
-            SongScreenController controller = loader.getController();
-            controller.setSong(song);
-            
-            Stage stage = (Stage) savedSongsHBox.getScene().getWindow();
-            stage.setScene(new Scene(root, 633, 282));
-            stage.show();
-        } catch (IOException e) {
-            showAlert("Error", "Could not open song details");
-        }
+    private void openSongScreen(Song song) throws IOException {
+        OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+        facade.setSelectedSong(song);
+        App.setRoot("SongScreen");
     }
 
     private ImageView createPlaceholderImageView() {
@@ -120,15 +116,14 @@ public class SongMenuController {
         return placeholder;
     }
 
-    
     private List<Song> getSavedSongs(List<Song> allSongs) {
-    if (facade.getCurrentAccount() != null) {
-        return allSongs.stream()
-                .filter(song -> song.getArtistName().equalsIgnoreCase(facade.getCurrentAccount().getUsername()))
-                .limit(3)
-                .collect(Collectors.toList());
-    }
-    return allSongs.subList(0, Math.min(3, allSongs.size()));
+        if (facade.getCurrentAccount() != null) {
+            return allSongs.stream()
+                    .filter(song -> song.getArtistName().equalsIgnoreCase(facade.getCurrentAccount().getUsername()))
+                    .limit(3)
+                    .collect(Collectors.toList());
+        }
+        return allSongs.subList(0, Math.min(3, allSongs.size()));
     }
 
     private List<Song> getSuggestedSongs(List<Song> allSongs) {
@@ -143,40 +138,40 @@ public class SongMenuController {
                 .limit(3)
                 .collect(Collectors.toList());
     }
-    
+
     private List<Song> getNewSongs(List<Song> allSongs) {
         return allSongs.stream()
                 .skip(Math.max(0, allSongs.size() - 3))
                 .collect(Collectors.toList());
-    }    
+    }
 
-    @FXML 
+    @FXML
     private void handleSearchInput() {
         String query = searchField.getText().trim();
         if (query.isEmpty()) {
             showAlert("Search Error", "Please enter a search term");
             return;
         }
-        
+
         ArrayList<Song> titleResults = facade.songSearch("Title", query);
         ArrayList<Song> artistResults = facade.songSearch("Artist", query);
         ArrayList<Song> allResults = new ArrayList<>(titleResults);
         allResults.addAll(artistResults);
-        
+
         if (allResults.isEmpty()) {
             showAlert("No Results", "No songs found matching: " + query);
         } else {
-            
-            loadSongSection(savedSongsHBox, allResults); 
+
+            loadSongSection(savedSongsHBox, allResults);
         }
     }
 
-    @FXML 
+    @FXML
     private void handleAddSavedSong() {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Add Song");
         dialog.setHeaderText("Enter song name to save");
-        
+
         dialog.showAndWait().ifPresent(songName -> {
             facade.createNewSong(songName);
             loadSongSections(); // Refresh all sections

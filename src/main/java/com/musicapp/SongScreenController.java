@@ -4,6 +4,7 @@
 package com.musicapp;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,10 +12,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.net.URL;
 
+import com.model.OracleMusicAppFacade;
 import com.model.Song;
 
-public class SongScreenController {
+public class SongScreenController{
 
     @FXML private ImageView albumCover;
     @FXML private Text titleText;
@@ -26,8 +29,10 @@ public class SongScreenController {
     @FXML private Button createButton;
     @FXML private Button shareButton;
 
-    public void setSong(Song song) {
+    public void initialize() {
         // Set basic song information
+        OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+        Song song = facade.getSelectedSong();
         titleText.setText(song.getTitle());
         artistText.setText(song.getArtistName());
         genreText.setText("Genre: " + song.getGenre());

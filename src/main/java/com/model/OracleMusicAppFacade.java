@@ -143,9 +143,9 @@ public class OracleMusicAppFacade
         selectedSong.addTabToMeasure(index, guitar);
     }
 
-    public ArrayList<ArrayList<String>> getTabs()
+    public ArrayList<String> getSongString()
     {
-        return musicPlayer.getTabs();
+        return musicPlayer.getSongString();
     }
 
     public String getSelectedSongTitle()

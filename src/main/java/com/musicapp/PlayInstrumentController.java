@@ -68,20 +68,11 @@ public class PlayInstrumentController {
     @FXML
     private void playButtonClicked(MouseEvent event) {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-        ArrayList<ArrayList<String>> tabList = facade.getTabs();
-        for (ArrayList<String> stringList : tabList) {
-            for (String string : stringList) {
-                System.out.print(string);
-            }
-            System.out.println();
+
+        ArrayList<String> tabs = facade.getSongString(); /* Once tabs is fixed, will be set here from musicPlayer */
+        for (String string : tabs) {
+            System.out.println(string);
         }
-        ArrayList<String> tabs = new ArrayList<String>(); /* Once tabs is fixed, will be set here from musicPlayer */
-        tabs.add("----------");
-        tabs.add("0--3--5--12");
-        tabs.add("0--3--5--12");
-        tabs.add("----------");
-        tabs.add("----------");
-        tabs.add("----------");
         
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2000), new EventHandler<ActionEvent>() {
             int[] tabIndices = { 0, 0, 0, 0, 0, 0 };
@@ -91,25 +82,25 @@ public class PlayInstrumentController {
                 for (int string = 0; string < 6; string++) {
                     String fret = tabs.get(string).substring(tabIndices[string], tabIndices[string] + 1);
                     if (!fret.equals("-")) {
-                        if (tabIndices[string]+1 < tabs.get(string).length() && tabs.get(string).charAt(tabIndices[string]+1) != '-') {
+                        if (tabIndices[string]+1 < tabs.get(string).length() && tabs.get(string).charAt(tabIndices[string]+1) != ' ') {
                             fret = fret.concat(Character.toString(tabs.get(string).charAt(tabIndices[string]+1)));
-                            tabIndices[string] += 4;
+                            tabIndices[string] += 7;
                         } else {
-                            tabIndices[string] += 3;
+                            tabIndices[string] += 6;
                         }
                         Circle circle = new Circle(5, Color.LIGHTBLUE);
                         circle.setStroke(Color.BLUE);
                         circle.setStrokeWidth(1.0);
                         guitarGrid.add(circle, Integer.parseInt(fret), string);
                     } else {
-                        tabIndices[string] += 3;
+                        tabIndices[string] += 6;
                     }
                     System.out.print(fret);
                 }
                 System.out.println();
             }
         }));
-        timeline.setCycleCount(tabs.get(0).length()/3+1);
+        timeline.setCycleCount(tabs.get(0).length()/6);
         timeline.play();
         guitarGrid.getChildren().clear();
     }

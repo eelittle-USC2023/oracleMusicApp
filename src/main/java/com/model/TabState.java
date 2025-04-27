@@ -191,4 +191,9 @@ public class TabState extends State
         }
         return nN - stringNumber - 12;
     }
+
+    public ArrayList<ArrayList<String>> getTabs()
+    {
+        return tabs;
+    }
 }

@@ -20,7 +20,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
-        setRoot("SongScreen"); 
+        setRoot("create"); 
         stage.setTitle("ChordSeer");
         centerStageOnScreen();
         stage.show();

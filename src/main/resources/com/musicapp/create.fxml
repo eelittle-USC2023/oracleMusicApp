@@ -13,9 +13,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.CreateController">
    <children>
-      <Button fx:id="Play" layoutX="-10.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" translateX="180.0">
+      <Button fx:id="Play" layoutX="-10.0" layoutY="510.0" mnemonicParsing="false" onAction="#onPlayClicked" prefHeight="60.0" prefWidth="60.0" translateX="180.0">
          <graphic>
-            <ImageView fitHeight="57.0" fitWidth="35.0" onMouseClicked="#onPlayClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="57.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/PlayButton.png" />
                </image>
@@ -149,7 +149,7 @@
          </font>
       </MenuButton>
       
-      <Button fx:id="Exit" layoutX="324.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#exitClicked" prefHeight="40.0" prefWidth="60.0">
+      <Button fx:id="Exit" layoutX="324.0" layoutY="14.0" mnemonicParsing="false" onAction="#onExitClicked" onMouseClicked="#exitClicked" prefHeight="40.0" prefWidth="60.0">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="60.0" onMouseClicked="#exitClicked" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -205,7 +205,17 @@
          </font>
       </Label>
 
-      <Button fx:id="Right" layoutX="-13.0" layoutY="-40.0" mnemonicParsing="false" onMouseClicked="#onLeftClicked" prefHeight="60.0" prefWidth="60.0" text="&lt;" translateX="80.0" translateY="550.0" />
-      <Button fx:id="Left" layoutX="-107.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#onRightClicked" prefHeight="60.0" prefWidth="60.0" text="&gt;" translateX="380.0" />
+      <Button fx:id="Left" layoutX="-13.0" layoutY="-40.0" mnemonicParsing="false" onAction="#onLeftClicked" onMouseClicked="#onLeftClicked" prefHeight="60.0" prefWidth="60.0" text="&lt;" translateX="80.0" translateY="550.0" />
+      <Button fx:id="Right" layoutX="-107.0" layoutY="510.0" mnemonicParsing="false" onAction="#onRightClicked" onMouseClicked="#onRightClicked" prefHeight="60.0" prefWidth="60.0" text="&gt;" translateX="380.0" />
+      <Label fx:id="measure" alignment="CENTER" contentDisplay="CENTER" layoutX="214.0" layoutY="447.0" prefHeight="44.0" prefWidth="40.0" text="0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Text layoutX="129.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Measure:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

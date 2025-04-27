@@ -16,55 +16,13 @@ public class CreateController {
     private int currentMeasure = 0;
 
     @FXML
-    private Button Exit;
+    private Button Exit, Play, Left, Right;
 
     @FXML
-    private Button Play;
+    private Label ELLabel, ALabel, DLabel, GLabel, BLabel, EHLabel, measure;
 
     @FXML
-    private Button Left;
-
-    @FXML
-    private Button Right;
-
-    @FXML
-    private Label ELLabel;
-
-    @FXML
-    private Label ALabel;
-
-    @FXML 
-    private Label DLabel;
-
-    @FXML
-    private Label GLabel;
-
-    @FXML
-    private Label BLabel;
-
-    @FXML
-    private Label EHLabel;
-
-    @FXML
-    private MenuButton ELow;
-    
-    @FXML
-    private MenuButton A;
-
-    @FXML
-    private MenuButton D;
-
-    @FXML
-    private MenuButton G;
-
-    @FXML
-    private MenuButton B;
-
-    @FXML
-    private MenuButton EHigh;
-
-    @FXML
-    private Label measure;
+    private MenuButton ELow, A, D, G, B, EHigh;
 
     @FXML
     private OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
@@ -81,6 +39,7 @@ public class CreateController {
     @FXML
     private void onPlayClicked(ActionEvent event) throws IOException {
         save();
+        facade.displayTabs();
         facade.playSong();
     }
 

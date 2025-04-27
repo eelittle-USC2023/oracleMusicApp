@@ -13,9 +13,6 @@ import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
 import java.io.IOException;
-
-
-import java.io.IOException;
 import java.net.URL;
 
 import com.model.OracleMusicAppFacade;
@@ -65,6 +62,34 @@ public class SongScreenController{
         }
     
         albumCover.setImage(image);
+    }
+
+    private void openPlayMusicScreen() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/playMusic.fxml"));
+            Parent root = loader.load();
+
+            PlayMusicController controller = loader.getController();
+            controller.setSongTitle(currentSong.getTitle()); // pass title to play screen
+
+            Stage stage = (Stage) playButton.getScene().getWindow();
+            stage.setScene(new Scene(root, 750, 340)); // Landscape size for playMusic.fxml
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void goBackToMenu() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/MainSongMenu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            stage.setScene(new Scene(root, 375, 812)); // back to portrait menu
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

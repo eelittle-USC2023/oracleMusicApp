@@ -76,6 +76,7 @@ public class OracleMusicAppFacade
     public void setSelectedSongTitle(String title)
     {
         selectedSong.setTitle(title);
+        songList.save();
     }
 
     public void logout(){
@@ -95,6 +96,9 @@ public class OracleMusicAppFacade
     }
     public void playSong()
     {
+        if (musicPlayer == null) {
+            musicPlayer = new MusicPlayer(selectedSong);
+        }
         musicPlayer.setSong(selectedSong);
         musicPlayer.playSong();
     }
@@ -141,6 +145,7 @@ public class OracleMusicAppFacade
     public void addGuitarToMeasure(int index, Guitar guitar)
     {
         selectedSong.addTabToMeasure(index, guitar);
+        songList.save();
     }
 
     public ArrayList<String> getSongString()

@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="282.0" prefWidth="633.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.SongScreenController">
 
     <!-- Back Button -->
-    <Button layoutX="10" layoutY="10" style="-fx-font-size: 20px; -fx-background-color: transparent;" text="←" />
+    <Button fx:id="backButton" layoutX="10" layoutY="10" onMouseClicked="#backButtonClicked" style="-fx-font-size: 20px; -fx-background-color: transparent;" text="←" />
 
     <!-- Album Cover Image -->
     <ImageView fx:id="albumCover" fitHeight="180" fitWidth="180" layoutX="60" layoutY="70" />

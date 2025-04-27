@@ -32,6 +32,7 @@ public class SongScreenController{
     @FXML private Button playButton;
     @FXML private Button createButton;
     @FXML private Button shareButton;
+    @FXML private Button backButton;
 
     public void initialize() {
         // Set basic song information
@@ -67,8 +68,17 @@ public class SongScreenController{
     }
 
     @FXML
+    void backButtonClicked(MouseEvent event) throws IOException {
+        OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+        facade.setSelectedSong(null);
+        App.setRoot("MainSongMenu");
+    }
+
+    @FXML
     private void playButtonClicked(MouseEvent event) throws IOException{
         App.setRoot("playMusic");
     }
+
+    
 }
     

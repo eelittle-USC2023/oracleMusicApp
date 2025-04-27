@@ -4,10 +4,15 @@
 package com.musicapp;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import java.io.IOException;
 import com.model.Song;
 
 public class SongScreenController {
@@ -21,6 +26,18 @@ public class SongScreenController {
     @FXML private Button playButton;
     @FXML private Button createButton;
     @FXML private Button shareButton;
+    @FXML private Button backButton;
+
+    private Song currentSong;
+
+    @FXML
+    public void initialize() {
+        playButton.setOnAction(event -> openPlayMusicScreen());
+
+        if (backButton != null) {
+            backButton.setOnAction(event -> goBackToMenu());
+        }
+    }
 
     public void setSong(Song song) {
         // Set basic song information
@@ -52,5 +69,34 @@ public class SongScreenController {
     
         albumCover.setImage(image);
     }
+
+    private void openPlayMusicScreen() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/playMusic.fxml"));
+            Parent root = loader.load();
+
+            PlayMusicController controller = loader.getController();
+            controller.setSongTitle(currentSong.getTitle()); // pass title to play screen
+
+            Stage stage = (Stage) playButton.getScene().getWindow();
+            stage.setScene(new Scene(root, 750, 340)); // Landscape size for playMusic.fxml
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void goBackToMenu() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/MainSongMenu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            stage.setScene(new Scene(root, 375, 812)); // back to portrait menu
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
     

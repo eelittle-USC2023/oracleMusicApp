@@ -66,11 +66,11 @@ public class CreateController {
     @FXML
     private Label measure;
 
-    @FXML 
-    private TextField songName;
-
     @FXML
     private OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+
+    @FXML 
+    private TextField songName = new TextField(facade.getSelectedSongTitle());
 
     @FXML
     private void onExitClicked(ActionEvent event) throws IOException {
@@ -139,8 +139,9 @@ public class CreateController {
     @FXML
     private void save() throws IOException {
         Guitar guitar = makeGuitar();
-        OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
         facade.addGuitarToMeasure(currentMeasure, guitar);
+        facade.setSelectedSongTitle(songName.getText());
+
     }
 
     @FXML

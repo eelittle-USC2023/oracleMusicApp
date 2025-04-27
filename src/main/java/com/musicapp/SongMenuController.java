@@ -98,6 +98,9 @@ public class SongMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/SongScreen.fxml"));
             Parent root = loader.load();
             
+            OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+            facade.setSelectedSong(song);
+
             SongScreenController controller = loader.getController();
             controller.setSong(song);
             

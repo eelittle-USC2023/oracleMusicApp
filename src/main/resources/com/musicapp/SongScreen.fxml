@@ -8,52 +8,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="282.0" prefWidth="633.0" style="-fx-background-color: white;"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.musicapp.SongScreenController">
+<AnchorPane prefHeight="282.0" prefWidth="633.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.SongScreenController">
 
     <!-- Back Button -->
-    <Button layoutX="10" layoutY="10"
-            style="-fx-font-size: 20px; -fx-background-color: transparent;"
-            text="←" />
+    <Button layoutX="10" layoutY="10" style="-fx-font-size: 20px; -fx-background-color: transparent;" text="←" />
 
     <!-- Album Cover Image -->
-    <ImageView fx:id="albumCover"
-               layoutX="60" layoutY="70"
-               fitWidth="180" fitHeight="180" />
+    <ImageView fx:id="albumCover" fitHeight="180" fitWidth="180" layoutX="60" layoutY="70" />
 
     <!-- Song Information -->
     <VBox layoutX="270" layoutY="70" spacing="10">
-        <Text fx:id="titleText"
-              style="-fx-font-size: 26px;"
-              text="Song Title">
+        <Text fx:id="titleText" style="-fx-font-size: 26px;" text="Song Title">
             <font>
                 <Font size="26.0" />
             </font>
         </Text>
-        <Text fx:id="artistText"
-              style="-fx-font-size: 20px;"
-              text="Artist Name" />
-        <Text fx:id="genreText"
-              style="-fx-font-size: 14px;"
-              text="Genre: " />
-        <Text fx:id="difficultyText"
-              style="-fx-font-size: 14px;"
-              text="Difficulty: " />
+        <Text fx:id="artistText" style="-fx-font-size: 20px;" text="Artist Name" />
+        <Text fx:id="genreText" style="-fx-font-size: 14px;" text="Genre: " />
+        <Text fx:id="difficultyText" style="-fx-font-size: 14px;" text="Difficulty: " />
     </VBox>
 
     <!-- Action Buttons -->
     <HBox layoutX="270" layoutY="219" spacing="20">
-        <Button fx:id="playButton"
-                style="-fx-background-color: #550B0B; -fx-text-fill: white; -fx-pref-width: 80px;"
-                text="Play" />
-        <Button fx:id="createButton"
-                style="-fx-background-color: #550B0B; -fx-text-fill: white; -fx-pref-width: 80px;"
-                text="Create" />
-        <Button fx:id="shareButton"
-                style="-fx-background-color: #550B0B; -fx-text-fill: white; -fx-pref-width: 80px;"
-                text="Share" />
+        <Button fx:id="playButton" onMouseClicked="#playButtonClicked" style="-fx-background-color: #550B0B; -fx-text-fill: white; -fx-pref-width: 80px;" text="Play" />
+        <Button fx:id="createButton" style="-fx-background-color: #550B0B; -fx-text-fill: white; -fx-pref-width: 80px;" text="Create" />
+        <Button fx:id="shareButton" style="-fx-background-color: #550B0B; -fx-text-fill: white; -fx-pref-width: 80px;" text="Share" />
     </HBox>
 
 </AnchorPane>

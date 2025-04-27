@@ -1,6 +1,9 @@
 package com.musicapp;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import com.model.MusicPlayer;
 import com.model.OracleMusicAppFacade;
@@ -12,6 +15,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
@@ -31,20 +36,45 @@ public class PlayInstrumentController {
     private Button playButton;
 
     @FXML
+    private ToggleGroup displayButtons;
+
+    @FXML
+    private ToggleButton toInstrumentButton;
+
+    @FXML
+    private ToggleButton toMusicButton;
+
+    @FXML
     private Slider playbackSpeedSlider;
 
     @FXML
     private Text songTitle;
 
     @FXML
-    void exitButtonClicked(MouseEvent event) {
+    void exitButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("SongScreen");
+    }
+    
+    @FXML
+    private void toInstrumentButtonClicked(MouseEvent event) throws IOException {
+        App.setRoot("playInstrument");
+    }
 
+    @FXML
+    private void toMusicButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("playMusic");
     }
 
     @FXML
     private void playButtonClicked(MouseEvent event) {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-        MusicPlayer musicPlayer = new MusicPlayer(facade.getSelectedSong());
+        ArrayList<ArrayList<String>> tabList = facade.getTabs();
+        for (ArrayList<String> stringList : tabList) {
+            for (String string : stringList) {
+                System.out.print(string);
+            }
+            System.out.println();
+        }
         ArrayList<String> tabs = new ArrayList<String>(); /* Once tabs is fixed, will be set here from musicPlayer */
         tabs.add("----------");
         tabs.add("0--3--5--12");
@@ -83,5 +113,4 @@ public class PlayInstrumentController {
         timeline.play();
         guitarGrid.getChildren().clear();
     }
-
 }

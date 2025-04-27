@@ -10,9 +10,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+<<<<<<< HEAD
 import javafx.stage.Stage;
 import java.io.IOException;
+=======
+
+import java.io.IOException;
+
+>>>>>>> 92e7f946ac5384d296154005953616d0934b326b
 import com.model.Song;
 
 public class SongScreenController {
@@ -70,6 +77,7 @@ public class SongScreenController {
         albumCover.setImage(image);
     }
 
+<<<<<<< HEAD
     private void openPlayMusicScreen() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/musicapp/playMusic.fxml"));
@@ -98,5 +106,11 @@ public class SongScreenController {
         }
     }
 
+=======
+    @FXML
+    private void playButtonClicked(MouseEvent event) throws IOException{
+        App.setRoot("playMusic");
+    }
+>>>>>>> 92e7f946ac5384d296154005953616d0934b326b
 }
     

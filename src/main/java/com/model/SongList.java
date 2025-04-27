@@ -90,14 +90,14 @@ public class SongList
         ArrayList<Song> songsFound = new ArrayList<Song>();
         if (field.equals("Artist")) {
             for (Song s : songs) {
-                if (s.getArtistName().contains(search)) {
+                if (s.getArtistName().toLowerCase().contains(search.toLowerCase())) {
                     songsFound.add(s);
                 }
             }
 
         } else if (field.equals("Title")) {
             for (Song s : songs) {
-                if (s.getTitle().contains(search)) {
+                if (s.getTitle().toLowerCase().contains(search.toLowerCase())) {
                     songsFound.add(s);
                 }
             }

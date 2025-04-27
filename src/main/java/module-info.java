@@ -4,6 +4,7 @@ module com.musicapp {
     requires json.simple;
     requires jfugue;
     requires junit;
+    requires javafx.graphics;
 
     opens com.musicapp to javafx.fxml;
     opens com.model to javafx.fxml;

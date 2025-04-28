@@ -99,7 +99,7 @@ public class CreateController {
         Guitar guitar = makeGuitar();
         facade.addGuitarToMeasure(currentMeasure, guitar);
         facade.setSelectedSongTitle(songName.getText());
-
+        reset();
     }
 
     @FXML
@@ -129,5 +129,16 @@ public class CreateController {
     @FXML
     private void setMeasure() {
         measure.setText(Integer.toString(currentMeasure));
+    }
+
+    @FXML
+    private void reset()
+    {
+        ELLabel.setText("-");
+        ALabel.setText("-");
+        DLabel.setText("-");
+        GLabel.setText("-");
+        BLabel.setText("-");
+        EHLabel.setText("-");
     }
 }

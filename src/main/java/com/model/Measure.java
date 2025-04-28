@@ -51,6 +51,7 @@ public class Measure
     /**
      * Gets the array of notes which make the measure
      * @return the array of notes
+     * @author Ally Blackwell
      */
     public ArrayList<Note> getNotes()
     {
@@ -82,7 +83,15 @@ public class Measure
                     next = "+";
                 }
             }
-            String input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
+            String input;
+            if(noteNumber == -1)
+            {
+               input = "R" +"/" + notes.get(i).getLength() + next;
+            }
+            else
+            {
+                input = Integer.toString(noteNumber) +"/" + notes.get(i).getLength() + next;
+            }
             jFugueInput.append(input);
         }
         return jFugueInput.toString();

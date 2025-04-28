@@ -199,7 +199,10 @@ public class TabState extends State
         return fret;
     }
 
-
+    /**
+     * A non-implemented array which would be getSong() in future updates
+     * @author Ally Blackwell
+     */
     public ArrayList<ArrayList<String>> getTabs()
     {
         return tabs;

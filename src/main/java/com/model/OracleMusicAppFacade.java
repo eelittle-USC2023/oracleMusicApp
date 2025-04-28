@@ -38,6 +38,11 @@ public class OracleMusicAppFacade
     public Account getCurrentAccount() {
         return currentAccount;
     }
+    /**
+     * Returns the current selected song
+     * @return the selected song
+     * @author Ally Blackwell
+     */
     public Song getSelectedSong() {
         return selectedSong;
     }
@@ -72,11 +77,14 @@ public class OracleMusicAppFacade
         }
         return false;
     }
-
+    /**
+     * Alters the current title of the selected song
+     * @param title the desired title
+     * @author Ally Blackwell
+     */
     public void setSelectedSongTitle(String title)
     {
         selectedSong.setTitle(title);
-        songList.save();
     }
 
     public void logout(){
@@ -94,6 +102,10 @@ public class OracleMusicAppFacade
     {
         return songList.searchSongs(field, search);
     }
+    /**
+     * Plays the current selected song using JFugue
+     * @author Ally Blackwell
+     */
     public void playSong()
     {
         if (musicPlayer == null) {
@@ -102,9 +114,7 @@ public class OracleMusicAppFacade
         musicPlayer.setSong(selectedSong);
         musicPlayer.playSong();
     }
-    public void printTabsOfCurrentSong() {
 
-    }
     public void createNewSong(String title) {
         selectedSong = songList.addSong(title, currentAccount.getUsername());
         ((Student)currentAccount).addSavedSong(selectedSong);
@@ -115,6 +125,10 @@ public class OracleMusicAppFacade
     public void addNote(int measureIndex, String name, int octave, double length, double position) {
         selectedSong.addNoteToMeasure(measureIndex, name, octave, length, position);
     }
+    /**
+     * Selects the note button and sends the notes of the song to the designated file
+     * @author Ally Blackwell
+     */
     public void displayNotes()
     {
         if (musicPlayer == null) {
@@ -123,6 +137,10 @@ public class OracleMusicAppFacade
         musicPlayer.pressNoteButton();
         musicPlayer.showSong();
     }
+    /**
+     * Selects the tab button and sends the songs tabs to the designated file
+     * @author Ally Blackwell
+     */
     public void displayTabs()
     {
         if(musicPlayer == null)
@@ -132,6 +150,11 @@ public class OracleMusicAppFacade
         musicPlayer.pressTabButton();
         musicPlayer.showSong();
     }
+    /**
+     * Sets the selected song to the inputed song
+     * @param s the inputted song
+     * @author Ally Blackwell
+     */
     public void setSelectedSong(Song s)
     {
         this.selectedSong = s;
@@ -142,17 +165,30 @@ public class OracleMusicAppFacade
         musicPlayer.setSong(selectedSong);
     }
 
+    /**
+     * Adds a 'strum' to the current song or overwrites at the current index
+     * @param index the desired measure to place this strum
+     * @param guitar the tabs of the strum
+     * @author Ally Blackwell
+     */
     public void addGuitarToMeasure(int index, Guitar guitar)
     {
         selectedSong.addTabToMeasure(index, guitar);
-        songList.save();
     }
-
-    public ArrayList<String> getSongString()
+    /**
+     * Returns the pure string tab list for the play screen
+     * @return the array list of array list of tabs
+     * @author Ally Blackwell
+     */
+    public ArrayList<ArrayList<String>> getTabs()
     {
         return musicPlayer.getSongString();
     }
-
+    /**
+     * Gets the current songs title
+     * @return the current songs title
+     * @author Ally Blackwell
+     */
     public String getSelectedSongTitle()
     {
         return selectedSong.getTitle();
@@ -197,6 +233,9 @@ public class OracleMusicAppFacade
     }
     public void assignStudentSong(Song song)
     {
+
+    }
+    public void printTabsOfCurrentSong() {
 
     }
 }

@@ -149,6 +149,12 @@ public class Guitar extends Instrument
         return "Guitar";
     }
 
+    /**
+     * A more dynamic way to retrieve the string data, intakes the string name and returns the tab
+     * @param string the guitar string
+     * @return the tab on the inputted string
+     * @author Ally Blackwell
+     */
     public int getStringTab(String string)
     {
 

@@ -29,10 +29,14 @@ public abstract class State
         return display;
     }
     /**
-     * These three are all implimented in child classes to change the mode
+     * These two are implimented in child classes to change the mode
      * @author Ally Blackwell
      */
     public abstract void pressTabButton();
     public abstract void pressNoteButton();
+    /**
+     * Gets the pure array list of tabs
+     * @return array list of array list of tabs
+     */
     protected abstract ArrayList<ArrayList<String>> getTabs();
 }

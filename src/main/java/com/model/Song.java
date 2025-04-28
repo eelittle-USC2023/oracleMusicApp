@@ -72,6 +72,7 @@ public class Song {
     /**
      * Returns the tempo in a JFugue format
      * @return Tempo in jfugue format
+     * @author Ethan Little
      */
     public String tempoToJFugue() {
         return "T"+tempo;
@@ -202,7 +203,12 @@ public class Song {
         }
         return ret;
     }
-
+    /**
+     * Adds a 'strum' of the guitar to the song at the indicated measure, overwriting if necessary
+     * @param index the current measure that the strum should be placed in
+     * @param guitar the strum
+     * @author Ally Blackwell
+     */
     public void addTabToMeasure(int index, Guitar guitar) {
         if (measures.size() <= index) 
         { 
@@ -218,16 +224,26 @@ public class Song {
             {
                 octave = tabToNoteOctave(string, guitar.getStringTab(string)); 
             }
-            addNoteToMeasure(index, name, octave, 1, createPosition);
+            createMeasure.addNote(name, octave, 1, createPosition);
         }
         measures.set(index, createMeasure);
         createPosition++;
     }
     
-
+    /**
+     * An array to allow easier assignment of note names
+     * @author Ally Blackwell
+     */
     private static final String[] NOTES = 
         {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
 
+    /**
+     * Takes an input of the guitar string and the tab on that string and returns the note name in a way that can be processed by JFugue
+     * @param string the string of the guitar the note lies on
+     * @param tab the tab on that string
+     * @return the name of the note
+     * @author Ally Blackwell
+     */
     public String tabToNoteName(String string, int tab) {
         int baseNoteIndex;
         switch (string) {
@@ -243,7 +259,13 @@ public class Song {
         int noteIndex = (baseNoteIndex + tab + 12) % 12;
         return NOTES[noteIndex];
     }
-    
+    /**
+     * Takes an input of the string of the guitar and the tab on that string and returns the octave that note is played in
+     * @param string the string of the note
+     * @param tab the tab on that string
+     * @return the octave of the note
+     * @author Ally Blackwell
+     */
     public int tabToNoteOctave(String string, int tab) {
         int baseOctave;
 

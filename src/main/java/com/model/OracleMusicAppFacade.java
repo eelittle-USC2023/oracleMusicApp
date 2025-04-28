@@ -182,7 +182,7 @@ public class OracleMusicAppFacade
      */
     public ArrayList<ArrayList<String>> getTabs()
     {
-        return musicPlayer.getTabs();
+        return musicPlayer.getSongString();
     }
     /**
      * Gets the current songs title

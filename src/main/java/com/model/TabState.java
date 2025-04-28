@@ -62,15 +62,15 @@ public class TabState extends State
             {
                 if(t.get(i).get(j).equals("-1"))
                 {
-                    displayString.append("- "); 
+                    displayString.append("--"); 
                 }
                 else
                 {
-                    displayString.append(t.get(i).get(j) + " ");
+                    displayString.append(t.get(i).get(j) + "-");
                 }
-                displayString.append(" ");
+                displayString.append("-");
             }
-            displayString.append('\n');
+            //displayString.append('\n');
             displayTemplate.add(displayString.toString());
         }
         return displayTemplate;

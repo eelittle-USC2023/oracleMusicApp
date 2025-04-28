@@ -13,6 +13,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
@@ -50,6 +51,12 @@ public class PlayInstrumentController {
     @FXML
     private Text songTitle;
 
+    private OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+
+    public void initialize() {
+        songTitle.setText(facade.getSelectedSongTitle() + "-" + facade.getSelectedSong().getArtistName());
+    }
+
     @FXML
     void exitButtonClicked(MouseEvent event) throws IOException{
         App.setRoot("SongScreen");
@@ -67,22 +74,17 @@ public class PlayInstrumentController {
 
     @FXML
     private void playButtonClicked(MouseEvent event) {
-        OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
+        ArrayList<String> tabs = facade.getSongString();
 
-        ArrayList<String> tabs = facade.getSongString(); /* Once tabs is fixed, will be set here from musicPlayer */
-        for (String string : tabs) {
-            System.out.println(string);
-        }
-        
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2000), new EventHandler<ActionEvent>() {
             int[] tabIndices = { 0, 0, 0, 0, 0, 0 };
             @Override
             public void handle(ActionEvent event) {
-                guitarGrid.getChildren().clear();
+                clearCircles();
                 for (int string = 0; string < 6; string++) {
                     String fret = tabs.get(string).substring(tabIndices[string], tabIndices[string] + 1);
                     if (!fret.equals("-")) {
-                        if (tabIndices[string]+1 < tabs.get(string).length() && tabs.get(string).charAt(tabIndices[string]+1) != ' ') {
+                        if (tabIndices[string]+1 < tabs.get(string).length() && tabs.get(string).charAt(tabIndices[string]+1) != '-') {
                             fret = fret.concat(Character.toString(tabs.get(string).charAt(tabIndices[string]+1)));
                             tabIndices[string] += 7;
                         } else {
@@ -95,13 +97,20 @@ public class PlayInstrumentController {
                     } else {
                         tabIndices[string] += 6;
                     }
-                    System.out.print(fret);
                 }
-                System.out.println();
             }
         }));
         timeline.setCycleCount(tabs.get(0).length()/6);
         timeline.play();
-        guitarGrid.getChildren().clear();
+        clearCircles();
+        facade.playSong();
+    }
+
+    private void clearCircles(){
+        for (Node child : guitarGrid.getChildren()) {
+            if (child instanceof Circle) {
+                guitarGrid.getChildren().remove(child);
+            }
+        }
     }
 }

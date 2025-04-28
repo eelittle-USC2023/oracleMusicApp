@@ -34,7 +34,6 @@ public class App extends Application {
         } else {
             scene.setRoot(root);
         }
-        centerStageOnScreen();
     }
 
     private static void centerStageOnScreen() {

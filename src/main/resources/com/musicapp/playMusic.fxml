@@ -1,59 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="340.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.PlayMusicController">
-   <children>
-      <Button fx:id="exit" layoutX="701.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#exitButtonClicked" text="Exit" />
-      <Button fx:id="playButton" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#playButtonClicked" text="Play" />
-      <Text fx:id="songTitle" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Song Title">
+<BorderPane maxWidth="1.7976931348623157E308" prefHeight="340.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.PlayMusicController">
+        <center>
+            
+        </center>
+        <top>
+            <Pane maxHeight="80.0" prefHeight="80.0" prefWidth="506.0">
+                <children>
+                    <Button fx:id="exit" layoutX="700.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#exitButtonClicked" text="Exit" />
+                    <Button fx:id="playButton" layoutX="533.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#playButtonClicked" text="Play" />
+                    <Text fx:id="songTitle" layoutX="7.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Song Title">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Text>
+                    <ToggleButton fx:id="toMusicButton" layoutX="593.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#toMusicButtonClicked" selected="true" text="Music" />
+                    <ToggleButton fx:id="toInstrumentButton" layoutX="640.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#toInstrumentButtonClicked" text="Instr" />
+        </children>
+        </Pane>
+    </top>
+    <right>
+        <Pane maxWidth="20.0" minWidth="10.0" prefHeight="200.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+    </right>
+    <bottom>
+        <Pane maxHeight="1.7976931348623157E308" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </bottom>
+   <left>
+        <Pane maxWidth="10.0" minHeight="200.0" minWidth="40.0" prefHeight="200.0" prefWidth="10.0" BorderPane.alignment="CENTER">
+         <children>
+      <Text layoutX="9.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E">
          <font>
-            <Font size="24.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Text>
-      <Slider fx:id="playbackSpeedSlider" layoutX="151.0" layoutY="43.0" value="100.0" />
-      <Text layoutX="62.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playback Speed" />
-      <ToggleButton fx:id="toMusicButton" layoutX="593.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#toMusicButtonClicked" selected="true" text="Music">
-         <toggleGroup>
-            <ToggleGroup fx:id="displayButtons" />
-         </toggleGroup></ToggleButton>
-      <ToggleButton fx:id="toInstrumentButton" layoutX="640.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#toInstrumentButtonClicked" text="Instr" toggleGroup="$displayButtons" />
-      <Text fx:id="musicText" layoutX="32.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tabs go Here" />
-      <Text layoutX="14.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E">
+      <Text layoutX="9.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
          <font>
-            <Font size="24.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+      <Text layoutX="9.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D">
          <font>
-            <Font size="24.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D">
+      <Text layoutX="9.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="G">
          <font>
-            <Font size="24.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="G">
+      <Text layoutX="9.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
          <font>
-            <Font size="24.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+      <Text layoutX="9.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E">
          <font>
-            <Font size="24.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="15.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-   </children>
-</Pane>
+         </children></Pane>
+   </left>
+   <center>
+      <ScrollPane fitToHeight="true" maxHeight="253.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="TOP_LEFT">
+         <content>
+            <VBox prefHeight="250.0" prefWidth="100.0" spacing="18.0">
+               <children>
+                  <Text fx:id="lowEStringText" lineSpacing="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="aStringText" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="dStringText" layoutX="10.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="gStringText" layoutX="10.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="bStringText" layoutX="10.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="highEStringText" layoutX="10.0" layoutY="164.0" lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font name="Consolas" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets top="5.5" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

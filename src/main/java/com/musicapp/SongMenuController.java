@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -27,6 +28,8 @@ public class SongMenuController {
     private Button addSavedSongButton;
     @FXML
     private Button createSongButton;
+    @FXML
+    private Button logoutButton;
 
     @FXML
     private HBox savedSongsHBox;
@@ -195,5 +198,12 @@ public class SongMenuController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    
+    @FXML
+    void logoutButtonClicked(MouseEvent event) throws IOException{
+        facade.logout();
+        App.setRoot("login");
     }
 }

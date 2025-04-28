@@ -39,7 +39,6 @@ public class CreateController {
     @FXML
     private void onPlayClicked(ActionEvent event) throws IOException {
         save();
-        facade.displayTabs();
         facade.playSong();
     }
 

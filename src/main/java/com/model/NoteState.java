@@ -69,6 +69,11 @@ public class NoteState extends State
         }
         return displayTemplate;
     }
+    /**
+     * Returns the Array List containing the tabs to be called for app display
+     * @return Array List of the strings
+     * @author Ally Blackwell
+     */
     public ArrayList<ArrayList<String>> getTabs()
     {
         return new ArrayList<ArrayList<String>>();

@@ -24,7 +24,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.scene.paint.Color;
-
+/**
+ * This class is not fully implemented.
+ * @author Ethan Little
+ */
 public class PlayInstrumentController {
 
     @FXML
@@ -52,27 +55,47 @@ public class PlayInstrumentController {
     private Text songTitle;
 
     private OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-
+    /**
+     * Called when the screen is loaded to set the text to the song title and artist.
+     * @author Ethan Little
+     */
     public void initialize() {
         songTitle.setText(facade.getSelectedSongTitle() + "-" + facade.getSelectedSong().getArtistName());
     }
 
     @FXML
-    void exitButtonClicked(MouseEvent event) throws IOException{
+    /**
+     * When the exit button is clicked, the user is sent back to the song Screen.
+     * @param event
+     * @throws IOException
+     * @author Ethan Little
+     */
+    private void exitButtonClicked(MouseEvent event) throws IOException{
         App.setRoot("SongScreen");
     }
     
     @FXML
+    //Not relevant, this screen isn't fully implemented.
     private void toInstrumentButtonClicked(MouseEvent event) throws IOException {
         App.setRoot("playInstrument");
     }
 
     @FXML
+    /**
+     * When the toMusic button is clicked, the user is sent back to the music screen.
+     * @param event
+     * @throws IOException
+     * @author Ethan Little
+     */
     private void toMusicButtonClicked(MouseEvent event) throws IOException{
         App.setRoot("playMusic");
     }
 
     @FXML
+    /**
+     * 
+     * @param event
+     */
     private void playButtonClicked(MouseEvent event) {
         ArrayList<String> tabs = facade.getSongString();
 

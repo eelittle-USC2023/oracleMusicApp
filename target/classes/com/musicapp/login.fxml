@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="812" prefWidth="412" spacing="20" style="-fx-background-color: #dba5a5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.LoginController">
+<VBox alignment="CENTER" prefHeight="812" prefWidth="412" spacing="20" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.musicapp.LoginController">
 
     
     <Label style="-fx-font-size: 32px; -fx-font-weight: bold;" text="ChordSeer" />

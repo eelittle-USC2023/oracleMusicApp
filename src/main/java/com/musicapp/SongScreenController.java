@@ -1,6 +1,5 @@
 //Created by Sakthi Thanigai
 
-
 package com.musicapp;
 
 import javafx.fxml.FXML;
@@ -16,6 +15,14 @@ import java.io.IOException;
 import com.model.OracleMusicAppFacade;
 import com.model.Song;
 
+/**
+ * Controller class for the SongScreen view.
+ * 
+ * Displays song details including album cover, title, artist, genre, and difficulty.
+ * Handles button events for navigating back or playing a song.
+ * 
+ * @author Sakthi Thanigai
+ */
 public class SongScreenController{
 
     @FXML private ImageView albumCover;
@@ -29,6 +36,11 @@ public class SongScreenController{
     @FXML private Button shareButton;
     @FXML private Button backButton;
 
+    /**
+     * Initializes the SongScreen by loading the selected song's information
+     * and setting the album cover image if available.
+     * If no specific album cover is found, a default image is used.
+     */
     public void initialize() {
         // Set basic song information
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
@@ -62,6 +74,13 @@ public class SongScreenController{
         albumCover.setImage(image);
     }
 
+    /**
+     * Event handler for when the back button is clicked.
+     * Returns to the main song menu and clears the selected song.
+     * 
+     * @param event the MouseEvent triggered when clicking the back button
+     * @throws IOException if the MainSongMenu FXML cannot be loaded
+     */
     @FXML
     void backButtonClicked(MouseEvent event) throws IOException {
         OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
@@ -69,6 +88,13 @@ public class SongScreenController{
         App.setRoot("MainSongMenu");
     }
 
+    /**
+     * Event handler for when the play button is clicked.
+     * Navigates to the PlayMusic screen.
+     * 
+     * @param event the MouseEvent triggered when clicking the play button
+     * @throws IOException if the playMusic FXML cannot be loaded
+     */
     @FXML
     private void playButtonClicked(MouseEvent event) throws IOException{
         App.setRoot("playMusic");

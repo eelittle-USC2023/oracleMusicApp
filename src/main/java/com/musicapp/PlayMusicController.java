@@ -12,7 +12,10 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-
+/**
+ * This class manages the music playing screen.
+ * @author Ethan Little
+ */
 public class PlayMusicController {
     @FXML
     private Text aStringText;
@@ -39,9 +42,6 @@ public class PlayMusicController {
     private Button playButton;
 
     @FXML
-    private Slider playbackSpeedSlider;
-
-    @FXML
     private Text songTitle;
 
     @FXML
@@ -54,7 +54,10 @@ public class PlayMusicController {
     private ToggleGroup displayButtons;
 
     private OracleMusicAppFacade facade = OracleMusicAppFacade.getInstance();
-
+    /**
+     * When the screen is first loaded, sets up the title and artist name, as well as the music.
+     * @author Ethan Little
+     */
     public void initialize() {
         songTitle.setText(facade.getSelectedSongTitle() + "-" + facade.getSelectedSong().getArtistName());
         ArrayList<String> tabs = facade.getSongString();
@@ -65,23 +68,44 @@ public class PlayMusicController {
         bStringText.setText(tabs.get(4));
         highEStringText.setText(tabs.get(5));
     }
-
+    /**
+     * Sends the user to the song screen when the exit button is clicked.
+     * @param event
+     * @throws IOException
+     * @author Ethan Little
+     */
     @FXML
     private void exitButtonClicked(MouseEvent event) throws IOException {
         App.setRoot("SongScreen");
     }
-
+    /**
+     * Takes the user to the instrument playing screen when the button is clicked.
+     * @param event
+     * @throws IOException
+     * @author Ethan Little
+     */
     @FXML
     private void toInstrumentButtonClicked(MouseEvent event) throws IOException{
         App.setRoot("playInstrument");
     }
-
+    /**
+     * Takes the user the music playing screen when this button is clicked, but they are already there.
+     * @param event
+     * @throws IOException
+     * @author Ethan Little
+     */
     @FXML
     private void toMusicButtonClicked(MouseEvent event) throws IOException{
         App.setRoot("playMusic");
     }
 
     @FXML
+    /**
+     * Plays the song when the play button is clicked.
+     * @param event
+     * @throws IOException
+     * @author Ethan Little
+     */
     private void playButtonClicked(MouseEvent event) throws IOException {
         facade.playSong();
     }

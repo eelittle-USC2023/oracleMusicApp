@@ -10,7 +10,9 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * Prewritten class.
+ */
 public class App extends Application {
     private static Scene scene;
     private static Stage primaryStage;

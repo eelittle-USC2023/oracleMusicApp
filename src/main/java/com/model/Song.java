@@ -244,7 +244,7 @@ public class Song {
      * @return the name of the note
      * @author Ally Blackwell
      */
-    public String tabToNoteName(String string, int tab) {
+    private String tabToNoteName(String string, int tab) {
         int baseNoteIndex;
         switch (string) {
             case "LE": baseNoteIndex = 4; break;
@@ -266,7 +266,7 @@ public class Song {
      * @return the octave of the note
      * @author Ally Blackwell
      */
-    public int tabToNoteOctave(String string, int tab) {
+    private int tabToNoteOctave(String string, int tab) {
         int baseOctave;
 
         switch (string) {

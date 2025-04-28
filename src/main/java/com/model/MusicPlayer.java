@@ -120,15 +120,12 @@ public class MusicPlayer {
     }
 
     /**
-     * 
+     * Returns an array of strings of the song Display.
+     * @author Ally Blackwell
      */
     public ArrayList<String> getSongString() {
         return this.state.getDisplay();
     }
     
-    public ArrayList<ArrayList<String>> getTabs()
-    {
-        return tabState.getTabs();
-    }
 }
 
